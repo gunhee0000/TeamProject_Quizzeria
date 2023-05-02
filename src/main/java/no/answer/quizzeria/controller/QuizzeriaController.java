@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 public class QuizzeriaController {
 
-    @GetMapping("/Quizzeria_Main")
+    @GetMapping("/Welcome")
     public void Main(){
         log.info("Quizzeria_Main In");
     }
-    @GetMapping("/Quizzeria_Home")
+    @GetMapping("/Home")
     public void Home(){
         log.info("Quizzeria_Home In");
     }
-    @GetMapping("/Quizzeria_Board")
+    @GetMapping("/Board_main")
     public void Board(){ log.info("Quizzeia_Board In");}
 }
