@@ -21,6 +21,7 @@ public interface QuizListService {
                 .title(dto.getTitle())
                 .member(dto.getMember())
                 .hidden(dto.getHidden())
+                .category(dto.getCategory())
                 .build();
         return entity;
     }
@@ -33,6 +34,7 @@ public interface QuizListService {
                 .regDate(entity.getRegDate())
                 .modDate(entity.getModDate())
                 .hidden(entity.getHidden())
+                .category(entity.getCategory())
                 .build();
         return dto;
     }

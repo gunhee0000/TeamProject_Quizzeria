@@ -21,6 +21,7 @@ public interface BoardService {
                 .content(dto.getContent())
                 .member(dto.getMember())
                 .hidden(dto.getHidden())
+                .category(dto.getCategory())
                 .build();
         return entity;
     }
@@ -34,6 +35,7 @@ public interface BoardService {
                 .regDate(entity.getRegDate())
                 .modDate(entity.getModDate())
                 .hidden(entity.getHidden())
+                .category(entity.getCategory())
                 .build();
         return dto;
     }

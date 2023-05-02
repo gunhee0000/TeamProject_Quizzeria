@@ -23,6 +23,8 @@ public class BoardDTO {
 
     private LocalDateTime modDate;
 
+    private String category;
+
     private Member member;
 
     private String hidden;

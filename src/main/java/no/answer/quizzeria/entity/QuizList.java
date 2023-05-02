@@ -34,6 +34,9 @@ public class QuizList {
     @Column(length = 10, nullable = false)
     private String hidden;
 
+    @Column(length = 100, nullable = false)
+    private String category;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Member member;
 

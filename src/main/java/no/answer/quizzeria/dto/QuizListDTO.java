@@ -23,4 +23,6 @@ public class QuizListDTO {
     private Member member;
 
     private String hidden;
+
+    private String category;
 }
