@@ -36,7 +36,7 @@ public class QuizList {
 
     @Column(length = 100, nullable = false)
     private String category;
-
+    //test
     @ManyToOne(fetch = FetchType.LAZY)
     private Member member;
 
