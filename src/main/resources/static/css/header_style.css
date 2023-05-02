@@ -1,0 +1,8 @@
+#header_nav {
+    min-width: 100vw;
+    opacity: 0.4;/*헤더 투명도*/
+}
+#header_logo{
+    max-width: 5vw;
+    max-height: 5vh;
+}

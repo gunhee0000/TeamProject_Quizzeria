@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<header th:fragment="header_layout">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- Bootstrap core CSS -->
+        <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link th:href="@{/css/header_style.css}" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+    <div class="d-flex" id="header_main">
+
+        <div id="header_nav">
+
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="navbar-nav">
+                    <img id="header_logo" th:src="@{/images/logo.png}">
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../main/Quizzeria_Home">홈</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">퀴즈</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">게시판</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">로그인</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">회원가입</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                카톡Img
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="chat">-------채팅방-------</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+        <!-- Bootstrap core JavaScript -->
+        <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+        <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+        <!-- Menu Toggle Script -->
+        <script>
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#header_main").toggleClass("toggled");
+            });
+        </script>
+    </body>
+</header>
+</html>
