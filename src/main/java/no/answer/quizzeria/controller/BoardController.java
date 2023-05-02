@@ -4,4 +4,7 @@ public class BoardController {
     public void qwer(){
 
     }
+    public void asdf(){
+
+    }
 }
