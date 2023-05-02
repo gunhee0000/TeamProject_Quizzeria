@@ -20,4 +20,6 @@ public class QuizzeriaController {
     public void Home(){
         log.info("Quizzeria_Home In");
     }
+    @GetMapping("/Quizzeria_Board")
+    public void Board(){ log.info("Quizzeia_Board In");}
 }
