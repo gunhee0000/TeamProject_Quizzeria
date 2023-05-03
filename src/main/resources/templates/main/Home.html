@@ -5,22 +5,32 @@
     <body>
         <header th:replace="/layout/header_layout :: header_layout"></header>
 
-    <div id="home_section_1">
-        <div id="banner">
+    <div id="container">
 
+        <div id="top">
+            <div id="banner">
+                <a href="#"><img src="/images/banner.jpg" alt="배너이미지1" ></a>
+                <a href="#"><img src="/images/banner.jpg" alt="배너이미지2" ></a>
+                <a href="#"><img src="/images/banner.jpg" alt="배너이미지3" ></a>
+            </div>
         </div>
-        <div id="today_Quiz">
-
+        <div id="mid">
+            <div id="content">
+                <div id="today_Quiz">
+                    오늘의 퀴즈
+                </div>
+                <div id="notice">
+                    <table></table>
+                </div>
+            </div>
         </div>
-        <div id="notice">
-
-        </div>
-        <div id="board_new">
-
+        <div id="bot">
+            <div id="board_new">
+                <table></table>
+            </div>
         </div>
     </div>
 
         <footer th:replace="/layout/footer_layout :: footer_layout"></footer>
     </body>
-
 </html>
