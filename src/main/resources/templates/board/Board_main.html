@@ -34,41 +34,19 @@
             <th scope="col">추천수</th>
           </tr>
           </thead>
+
           <today>
 
-            <tr><!--th:each="dto : ${result.dtoList}"-->
+            <tr th:each="dto : ${result.dtoList}">
               <th scope="row">
-                <a href="#">dto.bno</a>
+                <a href="#">[[${dto.bno}]]</a>
               </th>
-              <td>dto.제목</td>
-              <td>dto.글쓴이</td>
-              <td>dto.작성일</td>
-              <td>dto.조회수</td>
+              <td>[[${dto.title}]]</td>
+              <td>[[${dto.writer}]]</td>
+              <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
+              <td>[[${#temporals.format(dto.modDate, 'yyyy/MM/dd')}]]</td>
               <td>dto.추천수</td>
             </tr>
-
-            <!--테스트-->
-            <tr><!--th:each="dto : ${result.dtoList}"-->
-              <th scope="row">
-                <a href="#">dto.bno</a>
-              </th>
-              <td>dto.제목</td>
-              <td>dto.글쓴이</td>
-              <td>dto.작성일</td>
-              <td>dto.조회수</td>
-              <td>dto.추천수</td>
-            </tr>
-            <tr><!--th:each="dto : ${result.dtoList}"-->
-              <th scope="row">
-                <a href="#">dto.bno</a>
-              </th>
-              <td>dto.제목</td>
-              <td>dto.글쓴이</td>
-              <td>dto.작성일</td>
-              <td>dto.조회수</td>
-              <td>dto.추천수</td>
-            </tr>
-            <!--테스트-->
 
           </today>
         </table>
