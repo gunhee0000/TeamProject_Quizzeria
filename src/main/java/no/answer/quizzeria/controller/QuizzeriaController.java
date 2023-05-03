@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @Log4j2
-@RequestMapping("/main/")
+@RequestMapping("/")
 @RequiredArgsConstructor
 public class QuizzeriaController {
 
-    @GetMapping("/Welcome")
+    @GetMapping("/main/Welcome")
     public void Main(){
         log.info("Quizzeria_Main In");
     }
-    @GetMapping("/Home")
+    @GetMapping("/main/Home")
     public void Home(){
         log.info("Quizzeria_Home In");
     }
-    @GetMapping("/Board_main")
+    @GetMapping("/board/Board_main")
     public void Board(){ log.info("Quizzeia_Board In");}
 }

@@ -4,21 +4,43 @@
     padding: 0;
 }
 
-#board_section_1{
+#board_wrapper_1{
     width: 100vw;
-    height: 100vh;
+    height: 150vh;
 }
 
-#notice_section{
-    width: 20vw;
+#font{
+    width: 10vw;
+    height: 60vh;
+    float: left;
+    font-size: small;
+    text-align: center;
+}
+
+#list_section{
+    width: 25vw;
     height: 100vh;
     float: left;
     box-sizing: border-box;
 }
+#list_main{
+    width: 15vw;
+    height: 70vh;
+    background-color: aqua;
+    box-sizing: border-box;
+    margin: 7.5vw 11vh;
+}
 
+
+#board_section{
+    width: 75vw;
+    height: 150vh;
+    float: left;
+    box-sizing: border-box;
+}
 #board_main{
-    width: 80vw;
-    height: 100vh;
-    float: left;
-    box-sizing: border-box;
+    width: 70vw;
+    height: 120vh;
+    margin: 15vh auto 0;
+    border: solid 0.1px;
 }
