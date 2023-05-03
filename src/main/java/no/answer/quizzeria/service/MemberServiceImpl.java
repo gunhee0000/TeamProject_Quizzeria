@@ -38,8 +38,8 @@ public class MemberServiceImpl implements MemberService{
     public PageResultDTO<MemberDTO, Member> getList(PageRequestDTO requestDTO){
         log.info("Member Page Build Start");
         Pageable pageable = requestDTO.getPageable(Sort.by("id").descending());
-        BooleanBuilder booleanBuilder = getSearch(requestDTO);
-        Page<Member> result = repository.findAll(booleanBuilder, pageable);
+//        BooleanBuilder booleanBuilder = getSearch(requestDTO);
+        Page<Member> result = repository.findAll(pageable);
         Function<Member, MemberDTO> fn = (entity->entityToDTO(entity));
         log.info("Member Page Build End");
         return new PageResultDTO<>(result, fn);

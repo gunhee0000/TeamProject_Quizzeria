@@ -38,8 +38,8 @@ public class BoardServiceImpl implements BoardService{
     public PageResultDTO<BoardDTO, Board> getList(PageRequestDTO requestDTO){
         log.info("Board Page Build Start");
         Pageable pageable = requestDTO.getPageable(Sort.by("bno").descending());
-        BooleanBuilder booleanBuilder = getSearch(requestDTO);
-        Page<Board> result = repository.findAll(booleanBuilder, pageable);
+
+        Page<Board> result = repository.findAll(pageable);
         Function<Board, BoardDTO> fn = (entity->entityToDTO(entity));
         log.info("Board Page Build End");
         return new PageResultDTO<>(result, fn);
@@ -78,22 +78,22 @@ public class BoardServiceImpl implements BoardService{
         String keyword = requestDTO.getKeyword();
         BooleanExpression expression = qBoard.bno.gt(0L);
         booleanBuilder.and(expression);
-        if (type == null || type.trim().length() == 0) {
-            log.info("Board NULLafsdfadsafdsafdsasfdfdasfdasdafsdasfasfdasfdfdsadsfasfdasfdasfdfdasafsdafds");
-            return booleanBuilder;
-        }
-
-        BooleanBuilder conditionBuilder = new BooleanBuilder();
-        if (type.contains("t")) {
-            conditionBuilder.or(qBoard.title.contains(keyword));
-        }
-        if (type.contains("c")) {
-            conditionBuilder.or(qBoard.content.contains(keyword));
-        }
-        if (type.contains("i")) {
-            conditionBuilder.or(qBoard.member.id.contains(keyword));
-        }
-        booleanBuilder.and(conditionBuilder);
+//        if (type == null || type.trim().length() == 0) {
+//            log.info("Board NULLafsdfadsafdsafdsasfdfdasfdasdafsdasfasfdasfdfdsadsfasfdasfdasfdfdasafsdafds");
+//            return booleanBuilder;
+//        }
+//
+//        BooleanBuilder conditionBuilder = new BooleanBuilder();
+//        if (type.contains("t")) {
+//            conditionBuilder.or(qBoard.title.contains(keyword));
+//        }
+//        if (type.contains("c")) {
+//            conditionBuilder.or(qBoard.content.contains(keyword));
+//        }
+//        if (type.contains("i")) {
+//            conditionBuilder.or(qBoard.member.id.contains(keyword));
+//        }
+//        booleanBuilder.and(conditionBuilder);
         log.info("Board Search End");
         return booleanBuilder;
     }
