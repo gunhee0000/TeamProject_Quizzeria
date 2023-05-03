@@ -4,7 +4,8 @@
     padding: 0;
 }
 
-#board_wrapper_1{
+/*Board_main style*/
+#board_wrapper{
     width: 100vw;
     height: 150vh;
 }
@@ -41,6 +42,34 @@
 #board_main{
     width: 70vw;
     height: 120vh;
-    margin: 15vh auto 0;
+    margin: auto 0;
     border: solid 0.1px;
+}
+
+/*Board_view style*/
+#container{
+    width: 1280px;
+    height: 2500px;
+    background-color: aqua;
+    margin: 10vh auto 0;
+    display: block;
+
+}
+
+#view_main{
+    width: 100%;
+    height: 800px;
+    background-color: #4e555b;
+}
+
+#view_reply{
+    width: 100%;
+    height: 600px;
+
+}
+
+#view_reply{
+    width: 100%;
+    height: 600px;
+
 }
