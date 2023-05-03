@@ -24,9 +24,4 @@ public class QuizzeriaController {
     public void Home(){
         log.info("Quizzeria_Home In");
     }
-    @GetMapping("/board/Board_main")
-    public void Board(PageRequestDTO pageRequestDTO, Model model){
-        log.info("Quizzeia_Board In");
-        model.addAttribute("result", boardService.getList(pageRequestDTO));
-    }
 }
