@@ -11,7 +11,7 @@ public interface MemberService {
 
     PageResultDTO<MemberDTO, Member> getList(PageRequestDTO requestDTO);
 
-    MemberDTO read(String Id);
+    MemberDTO read(Long mno);
 
     void modify(MemberDTO dto);
     default Member dtoToEntity(MemberDTO dto){
