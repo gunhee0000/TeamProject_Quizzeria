@@ -46,9 +46,9 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public MemberDTO read(String id){
+    public MemberDTO read(Long mno){
         log.info("Member Read Start");
-        Optional<Member> result = repository.findById(id);
+        Optional<Member> result = repository.findById(mno);
         log.info("Member Read End");
         return result.isPresent() ? entityToDTO(result.get()) : null;
     }
@@ -56,7 +56,7 @@ public class MemberServiceImpl implements MemberService{
     @Override
     public void modify(MemberDTO dto){
         log.info("Member Modify Start");
-        Optional<Member> result = repository.findById(dto.getId());
+        Optional<Member> result = repository.findById(dto.getMno());
 
         if(result.isPresent()){
             Member entity = result.get();

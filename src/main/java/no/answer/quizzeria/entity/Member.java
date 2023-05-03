@@ -16,10 +16,10 @@ import java.time.LocalDateTime;
 @ToString
 public class Member {
 
-    @Id
-    @Column(length = 30, nullable = false)
+    @Column(length = 30, nullable = false, unique = true)
     private String id;
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long mno;
 

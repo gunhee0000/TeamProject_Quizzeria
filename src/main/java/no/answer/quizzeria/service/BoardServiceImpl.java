@@ -79,6 +79,7 @@ public class BoardServiceImpl implements BoardService{
         BooleanExpression expression = qBoard.bno.gt(0L);
         booleanBuilder.and(expression);
         if (type == null || type.trim().length() == 0) {
+            log.info("Board NULLafsdfadsafdsafdsasfdfdasfdasdafsdasfasfdasfdfdsadsfasfdasfdasfdfdasafsdafds");
             return booleanBuilder;
         }
 
