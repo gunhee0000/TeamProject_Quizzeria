@@ -6,6 +6,8 @@ import no.answer.quizzeria.entity.NoticeFile;
 
 public interface NoticeFileService {
 
+
+    public Long saveFile(NoticeFileDTO dto);
     default NoticeFile dtoToEntity(NoticeFileDTO dto){
         NoticeFile entity = NoticeFile.builder()
                 .nfno(dto.getNfno())

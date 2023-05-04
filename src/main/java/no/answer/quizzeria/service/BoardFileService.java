@@ -6,6 +6,8 @@ import no.answer.quizzeria.entity.BoardFile;
 
 public interface BoardFileService {
 
+    public Long saveFile(BoardFileDTO dto);
+
     default BoardFile dtoToEntity(BoardFileDTO dto){
         BoardFile entity = BoardFile.builder()
                 .bfno(dto.getBfno())

@@ -6,6 +6,8 @@ import no.answer.quizzeria.entity.QuizFile;
 
 public interface QuizFileService {
 
+    public Long saveFile(QuizFileDTO dto);
+
     default QuizFile dtoToEntity(QuizFileDTO dto){
         QuizFile entity = QuizFile.builder()
                 .qfno(dto.getQfno())
