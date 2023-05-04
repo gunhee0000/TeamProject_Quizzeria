@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @Log4j2
-@RequestMapping("/")
+@RequestMapping("/Board/")
 @RequiredArgsConstructor
 public class BoardController {
 
-    @GetMapping("/board/Board_main")
+    @GetMapping("/Board_main")
     public void Board(){ log.info("Quizzeria_Board In");}
-    @GetMapping("/board/Board_view")
+    @GetMapping("/Board_view")
     public void View(){log.info("Quizzeria_View In");}
 }
