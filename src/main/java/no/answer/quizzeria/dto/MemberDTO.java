@@ -29,7 +29,7 @@ public class MemberDTO {
 
     private String addr;
 
-    private String profile;
+    private String profileImg;
 
     private LocalDateTime regDate;
 

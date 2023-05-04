@@ -65,7 +65,7 @@ public class MemberServiceImpl implements MemberService{
             entity.changeJob(dto.getJob());
             entity.changeTel(dto.getTel());
             entity.changeAddr(dto.getAddr());
-            entity.changeProfile(dto.getProfile());
+            entity.changeProfile(dto.getProfileImg());
 
             log.info("Member Modify Success");
             repository.save(entity);
