@@ -37,7 +37,7 @@
 
         <today>
 
-          <tr th:each="dto : ${result.dtoList}">
+          <tr th:each="dto : ${boardResult.dtoList}">
             <th scope="row">
               <a href="#">[[${dto.bno}]]</a>
             </th>
@@ -46,7 +46,6 @@
             <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
             <td>[[${#temporals.format(dto.modDate, 'yyyy/MM/dd')}]]</td>
             <td>dto.추천수</td>
-            <td>whghltn</td>
           </tr>
 
         </today>
