@@ -38,8 +38,8 @@ public class BoardServiceImpl implements BoardService{
     public PageResultDTO<BoardDTO, Board> getList(PageRequestDTO requestDTO){
         log.info("Board Page Build Start");
         Pageable pageable = requestDTO.getPageable(Sort.by("bno").descending());
-
-        Page<Board> result = repository.findAll(pageable);
+        BooleanBuilder booleanBuilder = getSearch(requestDTO);
+        Page<Board> result = repository.findAll(booleanBuilder, pageable);
         Function<Board, BoardDTO> fn = (entity->entityToDTO(entity));
         log.info("Board Page Build End");
         return new PageResultDTO<>(result, fn);

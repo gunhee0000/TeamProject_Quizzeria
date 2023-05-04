@@ -16,14 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 public class BoardController {
 
-    private final MemberService memberService;
     private final BoardService boardService;
 
     @GetMapping("/board/Board_main")
     public void Board(PageRequestDTO pageRequestDTO, Model model) {
         log.info("Quizzeria_Board In" + pageRequestDTO);
-        model.addAttribute("boardResult", boardService.getList(pageRequestDTO));
-        model.addAttribute("memberResult", memberService.getList(pageRequestDTO));
+        model.addAttribute("result", boardService.getList(pageRequestDTO));
     }
 
 

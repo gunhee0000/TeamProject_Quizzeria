@@ -19,7 +19,7 @@ public interface BoardService {
                 .bno(dto.getBno())
                 .title(dto.getTitle())
                 .content(dto.getContent())
-//                .member(dto.getMember())
+                .member(dto.getMember())
                 .hidden(dto.getHidden())
                 .category(dto.getCategory())
                 .build();
@@ -31,7 +31,7 @@ public interface BoardService {
                 .bno(entity.getBno())
                 .title(entity.getTitle())
                 .content(entity.getContent())
-//                .member(entity.getMember())
+                .member(entity.getMember())
                 .regDate(entity.getRegDate())
                 .modDate(entity.getModDate())
                 .hidden(entity.getHidden())
