@@ -1,6 +1,7 @@
 package no.answer.quizzeria.entity;
 
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -39,6 +40,13 @@ public class Board {
 
     @Column(length = 100, nullable = false)
     private String category;
+
+    @ColumnDefault("0")
+    @Column(nullable = false)
+    private Long views;
+    @ColumnDefault("0")
+    @Column(nullable = false)
+    private Long likes;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Member member;

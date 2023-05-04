@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import no.answer.quizzeria.entity.Member;
 
+import javax.persistence.Column;
 import java.time.LocalDateTime;
 
 @Builder
@@ -28,4 +29,8 @@ public class BoardDTO {
     private Member member;
 
     private String hidden;
+
+    private Long views;
+
+    private Long likes;
 }

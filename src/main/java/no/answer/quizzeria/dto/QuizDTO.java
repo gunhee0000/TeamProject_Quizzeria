@@ -19,4 +19,8 @@ public class QuizDTO {
     private QuizList quizList;
 
     private String hidden;
+
+    private Long views;
+
+    private Long likes;
 }

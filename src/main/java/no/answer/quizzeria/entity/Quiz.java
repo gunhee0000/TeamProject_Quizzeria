@@ -1,6 +1,7 @@
 package no.answer.quizzeria.entity;
 
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -24,6 +25,14 @@ public class Quiz {
 
     @Column(length = 10, nullable = false)
     private String hidden;
+
+    @ColumnDefault("0")
+    @Column(nullable = false)
+    private Long views;
+
+    @ColumnDefault("0")
+    @Column(nullable = false)
+    private Long likes;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private QuizList quizList;

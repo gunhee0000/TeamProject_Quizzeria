@@ -26,4 +26,6 @@ public class BoardReplyDTO {
     private Board board;
 
     private String hidden;
+
+    private Long likes;
 }
