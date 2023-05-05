@@ -7,30 +7,15 @@
 <header th:replace="/layout/header_layout :: header_layout"></header>
 
 
-  <div id="container">
-    <div id="view_main">
-      <h1 class = "mt-4">dto.title</h1>
+<div id="container_view">
 
-      <div class="form-group">
-        <label >작성자</label>
-        <input type="text" class="form-control" name="writer" th:value="dto.member.id" readonly>
-      </div>
-
-      <div class="form-group">
-        <label >내용</label>
-        <textarea class="form-control" rows="5" name="content" readonly>dto.content</textarea>
-      </div>
-
-    </div>
-
-    <div id="view_reply">
-
-    </div>
-
-
-    <div id="view_list" th:replace="/board/Board_main :: board_section"></div>
+  <div id="view_main">
 
   </div>
+
+  <div id="board_section" th:replace="/board/Board_main :: board_section"></div>
+
+</div>
 
 
 <footer th:replace="/layout/footer_layout :: footer_layout"></footer>
