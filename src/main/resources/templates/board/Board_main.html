@@ -7,9 +7,11 @@
 <header th:replace="/layout/header_layout :: header_layout"></header>
 
 
-  <div id="floating_section">
-    <div id="floating_main">
-      <ul id="floating_list">
+<div id="board_wrapper">
+
+  <div id="list_section">
+    <div id="list_main">
+      <ul id="font">
         <p>공지사항 category</p>
         <p>자유게시판 category</p>
         <p>질문게시판 category</p>
@@ -19,10 +21,7 @@
     </div>
   </div>
 
-
-<div id="container">
-
-  <div id="board_section" th:fragment="board_section">
+  <div id="board_section">
     <div id="board_main">
       <table class="table table-striped">
         <thead>
@@ -36,24 +35,25 @@
         </tr>
         </thead>
 
-        <today>
+          <today>
 
           <tr th:each="dto : ${result.dtoList}">
-            <td>[[${dto.bno}]]</td>
             <th scope="row">
-              <a href="/board/Board_view">[[${dto.title}]]</a>
+              <a href="#">[[${dto.bno}]]</a>
             </th>
+            <td>[[${dto.title}]]</td>
             <td>[[${dto.member.id}]]</td>
             <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
-            <td>dto.조회수</td>
+            <td>[[${#temporals.format(dto.modDate, 'yyyy/MM/dd')}]]</td>
             <td>dto.추천수</td>
+            <td>whghltn</td>
           </tr>
 
-        </today>
-      </table>
+          </today>
+        </table>
+      </div>
     </div>
   </div>
-</div>
 
 
 <footer th:replace="/layout/footer_layout :: footer_layout"></footer>
@@ -62,7 +62,6 @@
 
 
 <script th:inline="javascript">
-
 
 </script>
 
