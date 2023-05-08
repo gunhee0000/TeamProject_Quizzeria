@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/css/board/board_register.css}" rel="stylesheet">
+
+<body>
+
+<header th:replace="/layout/header_layout :: header_layout"></header>
+
+    <div id="container_new">
+
+        <div id="new_main">
+            <form th:action="@{/board/Board_register}" th:method="post">
+                <div class="form-group">
+                    <label >Title</label>
+                    <input type="text" class="form-control" name="title" placeholder="Enter Title">
+                </div>
+
+                <div class="form-group">
+                    <label >Content</label>
+                    <textarea class="form-control" rows="5" name="content"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label >Writer Email</label>
+                    <input type="email" class="form-control" name="writerEmail" placeholder="Writer Email">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+    </div>
+
+<footer th:replace="/layout/footer_layout :: footer_layout"></footer>
+
+</body>
+
+
+<script th:inline="javascript">
+
+
+</script>
+
+</html>

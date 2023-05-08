@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<link th:href="@{/css/main_style.css}" rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet">
+<link th:href="@{/css/main/welcome.css}" rel="stylesheet">
 
 <body>
     <header th:replace="/layout/header_layout :: header_layout" class="fixed-top"></header>
 
     <div id="section_1">
-        <p id="Welcome">Welcome Quizzeria</p>
+        <p id="welcome">
+            <a th:href="@{/main/Home}">Welcome  to Quizzeria</a>
+        </p>
         <a class="scroll_down" href="#section_2"></a>
 
     </div>
@@ -58,5 +61,7 @@
     });
 
 </script>
+
+
 
 </html>
