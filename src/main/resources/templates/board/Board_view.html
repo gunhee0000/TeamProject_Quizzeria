@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<link th:href="@{/css/board/board_main_style.css}" rel="stylesheet">
+<link th:href="@{/css/board/board_view.css}" rel="stylesheet">
 
 <body>
 
@@ -10,12 +10,49 @@
   <div id="container_view">
 
     <div id="view_main">
+      <table class="table" id="table_main">
+        <thead>
+          <tr>
+            <th scope="col">작성자</th>
+          </tr>
+          <tr>
+            <th scope="col">제목</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>
+              <textarea id="table_content" rows="8">콘텐츠</textarea>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-hover" id="table_reply">
+        <thead>
+        <tr>
+          <th scope="col">리플 작성자</th>
+          <th scope="col">리플 내용</th>
+          <th scope="col">리플 작성시간</th>
+          <th scope="col">리플 좋아요</th>
+        </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>김덕배</td>
+            <td>리플내용</td>
+            <td>작성시간</td>
+            <td>리플 좋아요</td>
+          </tr>
+        </tbody>
+      </table>
 
     </div>
 
      <div id="board_section_view" th:fragment="board_section">
-      <div id="board_main">
-        <table class="table table-striped">
+        <table class="table table-hover">
           <thead>
           <tr>
             <th scope="col">글번호</th>
@@ -31,18 +68,16 @@
 
             <tr id="board_table" th:each="dto : ${result.dtoList}">
               <td>[[${dto.bno}]]</td>
-              <th scope="row">
-                <a href="/board/Board_view">[[${dto.title}]]</a>
-              </th>
+              <td>[[${dto.title}]]</td>
               <td>[[${dto.member.id}]]</td>
               <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
               <td>dto.조회수</td>
               <td>dto.추천수</td>
             </tr>
+
           </today>
         </table>
        </div>
-      </div>
   </div>
 
 <footer th:replace="/layout/footer_layout :: footer_layout"></footer>

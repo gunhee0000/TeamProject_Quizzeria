@@ -20,15 +20,15 @@ class QuizzeriaApplicationTests {
     void contextLoads() {
         Member member = Member.builder()
                 .id("bemilinde")
-                .job("1111")
-                .age(29)
-                .password("1234")
-                .addr("대구 동구 용계역 3번 출구")
+                .job("3333")
+                .age(3333)
+                .password("333333")
+                .addr("대구 동구 용33계역 32번 출구")
                 .hidden("Y")
-                .name("최용성")
+                .name("23323")
                 .email("bemilinde@yahoo.com")
-                .profile("asdfasasddfasf")
-                .tel("011-123-4598")
+                .profile("asd2323fasasddfasf")
+                .tel("011-12323-4598")
                 .build();
         memberRepository.save(member);
 
