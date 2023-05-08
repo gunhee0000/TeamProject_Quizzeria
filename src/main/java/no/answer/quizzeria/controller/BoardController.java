@@ -18,7 +18,7 @@ public class BoardController {
 
     private final BoardService boardService;
 
-    @GetMapping({"/board/Board_main", "/board/Board_view"})
+    @GetMapping({"/board/Board_main", "/board/Board_view", "/board/Board_new", "/board/Board_modify"})
     public void Board(PageRequestDTO pageRequestDTO, Model model) {
         log.info("Quizzeria_Board In" + pageRequestDTO);
         model.addAttribute("result", boardService.getList(pageRequestDTO));

@@ -7,16 +7,43 @@
 <header th:replace="/layout/header_layout :: header_layout"></header>
 
 
-<div id="container_view">
+  <div id="container_view">
 
-  <div id="view_main">
+    <div id="view_main">
 
+    </div>
+
+     <div id="board_section_view" th:fragment="board_section">
+      <div id="board_main">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">글번호</th>
+            <th scope="col">제목</th>
+            <th scope="col">글쓴이</th>
+            <th scope="col">작성일</th>
+            <th scope="col">조회수</th>
+            <th scope="col">추천수</th>
+          </tr>
+          </thead>
+
+          <today>
+
+            <tr id="board_table" th:each="dto : ${result.dtoList}">
+              <td>[[${dto.bno}]]</td>
+              <th scope="row">
+                <a href="/board/Board_view">[[${dto.title}]]</a>
+              </th>
+              <td>[[${dto.member.id}]]</td>
+              <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
+              <td>dto.조회수</td>
+              <td>dto.추천수</td>
+            </tr>
+          </today>
+        </table>
+       </div>
+      </div>
   </div>
-
-  <div id="board_section" th:replace="/board/Board_main :: board_section"></div>
-
-</div>
-
 
 <footer th:replace="/layout/footer_layout :: footer_layout"></footer>
 
