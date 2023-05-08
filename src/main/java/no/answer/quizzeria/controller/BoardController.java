@@ -18,14 +18,17 @@ public class BoardController {
 
     private final BoardService boardService;
 
-    @GetMapping("/board/Board_main")
+    @GetMapping({"/board/Board_main", "/board/Board_view", "/board/Board_new", "/board/Board_modify"})
     public void Board(PageRequestDTO pageRequestDTO, Model model) {
         log.info("Quizzeria_Board In" + pageRequestDTO);
         model.addAttribute("result", boardService.getList(pageRequestDTO));
     }
 
 
-    @GetMapping("/board/Board_view")
-    public void View(){log.info("Quizzeria_View In");
-    }
+//    @GetMapping("/board/Board_view")
+//    public void View(PageRequestDTO pageRequestDTO, Model model){
+//        log.info("Quizzeria_View In");
+//        model.addAttribute("result", boardService.getList(pageRequestDTO));
+//
+//    }
 }
