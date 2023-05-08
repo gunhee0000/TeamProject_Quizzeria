@@ -1,67 +1,116 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<link th:href="@{/css/board_style.css}" rel="stylesheet">
-
-<body>
-
 <header th:replace="/layout/header_layout :: header_layout"></header>
 
-
-  <div id="board_wrapper">
-
-    <div id="list_section">
-      <div id="list_main">
-        <ul id="font">
-          <p>공지사항 category</p>
-          <p>자유게시판 category</p>
-          <p>질문게시판 category</p>
-          <p>이벤트게시판 category</p>
-          <p>고객센터 category</p>
-        </ul>
-      </div>
-    </div>
-
-    <div id="board_section">
-      <div id="board_main">
-        <table class="table table-striped">
-          <thead>
-          <tr>
-            <th scope="col">글번호</th>
-            <th scope="col">제목</th>
-            <th scope="col">글쓴이</th>
-            <th scope="col">작성일</th>
-            <th scope="col">조회수</th>
-            <th scope="col">추천수</th>
-          </tr>
-          </thead>
-
-          <today>
-
-            <tr th:each="Bdto : ${result.dtoList}" th:each="Mdto ">
-              <th scope="row">
-                <a href="#">[[${dto.bno}]]</a>
-              </th>
-              <td>[[${dto.title}]]</td>
-              <td>[[${dto.member.id}]]</td>
-              <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
-              <td>[[${#temporals.format(dto.modDate, 'yyyy/MM/dd')}]]</td>
-              <td>dto.추천수</td>
-            </tr>
-
-          </today>
-        </table>
-      </div>
+<<<<<<<<< Temporary merge branch 1
+  <div id="board_banner">
+    <div id="banner">
+      <img th:src="@{/images/banner4.jpg}" alt="배너4">
+      <img th:src="@{/images/banner5.jpg}" alt="배너5">
+      <img th:src="@{/images/banner6.jpg}" alt="배너6">
     </div>
   </div>
 
+<div id="container_main">
 
-<footer th:replace="/layout/footer_layout :: footer_layout"></footer>
+  <div id="floating_section">
+    <div id="floating_main">
+      <ul id="floating_list">
+        <li><a href="#">-------게시판--------</a></li>
+        <li><a href="#">자유게시판</a></li>
+        <li><a href="#">질문게시판</a></li>
+        <li><a href="#">이벤트게시판</a></li>
+        <li><a href="#">---------------------</a></li>
+        <li><a href="#">공지사항</a></li>
+        <li><a href="#">고객센터</a></li>
+      </ul>
+    </div>
+  </div>
 
-</body>
+=========
+<div id="board_banner">
+  <div id="banner">
+    <img th:src="@{/images/banner4.jpg}" alt="배너4">
+    <img th:src="@{/images/banner5.jpg}" alt="배너5">
+    <img th:src="@{/images/banner6.jpg}" alt="배너6">
+  </div>
+</div>
 
+<div id="container_main">
+
+  <div id="floating_section">
+    <div id="floating_main">
+      <ul id="floating_list">
+        <li><a href="#">-------게시판--------</a></li>
+        <li><a href="#">자유게시판</a></li>
+        <li><a href="#">질문게시판</a></li>
+        <li><a href="#">이벤트게시판</a></li>
+        <li><a href="#">---------------------</a></li>
+        <li><a href="#">공지사항</a></li>
+        <li><a href="#">고객센터</a></li>
+      </ul>
+    </div>
+  </div>
+
+>>>>>>>>> Temporary merge branch 2
+  <div id="board_section" th:fragment="board_section">
+    <div id="board_main">
+      <table class="table table-striped">
+        <thead>
+<<<<<<<<< Temporary merge branch 1
+        <tr>
+          <th scope="col">글번호</th>
+          <th scope="col">제목</th>
+          <th scope="col">글쓴이</th>
+          <th scope="col">작성일</th>
+          <th scope="col">조회수</th>
+          <th scope="col">추천수</th>
+        </tr>
+        </thead>
+
+        <today>
+
+          <tr id="board_table" th:each="dto : ${result.dtoList}">
+            <td>[[${dto.bno}]]</td>
+            <th scope="row">
+              <a href="/board/Board_view">[[${dto.title}]]</a>
+            </th>
+            <td>[[${dto.member.id}]]</td>
+            <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
+            <td>dto.조회수</td>
+            <td>dto.추천수</td>
+          </tr>
+
+        </today>
+      </table>
+    </div>
+  </div>
+</div>
+
+=========
+        Expand All
+        @@ -37,16 +46,15 @@
+>>>>>>>>> Temporary merge branch 2
+
+        <today>
+
+          <tr id="board_table" th:each="dto : ${result.dtoList}">
+            <td>[[${dto.bno}]]</td>
+            <th scope="row">
+              <a href="/board/Board_view">[[${dto.title}]]</a>
+            </th>
+            <td>[[${dto.member.id}]]</td>
+            <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
+            <td>dto.조회수</td>
+            <td>dto.추천수</td>
+          </tr>
+
+<<<<<<<<< Temporary merge branch 1
 
 <script th:inline="javascript">
-  
+
+
 </script>
 
 </html>
+=========
+        </today>
+>>>>>>>>> Temporary merge branch 2
