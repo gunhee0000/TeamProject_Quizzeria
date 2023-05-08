@@ -20,7 +20,7 @@ class QuizzeriaApplicationTests {
     void contextLoads() {
         Member member = Member.builder()
                 .id("bemilinde")
-                .job("노숙자")
+                .job("1111")
                 .age(29)
                 .password("1234")
                 .addr("대구 동구 용계역 3번 출구")

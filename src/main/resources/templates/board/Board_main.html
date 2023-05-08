@@ -1,12 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/css/board_style.css}" rel="stylesheet">
+
+<body>
+
 <header th:replace="/layout/header_layout :: header_layout"></header>
 
-<div id="board_banner">
-  <div id="banner">
-    <img th:src="@{/images/banner4.jpg}" alt="배너4">
-    <img th:src="@{/images/banner5.jpg}" alt="배너5">
-    <img th:src="@{/images/banner6.jpg}" alt="배너6">
+  <div id="board_banner">
+    <div id="banner">
+      <img th:src="@{/images/banner4.jpg}" alt="배너4">
+      <img th:src="@{/images/banner5.jpg}" alt="배너5">
+      <img th:src="@{/images/banner6.jpg}" alt="배너6">
+    </div>
   </div>
-</div>
 
 <div id="container_main">
 
@@ -28,8 +34,15 @@
     <div id="board_main">
       <table class="table table-striped">
         <thead>
-        Expand All
-        @@ -37,16 +46,15 @@
+        <tr>
+          <th scope="col">글번호</th>
+          <th scope="col">제목</th>
+          <th scope="col">글쓴이</th>
+          <th scope="col">작성일</th>
+          <th scope="col">조회수</th>
+          <th scope="col">추천수</th>
+        </tr>
+        </thead>
 
         <today>
 
@@ -45,3 +58,20 @@
           </tr>
 
         </today>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<footer th:replace="/layout/footer_layout :: footer_layout"></footer>
+
+</body>
+
+
+<script th:inline="javascript">
+
+
+</script>
+
+</html>
