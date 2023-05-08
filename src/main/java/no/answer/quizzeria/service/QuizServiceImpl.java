@@ -63,6 +63,7 @@ public class QuizServiceImpl implements QuizService{
 
             entity.changeAnswer(dto.getAnswer());
             entity.changeQuestion(dto.getQuestion());
+            entity.changeQuizFile(dto.getQuizFile());
 
                     log.info("Quiz Modify Success");
             repository.save(entity);

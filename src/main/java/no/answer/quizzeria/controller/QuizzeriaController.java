@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @Log4j2
-@RequestMapping("/")
+@RequestMapping("/Main")
 @RequiredArgsConstructor
 public class QuizzeriaController {
     private final BoardService boardService;
 
-    @GetMapping("/main/Welcome")
+    @GetMapping("/Welcome")
     public void Main(){
         log.info("Quizzeria_Main In");
     }
-    @GetMapping("/main/Home")
+    @GetMapping("/Home")
     public void Home(){
         log.info("Quizzeria_Home In");
     }

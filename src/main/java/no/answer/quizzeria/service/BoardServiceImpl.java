@@ -63,6 +63,7 @@ public class BoardServiceImpl implements BoardService{
 
             entity.changeContent(dto.getContent());
             entity.changeTitle(dto.getTitle());
+            entity.changeBoardFile(dto.getBoardFile());
 
             log.info("Board Modify Success");
             repository.save(entity);
@@ -78,22 +79,21 @@ public class BoardServiceImpl implements BoardService{
         String keyword = requestDTO.getKeyword();
         BooleanExpression expression = qBoard.bno.gt(0L);
         booleanBuilder.and(expression);
-//        if (type == null || type.trim().length() == 0) {
-//            log.info("Board NULLafsdfadsafdsafdsasfdfdasfdasdafsdasfasfdasfdfdsadsfasfdasfdasfdfdasafsdafds");
-//            return booleanBuilder;
-//        }
-//
-//        BooleanBuilder conditionBuilder = new BooleanBuilder();
-//        if (type.contains("t")) {
-//            conditionBuilder.or(qBoard.title.contains(keyword));
-//        }
-//        if (type.contains("c")) {
-//            conditionBuilder.or(qBoard.content.contains(keyword));
-//        }
-//        if (type.contains("i")) {
-//            conditionBuilder.or(qBoard.member.id.contains(keyword));
-//        }
-//        booleanBuilder.and(conditionBuilder);
+        if (type == null || type.trim().length() == 0) {
+            return booleanBuilder;
+        }
+
+        BooleanBuilder conditionBuilder = new BooleanBuilder();
+        if (type.contains("t")) {
+            conditionBuilder.or(qBoard.title.contains(keyword));
+        }
+        if (type.contains("c")) {
+            conditionBuilder.or(qBoard.content.contains(keyword));
+        }
+        if (type.contains("i")) {
+            conditionBuilder.or(qBoard.member.id.contains(keyword));
+        }
+        booleanBuilder.and(conditionBuilder);
         log.info("Board Search End");
         return booleanBuilder;
     }

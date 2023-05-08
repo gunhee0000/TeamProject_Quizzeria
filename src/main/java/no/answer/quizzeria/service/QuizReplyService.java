@@ -22,6 +22,7 @@ public interface QuizReplyService {
                 .quiz(dto.getQuiz())
                 .member(dto.getMember())
                 .hidden(dto.getHidden())
+                .likes(dto.getLikes())
                 .build();
         return entity;
     }
@@ -35,6 +36,7 @@ public interface QuizReplyService {
                 .regDate(entity.getRegDate())
                 .modDate(entity.getModDate())
                 .hidden(entity.getHidden())
+                .likes(entity.getLikes())
                 .build();
         return dto;
     }
