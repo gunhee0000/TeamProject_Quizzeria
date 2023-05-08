@@ -24,4 +24,8 @@ public class QuizzeriaController {
     public void Home(){
         log.info("Quizzeria_Home In");
     }
+    @GetMapping("/main/Notice")
+    public void Notice(){
+        log.info("Quizzeria_Notice In");
+    }
 }
