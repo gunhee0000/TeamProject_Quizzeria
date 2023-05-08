@@ -4,10 +4,9 @@
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+header{
+    position: sticky;
+    top:0;
 }
 
 body{
