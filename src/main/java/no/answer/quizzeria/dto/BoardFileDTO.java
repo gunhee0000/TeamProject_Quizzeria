@@ -18,6 +18,4 @@ public class BoardFileDTO {
     private String sfile;
 
     private String filePath;
-
-    private Board board;
 }

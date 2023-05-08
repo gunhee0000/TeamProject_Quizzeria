@@ -63,6 +63,7 @@ public class NoticeServiceImpl implements NoticeService{
 
             entity.changeContent(dto.getContent());
             entity.changeTitle(dto.getTitle());
+            entity.changeNoticeFile(dto.getNoticeFile());
 
             log.info("Notice Modify Success");
             repository.save(entity);

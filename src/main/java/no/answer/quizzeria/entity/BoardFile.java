@@ -9,7 +9,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@ToString(exclude = "board")
 public class BoardFile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +22,4 @@ public class BoardFile {
 
     @Column(length = 200, nullable = false)
     private String filePath;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Board board;
 }

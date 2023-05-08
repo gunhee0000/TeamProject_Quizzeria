@@ -24,6 +24,7 @@ public interface BoardService {
                 .category(dto.getCategory())
                 .views(dto.getViews())
                 .likes(dto.getLikes())
+                .boardFile(dto.getBoardFile())
                 .build();
         return entity;
     }
@@ -40,6 +41,7 @@ public interface BoardService {
                 .category(entity.getCategory())
                 .likes(entity.getLikes())
                 .views(entity.getViews())
+                .boardFile(entity.getBoardFile())
                 .build();
         return dto;
     }

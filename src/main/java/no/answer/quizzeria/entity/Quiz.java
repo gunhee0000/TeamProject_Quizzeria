@@ -5,13 +5,15 @@ import org.hibernate.annotations.ColumnDefault;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@ToString(exclude = "quizList")
+@ToString(exclude = {"quizList", "quizFile"})
 public class Quiz {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,11 +39,18 @@ public class Quiz {
     @ManyToOne(fetch = FetchType.LAZY)
     private QuizList quizList;
 
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<QuizFile> quizFile = new ArrayList<>();
+
     public void changeQuestion(String question){
         this.question = question;
     }
 
     public void changeAnswer(String answer){
         this.answer = answer;
+    }
+
+    public void changeQuizFile(List<QuizFile> quizFile){
+        this.quizFile = quizFile;
     }
 }

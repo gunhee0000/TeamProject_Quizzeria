@@ -25,6 +25,7 @@ public interface NoticeService {
                 .category(dto.getCategory())
                 .views(dto.getViews())
                 .likes(dto.getLikes())
+                .noticeFile(dto.getNoticeFile())
                 .build();
         return entity;
     }
@@ -41,6 +42,7 @@ public interface NoticeService {
                 .category(entity.getCategory())
                 .likes(entity.getLikes())
                 .views(entity.getViews())
+                .noticeFile(entity.getNoticeFile())
                 .build();
         return dto;
     }

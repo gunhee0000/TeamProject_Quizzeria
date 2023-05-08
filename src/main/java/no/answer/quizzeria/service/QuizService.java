@@ -24,6 +24,7 @@ public interface QuizService {
                 .hidden(dto.getHidden())
                 .views(dto.getViews())
                 .likes(dto.getLikes())
+                .quizFile(dto.getQuizFile())
                 .build();
         return entity;
     }
@@ -37,6 +38,7 @@ public interface QuizService {
                 .hidden(entity.getHidden())
                 .likes(entity.getLikes())
                 .views(entity.getViews())
+                .quizFile(entity.getQuizFile())
                 .build();
         return dto;
     }

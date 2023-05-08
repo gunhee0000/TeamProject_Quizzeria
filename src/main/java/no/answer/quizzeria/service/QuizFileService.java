@@ -14,7 +14,6 @@ public interface QuizFileService {
                 .ofile(dto.getOfile())
                 .sfile(dto.getSfile())
                 .filePath(dto.getFilePath())
-                .quiz(dto.getQuiz())
                 .build();
         return entity;
     }
@@ -25,7 +24,6 @@ public interface QuizFileService {
                 .ofile(entity.getOfile())
                 .sfile(entity.getSfile())
                 .filePath(entity.getFilePath())
-                .quiz(entity.getQuiz())
                 .build();
         return dto;
     }

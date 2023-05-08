@@ -63,6 +63,7 @@ public class BoardServiceImpl implements BoardService{
 
             entity.changeContent(dto.getContent());
             entity.changeTitle(dto.getTitle());
+            entity.changeBoardFile(dto.getBoardFile());
 
             log.info("Board Modify Success");
             repository.save(entity);

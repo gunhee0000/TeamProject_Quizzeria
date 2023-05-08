@@ -14,7 +14,6 @@ public interface BoardFileService {
                 .ofile(dto.getOfile())
                 .sfile(dto.getSfile())
                 .filePath(dto.getFilePath())
-                .board(dto.getBoard())
                 .build();
         return entity;
     }
@@ -25,7 +24,6 @@ public interface BoardFileService {
                 .ofile(entity.getOfile())
                 .sfile(entity.getSfile())
                 .filePath(entity.getFilePath())
-                .board(entity.getBoard())
                 .build();
         return dto;
     }

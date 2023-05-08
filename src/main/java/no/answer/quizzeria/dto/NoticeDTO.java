@@ -5,8 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import no.answer.quizzeria.entity.Member;
+import no.answer.quizzeria.entity.NoticeFile;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,4 +34,6 @@ public class NoticeDTO {
     private Long views;
 
     private Long likes;
+
+    private List<NoticeFile> noticeFile;
 }

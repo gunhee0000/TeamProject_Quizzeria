@@ -9,7 +9,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@ToString(exclude = "notice")
 public class NoticeFile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +22,4 @@ public class NoticeFile {
 
     @Column(length = 200, nullable = false)
     private String filePath;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Notice notice;
 }
