@@ -8,6 +8,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Builder
@@ -15,11 +17,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @EntityListeners(value = { AuditingEntityListener.class })
-@ToString(exclude = {"member", "quizList"})
-public class QuizListReply {
+@ToString(exclude = {"member", "noticeFile"})
+public class Notice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long qlrno;
+    private Long nno;
+
+    @Column(length = 50, nullable = false)
+    private String title;
 
     @Column(length = 1500, nullable = false)
     private String content;
@@ -35,6 +40,13 @@ public class QuizListReply {
     @Column(length = 10, nullable = false)
     private String hidden;
 
+    @Column(length = 100, nullable = false)
+    private String category;
+
+    @ColumnDefault("0")
+    @Column(nullable = false)
+    private Long views;
+
     @ColumnDefault("0")
     @Column(nullable = false)
     private Long likes;
@@ -42,10 +54,18 @@ public class QuizListReply {
     @ManyToOne(fetch = FetchType.LAZY)
     private Member member;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private QuizList quizList;
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<NoticeFile> noticeFile = new ArrayList<>();
+
+    public void changeTitle(String title){
+        this.title = title;
+    }
 
     public void changeContent(String content){
         this.content = content;
+    }
+
+    public void changeNoticeFile(List<NoticeFile> noticeFile){
+        this.noticeFile = noticeFile;
     }
 }

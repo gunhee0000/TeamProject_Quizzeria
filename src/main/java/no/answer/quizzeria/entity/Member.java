@@ -44,8 +44,8 @@ public class Member {
     @Column(length = 50, nullable = false)
     private String addr;
 
-    @Column(length = 50, nullable = false)
-    private String profile;
+    @Column(length = 100, nullable = false)
+    private String profileImg;
 
     @CreatedDate
     @Column(updatable = false)
@@ -71,7 +71,7 @@ public class Member {
     }
 
     public void changeProfile(String profile){
-        this.profile = profile;
+        this.profileImg = profileImg;
     }
 
 

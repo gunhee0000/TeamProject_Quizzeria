@@ -20,7 +20,7 @@ body{
     background-color: rgba( 255, 255, 255, 0.5 );
 }
 
-#Welcome {
+#welcome {
     padding-top: 30vh;
     font-size: 10vh;
     font-weight: bold;
@@ -32,23 +32,58 @@ body{
     width: 100vw;
     height: 100vh
 }
+#welcome>a:hover{
+    background: rgb(255, 255, 255, 0.3);
+    text-decoration: none;
+    color: white;
+}
 #section_2{
-    width: 100vw;
-    height: 100vh
+    width: 1280px;
+    height: 3000px;
+    margin: 0 auto;
+    background-color: #6f42c1;
 }
 
 /*스크롤 다운*/
+/* 회전 애니메이션 제거, 마우스오버시 "가이드 보기" 출력 */
 .scroll_down {
     position: absolute;
     bottom: 20px;
     left: 50%;
-    margin-left: -20px;
-    width: 40px;
+    margin-left: -60px;
+    width: 150px;
     height: 40px;
     background: transparent;
     border-radius: 0;
     cursor: pointer;
     overflow: hidden;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+/*
+script를 사용한  코드
+ var scrollDown = document.querySelector('.scroll_down');
+
+        setInterval(function() {
+            scrollDown.style.transform = 'translateY(-10px)';
+            setTimeout(function() {
+                scrollDown.style.transform = 'translateY(0)';
+            }, 1000);
+        }, 2000);
+를 사용하면 프레임 단위로 끊겨서 부드럽게 안움직임
+
+@keyframes를 사용해 애니메이션의 시작, 중간, 끝을 지정해주면 부드럽게 움직여짐
+*/
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .scroll_down:before {
@@ -61,11 +96,24 @@ body{
     border-top: 15px solid #ffffff;
     border-left: 9px solid transparent;
     border-right: 9px solid transparent;
-    transform: rotate(-360deg);
+    /*transform: rotate(-360deg);*/
     transition: all .3s ease;
 }
 
 .scroll_down:hover:before {
-    border-top: 10px solid white;
-    transform: translate3d(0, 30px, 0) rotate(90deg);
+    opacity: 0;
+    transition: all .3s ease;
+}
+
+.scroll_down:hover:after {
+    content: "가이드 보기";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -35px;
+    margin-top: -6px;
+    font-size: 14px;
+    color: #ffffff;
+    /*transform: translateX(-50%) translateY(-50%) rotate(0);*/
+    transition: all .3s ease;
 }

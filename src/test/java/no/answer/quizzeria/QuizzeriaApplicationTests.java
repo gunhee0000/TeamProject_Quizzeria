@@ -27,7 +27,7 @@ class QuizzeriaApplicationTests {
                 .hidden("Y")
                 .name("23323")
                 .email("bemilinde@yahoo.com")
-                .profile("asd2323fasasddfasf")
+
                 .tel("011-12323-4598")
                 .build();
         memberRepository.save(member);
