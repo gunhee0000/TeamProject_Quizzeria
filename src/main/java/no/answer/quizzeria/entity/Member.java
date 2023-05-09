@@ -47,6 +47,9 @@ public class Member {
     @Column(length = 100, nullable = false)
     private String profileImg;
 
+    @Column(length = 100, nullable = false)
+    private Long enabled;
+
     @CreatedDate
     @Column(updatable = false)
     private LocalDateTime regDate;
