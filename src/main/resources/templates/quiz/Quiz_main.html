@@ -15,29 +15,119 @@
 
     <div id="container">
         <div id="left">
-            <div id="quiz_container">
-                <div class="card">
-                    <div class="question"><p>문제다</p></div>
-                    <div class="answer"><p>니가ㅋ</p></div>
-                </div>
-                <div id="answerInput">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" style="height: 100px;" placeholder="정답을 입력해 주세요" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-primary" type="button" id="button-addon2" onclick="flip()">Submit</button>
-                    </div>
-                </div>
-                <div id="quiz_btn">
-                    <button type="button" class="btn btn-outline-secondary">다음문제</button>
-                    <button type="button" class="btn btn-outline-secondary">이전문제</button>
-                </div>
-                <div id="progress">
-                    <div id="progressText">
-                        <h4>진행도: 25%</h4>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                </div>
+            <div id="list_container">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="width: 60%;">Title</th>
+                        <th scope="col" style="width: 20%;">Writer</th>
+                        <th scope="col" style="width: 10%;">Date</th>
+                        <th scope="col" style="width: 5%;">Views</th>
+                        <th scope="col" style="width: 5%;">Likes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><a th:href="@{/quiz/Quiz_view}">여기</a></td>
+                        <td>user1</td>
+                        <td>2023.05.01</td>
+                        <td>1,435</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>에는</td>
+                        <td>user2</td>
+                        <td>2023.05.01</td>
+                        <td>3,366</td>
+                        <td>2,343</td>
+                    </tr>
+                    <tr>
+                        <td>최신</td>
+                        <td>user3</td>
+                        <td>2023.05.01</td>
+                        <td>12,345</td>
+                        <td>12,345</td>
+                    </tr>
+                    <tr>
+                        <td>퀴즈</td>
+                        <td>user4</td>
+                        <td>2023.05.01</td>
+                        <td>4</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>코드짜서</td>
+                        <td>user5</td>
+                        <td>2023.05.01</td>
+                        <td>123</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>넣기</td>
+                        <td>user6</td>
+                        <td>2023.05.01</td>
+                        <td>123</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>여기</td>
+                        <td>user1</td>
+                        <td>2023.05.01</td>
+                        <td>1,435</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>에는</td>
+                        <td>user2</td>
+                        <td>2023.05.01</td>
+                        <td>3,366</td>
+                        <td>2,343</td>
+                    </tr>
+                    <tr>
+                        <td>최신</td>
+                        <td>user3</td>
+                        <td>2023.05.01</td>
+                        <td>12,345</td>
+                        <td>12,345</td>
+                    </tr>
+                    <tr>
+                        <td>퀴즈</td>
+                        <td>user4</td>
+                        <td>2023.05.01</td>
+                        <td>4</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>코드짜서</td>
+                        <td>user5</td>
+                        <td>2023.05.01</td>
+                        <td>123</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>넣기</td>
+                        <td>user6</td>
+                        <td>2023.05.01</td>
+                        <td>123</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>코드짜서</td>
+                        <td>user5</td>
+                        <td>2023.05.01</td>
+                        <td>123</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>넣기</td>
+                        <td>user6</td>
+                        <td>2023.05.01</td>
+                        <td>123</td>
+                        <td>2</td>
+                    </tr>
+                    </tbody>
+
+                </table>
             </div>
         </div>
         <div id="right">
@@ -49,9 +139,8 @@
                 문제 만들기 버튼?
             </div>
             <div id="right_btn">
-                <button type="button" class="btn btn-outline-secondary">돌아가기</button>
-                <button type="button" class="btn btn-outline-secondary">랜덤문제</button>
-                <button type="button" class="btn btn-outline-secondary">다시풀기</button>
+                <button type="button" class="btn btn-outline-secondary" onclick="location.href='./Quiz_view'">Solving Random Quiz!</button>
+                <button type="button" class="btn btn-outline-secondary">Make a Quiz</button>
             </div>
         </div>
 
