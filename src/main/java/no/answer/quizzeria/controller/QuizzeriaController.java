@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @Log4j2
-@RequestMapping("/Main")
+@RequestMapping("/main")
 @RequiredArgsConstructor
 public class QuizzeriaController {
     private final BoardService boardService;
