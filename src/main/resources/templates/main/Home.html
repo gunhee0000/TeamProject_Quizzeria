@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <script th:src="@{js/jquery-1.12.4.js}"></script>
 <link th:href="@{/css/style.css}" rel="stylesheet">
-<link th:href="@{/css/main/home_style.css}" rel="stylesheet">
+<link th:href="@{/css/main/home.css}" rel="stylesheet">
 
     <body>
         <header th:replace="/layout/header_layout :: header_layout"></header>
@@ -19,34 +19,45 @@
         <div id="mid">
             <div id="content">
                 <div id="today_Quiz">
+                    <div id="quiz_title">
+                        <h2>Today's Quiz!</h2>
+                    </div>
                     <div id="question">
-                        문제 영역
+                        <div id="card">
+                            <h2>우리 프로젝트의 이름은?</h2>
+                        </div>
                     </div>
                     <div id="answer"> <!-- 2행 2열로 만들려고 좌우 나눔 -->
                         <div id="left">
                             <div id="left_top">
-                                <button type="button" class="btn btn-secondary">1</button>
+                                <button type="button" class="btn btn-secondary" value="wrong">피제리아</button>
                             </div>
                             <div id="left_bot">
-                                <button type="button" class="btn btn-secondary">2</button>
+                                <button type="button" class="btn btn-secondary" value="correct">퀴제리아</button>
                             </div>
                         </div>
                         <div id="right">
                             <div id="right_top">
-                                <button type="button" class="btn btn-secondary">3</button>
+                                <button type="button" class="btn btn-secondary" value="wrong">라라코스트</button>
                             </div>
                             <div id="right_bot">
-                                <button type="button" class="btn btn-secondary">4</button>
+                                <button type="button" class="btn btn-secondary" value="wrong">네고라니</button>
                             </div>
                         </div>
                     </div>
                     <div id="dailyQuiz_btn">
-                        문제 보러 가기, 다음문제 보기 등 버튼
+                        <button type="button" class="btn btn-primary">퀴즈 보러 가기</button>
+                        <button type="button" class="btn btn-primary">다음문제</button>
                     </div>
                 </div>
                 <div id="notice"> <!-- 홈에서 보이는 공지는 5~6개 까지만 표시, 중요공지 2개 + 최신공지 4개 -->
-                    <div id="notice_title">
-                        <h2>공지사항</h2>
+                    <div id="notice_top">
+                        <div id="notice_title">
+                            <h2>공지사항</h2>
+                        </div>
+                        <div id="notice_btn">
+                            <a th:href="@{/main/Notice}">공지사항&gt;&gt;</a>
+                        </div>
                     </div>
                     <div id="notice_contents">
                         <table class="table table-hover">
@@ -83,19 +94,26 @@
                                 <td>최신 공지사항 입니다......5</td>
                                 <td>2023.05.01</td>
                             </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>최신 공지사항 입니다......6</td>
+                                <td>2023.05.01</td>
+                            </tr>
                             </tbody>
                         </table>
-                    </div>
-                    <div id="notice_btn">
-                        자세히 보기 버튼
                     </div>
                 </div>
             </div>
         </div>
         <div id="bot">
             <div id="board_new">
-                <div id="board_title">
-                    <h2>최신 게시글</h2>
+                <div id="board_top">
+                    <div id="board_title">
+                        <h2>최신 게시글</h2>
+                    </div>
+                    <div id="board_btn">
+                        <a th:href="@{/board/Board_main}">게시판&gt;&gt;</a>
+                    </div>
                 </div>
                 <div id="board_content">
                     <table class="table table-hover">
@@ -172,12 +190,54 @@
         function startSlideShow() {
             intervalId = setInterval(function() {
                 images.eq(currentIndex).fadeOut(1000);
+                images.eq(currentIndex).attr('style', 'display: none')
                 currentIndex = (currentIndex + 1) % imageCount;
                 images.eq(currentIndex).fadeIn(1000);
             }, 4000);
         }
 
         startSlideShow();
+
+        // 카드 요소와 버튼 요소들을 가져옴
+        const card = document.querySelector("#card");
+        const btns = document.querySelectorAll("#answer button");
+
+        // 정답 버튼 클릭 시 처리할 함수
+        function showAnswer(event) {
+            const clickedBtn = event.target;
+
+
+            if (clickedBtn.value === "correct") {
+                clickedBtn.style.backgroundColor = "green";
+            }else {
+                clickedBtn.style.backgroundColor = "red";
+            }
+
+            // card.style.transform = "rotateY(180deg)";
+            const answer = document.createElement('h2');
+            answer.textContent = '정답: 퀴제리아';
+            card.appendChild(answer); // 카드에 정답 표시
+
+            // 모든 버튼 요소에 대해
+            for (let i = 0; i < btns.length; i++) {
+                const btn = btns[i];
+                if (btn === clickedBtn) {
+                    btn.disabled = true;
+                    // 선택한 버튼이면 색상 유지
+                    continue;
+                } else {
+                    btn.disabled = true;
+                    // 오답 버튼은 선택하지 않은 경우에만 회색으로 변경
+                        btn.style.backgroundColor = "gray";
+                }
+            }
+        }
+
+        // 모든 버튼 요소에 클릭 이벤트 등록
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", showAnswer);
+        }
+
     });
 </script>
 </html>

@@ -26,4 +26,6 @@ public class QuizListReplyDTO {
     private QuizList quizList;
 
     private String hidden;
+
+    private Long likes;
 }

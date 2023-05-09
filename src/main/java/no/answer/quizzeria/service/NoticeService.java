@@ -1,22 +1,23 @@
 package no.answer.quizzeria.service;
 
-import no.answer.quizzeria.dto.BoardDTO;
+import no.answer.quizzeria.dto.NoticeDTO;
 import no.answer.quizzeria.dto.PageRequestDTO;
 import no.answer.quizzeria.dto.PageResultDTO;
-import no.answer.quizzeria.entity.Board;
+import no.answer.quizzeria.entity.Notice;
 
-public interface BoardService {
+public interface NoticeService {
 
-    Long register(BoardDTO dto);
+    Long register(NoticeDTO dto);
 
-    PageResultDTO<BoardDTO, Board> getList(PageRequestDTO requestDTO);
+    PageResultDTO<NoticeDTO, Notice> getList(PageRequestDTO requestDTO);
 
-    BoardDTO read(Long bno);
+    NoticeDTO read(Long nno);
 
-    void modify(BoardDTO dto);
-    default Board dtoToEntity(BoardDTO dto){
-        Board entity = Board.builder()
-                .bno(dto.getBno())
+    void modify(NoticeDTO dto);
+
+    default Notice dtoToEntity(NoticeDTO dto){
+        Notice entity = Notice.builder()
+                .nno(dto.getNno())
                 .title(dto.getTitle())
                 .content(dto.getContent())
                 .member(dto.getMember())
@@ -24,14 +25,14 @@ public interface BoardService {
                 .category(dto.getCategory())
                 .views(dto.getViews())
                 .likes(dto.getLikes())
-                .boardFile(dto.getBoardFile())
+                .noticeFile(dto.getNoticeFile())
                 .build();
         return entity;
     }
 
-    default BoardDTO entityToDTO(Board entity){
-        BoardDTO dto = BoardDTO.builder()
-                .bno(entity.getBno())
+    default NoticeDTO entityToDTO(Notice entity){
+        NoticeDTO dto = NoticeDTO.builder()
+                .nno(entity.getNno())
                 .title(entity.getTitle())
                 .content(entity.getContent())
                 .member(entity.getMember())
@@ -41,7 +42,7 @@ public interface BoardService {
                 .category(entity.getCategory())
                 .likes(entity.getLikes())
                 .views(entity.getViews())
-                .boardFile(entity.getBoardFile())
+                .noticeFile(entity.getNoticeFile())
                 .build();
         return dto;
     }
