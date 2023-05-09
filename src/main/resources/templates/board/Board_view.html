@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/css/style.css}" rel="stylesheet">
 <link th:href="@{/css/board/board_view.css}" rel="stylesheet">
 
 <body>
@@ -7,78 +8,93 @@
 <header th:replace="/layout/header_layout :: header_layout"></header>
 
 
-  <div id="container_view">
+<div id="container_view">
 
-    <div id="view_main">
-      <table class="table" id="table_main">
-        <thead>
-          <tr>
-            <th scope="col">작성자</th>
-          </tr>
-          <tr>
-            <th scope="col">제목</th>
-          </tr>
-        </thead>
+  <h1 class = "mt-4">Quizzeria</h1>
 
-        <tbody>
-          <tr>
-            <td>
-              <textarea id="table_content" rows="8">콘텐츠</textarea>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  <div id="view_main">
+    <table class="table" id="table_main">
+      <thead>
+      <tr>
+        <th scope="col">제목 : [[${dto.title}]]</th>
+      </tr>
+      <tr>
+        <th scope="col">작성자 : [[${dto.member.id}]]</th>
+      </tr>
+      </thead>
 
-      <table class="table table-hover" id="table_reply">
-        <thead>
-        <tr>
-          <th scope="col">리플 작성자</th>
-          <th scope="col">리플 내용</th>
-          <th scope="col">리플 작성시간</th>
-          <th scope="col">리플 좋아요</th>
-        </tr>
-        </thead>
+      <tbody>
+      <tr>
+        <td>
+          <textarea id="table_content" rows="8">[[${dto.content}]]</textarea>
 
-        <tbody>
-          <tr>
-            <td>김덕배</td>
-            <td>리플내용</td>
-            <td>작성시간</td>
-            <td>리플 좋아요</td>
-          </tr>
-        </tbody>
-      </table>
+          <div style="float:right;">
+            <a th:href="@{/board/Board_modify(bno = ${dto.bno})}">
+              <button type="button" class="btn btn-outline-primary">수정</button>
+            </a>
 
-    </div>
+            <a th:href="@{/board/Board_main}">
+              <button type="button" class="btn btn-outline-primary">돌아가기</button>
+            </a>
+          </div>
+        </td>
+      </tr>
 
-     <div id="board_section_view" th:fragment="board_section">
-        <table class="table table-hover">
-          <thead>
-          <tr>
-            <th scope="col">글번호</th>
-            <th scope="col">제목</th>
-            <th scope="col">글쓴이</th>
-            <th scope="col">작성일</th>
-            <th scope="col">조회수</th>
-            <th scope="col">추천수</th>
-          </tr>
-          </thead>
 
-          <today>
+      </tbody>
 
-            <tr id="board_table" th:each="dto : ${result.dtoList}">
-              <td>[[${dto.bno}]]</td>
-              <td>[[${dto.title}]]</td>
-              <td>[[${dto.member.id}]]</td>
-              <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
-              <td>dto.조회수</td>
-              <td>dto.추천수</td>
-            </tr>
+    </table>
 
-          </today>
-        </table>
-       </div>
+    <table class="table table-hover" id="table_reply">
+      <thead>
+      <tr>
+        <th scope="col">리플 작성자</th>
+        <th scope="col">리플 내용</th>
+        <th scope="col">리플 작성시간</th>
+        <th scope="col">리플 좋아요</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr>
+        <td>김덕배</td>
+        <td>리플내용</td>
+        <td>작성시간</td>
+        <td>리플 좋아요</td>
+      </tr>
+      </tbody>
+    </table>
+
   </div>
+
+<!--  <div id="board_section_view" th:fragment="board_section">-->
+<!--    <table class="table table-hover">-->
+<!--      <thead>-->
+<!--      <tr>-->
+<!--        <th scope="col">글번호</th>-->
+<!--        <th scope="col">제목</th>-->
+<!--        <th scope="col">글쓴이</th>-->
+<!--        <th scope="col">작성일</th>-->
+<!--        <th scope="col">조회수</th>-->
+<!--        <th scope="col">추천수</th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+
+<!--      <today>-->
+
+<!--        <tr id="board_table" th:each="dto : ${result.dtoList}">-->
+<!--          <td>[[${dto.bno}]]</td>-->
+<!--          <td>[[${dto.title}]]</td>-->
+<!--          <td>[[${dto.member.id}]]</td>-->
+<!--          <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>-->
+<!--          <td>dto.조회수</td>-->
+<!--          <td>dto.추천수</td>-->
+<!--        </tr>-->
+
+<!--      </today>-->
+<!--    </table>-->
+<!--  </div>-->
+</div>
 
 <footer th:replace="/layout/footer_layout :: footer_layout"></footer>
 

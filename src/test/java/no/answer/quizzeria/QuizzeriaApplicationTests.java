@@ -33,8 +33,8 @@ class QuizzeriaApplicationTests {
         memberRepository.save(member);
 
         Board board = Board.builder()
-                .title("asdf")
-                .content("asdf")
+                .title("123123")
+                .content("123123")
                 .hidden("b")
                 .category("adf")
                 .member(member)
