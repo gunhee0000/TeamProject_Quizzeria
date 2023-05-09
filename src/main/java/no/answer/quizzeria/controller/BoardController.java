@@ -22,12 +22,17 @@ public class BoardController {
 
     private final BoardService boardService;
 
+<<<<<<<<< Temporary merge branch 1
     @GetMapping({"/board/Board_main", "/board/Board_modify", "/board/Board_new"})
+=========
+    @GetMapping("/board/Board_main")
+>>>>>>>>> Temporary merge branch 2
     public void Board(PageRequestDTO pageRequestDTO, Model model) {
         log.info("Quizzeria_Board In" + pageRequestDTO);
         model.addAttribute("result", boardService.getList(pageRequestDTO));
     }
 
+<<<<<<<<< Temporary merge branch 1
     @GetMapping({"/board/Board_view"})
     public void Board_view(@ModelAttribute("requestDTO") PageRequestDTO pageRequestDTO, Long bno, Model model){
         log.info("bno" + bno);
@@ -49,4 +54,10 @@ public class BoardController {
         return "redirect:/board/Board_view";
     }
 
+=========
+
+    @GetMapping("/board/Board_view")
+    public void View(){log.info("Quizzeria_View In");
+    }
+>>>>>>>>> Temporary merge branch 2
 }
