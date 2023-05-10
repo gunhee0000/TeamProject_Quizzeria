@@ -4,6 +4,7 @@ import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,5 +20,10 @@ public class Role {
     private Long rno;
 
     @Column(length = 50, nullable = false)
-    private String name;
+    private String rname;
+
+    @ManyToMany(mappedBy = "roles")
+    private List<Member> members;
+
+
 }

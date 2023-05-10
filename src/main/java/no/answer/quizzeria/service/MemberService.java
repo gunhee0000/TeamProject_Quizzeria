@@ -27,6 +27,7 @@ public interface MemberService {
                 .addr(dto.getAddr())
 //                .profileImg(dto.getProfileImg())
                 .hidden(dto.getHidden())
+                .enabled(dto.isEnabled())
                 .build();
         return entity;
     }
@@ -45,6 +46,7 @@ public interface MemberService {
 //                .profileImg(entity.getProfileImg())
                 .regDate(entity.getRegDate())
                 .hidden(entity.getHidden())
+                .enabled(entity.isEnabled())
                 .build();
         return dto;
     }

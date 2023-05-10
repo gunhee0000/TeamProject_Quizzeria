@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class QuizzeriaApplicationTests {
+    
 
     @Autowired
     private BoardRepository boardRepository;

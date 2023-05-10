@@ -7,6 +7,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -54,9 +56,6 @@ public class Member {
 //    @Column(length = 200)
 //    private String sfile;
 
-    @Column(length = 100, nullable = false)
-    private Long enabled;
-
     @CreatedDate
     @Column(updatable = false)
     private LocalDateTime regDate;
@@ -64,6 +63,11 @@ public class Member {
     @ColumnDefault("'N'")
     @Column(length = 10, nullable = false)
     private String hidden;
+
+    @Column(length = 1, nullable = false)
+    private boolean enabled;
+    //enabled security 구성 테이블
+
 
     public void changePassword(String password){
         this.password = password;
@@ -84,6 +88,13 @@ public class Member {
 //    public void changeProfile(String profile){
 //        this.profileImg = profileImg;
 //    }
+
+    @ManyToMany
+    @JoinTable(
+            name = "Member_Role",
+            joinColumns = @JoinColumn(name = "member_mno"),
+            inverseJoinColumns = @JoinColumn(name = "role_rno"))
+    private List<Role> roles = new ArrayList<>();
 
 
 

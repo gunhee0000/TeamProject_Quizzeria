@@ -91,7 +91,7 @@ public class QuizTest {
             int ranCommentsCount = (int)((Math.random()*5)+1);
 
             IntStream.rangeClosed(1, ranCommentsCount).forEach(j -> {
-                long ranMNO = (long)((Math.random()+30)+1);
+                long ranMNO = (long)((Math.random()*30)+1);
                 Member member = Member.builder().mno(ranMNO).build();
                 QuizListReply quizListReply = QuizListReply.builder()
                         .content("QuizListComment..." + j)

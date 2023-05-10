@@ -10,7 +10,7 @@ header{
 }
 
 body{
-    background-image: url("../../images/main_img.jpg");
+    background-image: url("../images/main_img.jpg");
     image-rendering: pixelated;
 
     background-size: 100vw 100vh;
