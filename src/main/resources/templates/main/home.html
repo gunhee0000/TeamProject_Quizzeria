@@ -53,8 +53,8 @@
                         </div>
                     </div>
                     <div id="dailyQuiz_btn">
-                        <button type="button" class="btn btn-primary" onclick="location.href='../quiz/Quiz_view'">퀴즈 보러 가기</button>
-                        <button type="button" class="btn btn-primary" onclick="location.href='./Home'">다음문제</button>
+                        <button type="button" class="btn btn-primary" onclick="location.href='../quiz/quiz_view'">퀴즈 보러 가기</button>
+                        <button type="button" class="btn btn-primary" onclick="location.href='./home'">다음문제</button>
                     </div>
                 </div>
                 <div id="notice"> <!-- 홈에서 보이는 공지는 5~6개 까지만 표시, 중요공지 2개 + 최신공지 4개 -->
@@ -63,7 +63,7 @@
                             <h2>공지사항</h2>
                         </div>
                         <div id="notice_btn">
-                            <a th:href="@{/main/Notice}">공지사항&raquo;</a>
+                            <a th:href="@{/main/notice}">공지사항&raquo;</a>
                         </div>
                     </div>
                     <div id="notice_contents">
@@ -119,7 +119,7 @@
                         <h2>최신 게시글</h2>
                     </div>
                     <div id="board_btn">
-                        <a th:href="@{/board/Board_main}">게시판&raquo;</a>
+                        <a th:href="@{/board/board_main}">게시판&raquo;</a>
                     </div>
                 </div>
                 <div id="board_content">

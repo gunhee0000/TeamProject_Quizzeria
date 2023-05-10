@@ -19,4 +19,6 @@ public class NoticeFileDTO {
     private String sfile;
 
     private String filePath;
+
+    private String hidden;
 }

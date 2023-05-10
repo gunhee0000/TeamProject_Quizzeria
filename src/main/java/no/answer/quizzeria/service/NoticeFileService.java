@@ -14,6 +14,7 @@ public interface NoticeFileService {
                 .ofile(dto.getOfile())
                 .sfile(dto.getSfile())
                 .filePath(dto.getFilePath())
+                .hidden(dto.getHidden())
                 .build();
         return entity;
     }
@@ -24,6 +25,7 @@ public interface NoticeFileService {
                 .ofile(entity.getOfile())
                 .sfile(entity.getSfile())
                 .filePath(entity.getFilePath())
+                .hidden(entity.getHidden())
                 .build();
         return dto;
     }

@@ -25,7 +25,7 @@ public interface MemberService {
                 .job(dto.getJob())
                 .tel(dto.getTel())
                 .addr(dto.getAddr())
-                .profileImg(dto.getProfileImg())
+//                .profileImg(dto.getProfileImg())
                 .hidden(dto.getHidden())
                 .build();
         return entity;
@@ -42,7 +42,7 @@ public interface MemberService {
                 .job(entity.getJob())
                 .tel(entity.getTel())
                 .addr(entity.getAddr())
-                .profileImg(entity.getProfileImg())
+//                .profileImg(entity.getProfileImg())
                 .regDate(entity.getRegDate())
                 .hidden(entity.getHidden())
                 .build();

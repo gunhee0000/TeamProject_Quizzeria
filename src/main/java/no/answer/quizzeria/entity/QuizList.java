@@ -32,15 +32,16 @@ public class QuizList {
     @Column
     private LocalDateTime modDate;
 
+    @ColumnDefault("'N'")
     @Column(length = 10, nullable = false)
     private String hidden;
 
     @ColumnDefault("0")
-    @Column(nullable = false)
+    @Column
     private Long views;
 
     @ColumnDefault("0")
-    @Column(nullable = false)
+    @Column
     private Long likes;
 
     @Column(length = 100, nullable = false)
