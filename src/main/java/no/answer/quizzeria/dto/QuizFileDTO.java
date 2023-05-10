@@ -18,4 +18,6 @@ public class QuizFileDTO {
     private String sfile;
 
     private String filePath;
+
+    private String hidden;
 }

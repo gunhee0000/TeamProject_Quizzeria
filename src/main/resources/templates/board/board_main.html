@@ -31,7 +31,7 @@
 
   <h1 class = "mt-4" id="board_header">Quizzeria 게시판
     <span>
-       <a th:href="@{/board/Board_register}">
+       <a th:href="@{/board/board_register}">
          <button type="button" class="btn btn-outline-primary" style="margin-top: 30px; float: right">새글쓰기</button>
        </a>
     </span>
@@ -55,7 +55,7 @@
           <tr id="board_table" th:each="dto : ${result.dtoList}">
             <td>[[${dto.bno}]]</td>
             <th scope="row">
-              <a th:href="@{/board/Board_view(bno=${dto.bno})}">
+              <a th:href="@{/board/board_view(bno=${dto.bno})}">
                 [[${dto.title}]]
               </a>
             </th>

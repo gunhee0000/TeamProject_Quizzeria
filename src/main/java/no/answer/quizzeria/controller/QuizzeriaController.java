@@ -16,15 +16,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class QuizzeriaController {
     private final BoardService boardService;
 
-    @GetMapping("/Welcome")
+    @GetMapping("/welcome")
     public void Main(){
         log.info("Quizzeria_Main In");
     }
-    @GetMapping("/Home")
+    @GetMapping("/home")
     public void Home(){
         log.info("Quizzeria_Home In");
     }
-    @GetMapping("/Notice")
+    @GetMapping("/notice")
     public void Notice(){
         log.info("Quizzeria_Notice In");
     }

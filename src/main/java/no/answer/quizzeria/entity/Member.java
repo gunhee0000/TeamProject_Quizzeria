@@ -1,6 +1,7 @@
 package no.answer.quizzeria.entity;
 import lombok.*;
 
+import org.hibernate.annotations.ColumnDefault;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -35,17 +36,23 @@ public class Member {
     @Column(length = 3, nullable = false)
     private int age;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 50)
     private String job;
 
-    @Column(length = 20, nullable = false)
+    @Column(length = 20)
     private String tel;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 50)
     private String addr;
 
-    @Column(length = 100, nullable = false)
-    private String profileImg;
+////    @Column(length = 100)
+////    private String profileImg;
+//
+//    @Column(length = 200)
+//    private String ofile;
+//
+//    @Column(length = 200)
+//    private String sfile;
 
     @Column(length = 100, nullable = false)
     private Long enabled;
@@ -54,6 +61,7 @@ public class Member {
     @Column(updatable = false)
     private LocalDateTime regDate;
 
+    @ColumnDefault("'N'")
     @Column(length = 10, nullable = false)
     private String hidden;
 
@@ -73,9 +81,9 @@ public class Member {
         this.addr = addr;
     }
 
-    public void changeProfile(String profile){
-        this.profileImg = profileImg;
-    }
+//    public void changeProfile(String profile){
+//        this.profileImg = profileImg;
+//    }
 
 
 

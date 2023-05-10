@@ -25,15 +25,16 @@ public class Quiz {
     @Column(length = 1500, nullable = false)
     private String answer;
 
+    @ColumnDefault("'N'")
     @Column(length = 10, nullable = false)
     private String hidden;
 
     @ColumnDefault("0")
-    @Column(nullable = false)
+    @Column
     private Long views;
 
     @ColumnDefault("0")
-    @Column(nullable = false)
+    @Column
     private Long likes;
 
     @ManyToOne(fetch = FetchType.LAZY)

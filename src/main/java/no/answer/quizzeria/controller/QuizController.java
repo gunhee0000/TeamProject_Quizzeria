@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/quiz/")
 @RequiredArgsConstructor
 public class QuizController {
-    @GetMapping("/Quiz_main")
+    @GetMapping("/quiz_main")
     public void Quiz_main(){
         log.info("Quiz_main In");
     }
 
-    @GetMapping("/Quiz_view")
+    @GetMapping("/quiz_view")
     public void Quiz_view(){
         log.info("Quiz_view In");
     }

@@ -1,6 +1,7 @@
 package no.answer.quizzeria.entity;
 
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
@@ -22,4 +23,8 @@ public class QuizFile {
 
     @Column(length = 200, nullable = false)
     private String filePath;
+
+    @ColumnDefault("'N'")
+    @Column(length = 10, nullable = false)
+    private String hidden;
 }
