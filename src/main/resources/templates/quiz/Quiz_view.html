@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PlayQuizzeira</title>
+
+    <script th:src="@{/js/quiz/quiz_view.js}"></script>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/quiz/quiz_view.css}" rel="stylesheet">
+</head>
+<body>
+    <header th:replace="/layout/header_layout :: header_layout"></header>
+
+    <div id="container">
+        <div id="quiz">
+            <div id="left">
+                <div id="quiz_container">
+                    <div id="quiz_card">
+                        <div class="card">
+                            <div class="question"><p>문제다</p></div>
+                            <div class="answer"><p>니가ㅋ</p></div>
+                        </div>
+                        <div id="answerInput">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" style="height: 100px;" placeholder="정답을 입력해 주세요" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <button class="btn btn-primary" type="button" id="button-addon2" onclick="flip()">Submit</button>
+                            </div>
+                        </div>
+                        <div id="quiz_btn">
+                            <div id="btn_left">
+                                <button type="button" class="btn btn-outline-secondary">돌아가기</button>
+                            </div>
+                            <div id="btn_right">
+                                <button type="button" class="btn btn-outline-secondary">다음문제</button>
+                                <button type="button" class="btn btn-outline-secondary">이전문제</button>
+                            </div>
+                        </div>
+                        <div id="progress">
+                            <div id="progressText">
+                                <h4>진행도: 25%</h4>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="right">
+                <div class="banner">
+                    <img th:src="@{/images/quiz/banner1.jpg}" alt="뭉치배너"/>
+                </div>
+            </div>
+        </div>
+
+        <div id="reply">
+            <div id="top">
+                <p style="transform: rotate(90deg); font-size: 50px;">&raquo;</p>
+            </div>
+            <div id="mid">
+                <h2>Reply</h2>
+                <button type="button" class="btn btn-secondary">수정</button>
+                <button type="button" class="btn btn-secondary">삭제</button>
+            </div>
+            <div id="bot">
+                <div id="table">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col" style="width: 60%;">Title</th>
+                            <th scope="col" style="width: 20%;">Writer</th>
+                            <th scope="col" style="width: 10%;">Date</th>
+                            <th scope="col" style="width: 5%;">Views</th>
+                            <th scope="col" style="width: 5%;">Likes</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>일단은 main페이지에서 걍 가져옴</td>
+                            <td>user1</td>
+                            <td>2023.05.01</td>
+                            <td>1,435</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>필요한대로 수정해야함</td>
+                            <td>user2</td>
+                            <td>2023.05.01</td>
+                            <td>3,366</td>
+                            <td>2,343</td>
+                        </tr>
+                        <tr>
+                            <td>수정 삭제는 radio 버튼 만들어서 하는게 어떤가 싶기도 하고</td>
+                            <td>user3</td>
+                            <td>2023.05.01</td>
+                            <td>12,345</td>
+                            <td>12,345</td>
+                        </tr>
+                        <tr>
+                            <td>일단 나중에..ㅎㅎ;</td>
+                            <td>user4</td>
+                            <td>2023.05.01</td>
+                            <td>4</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>코드짜서</td>
+                            <td>user5</td>
+                            <td>2023.05.01</td>
+                            <td>123</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>넣기</td>
+                            <td>user6</td>
+                            <td>2023.05.01</td>
+                            <td>123</td>
+                            <td>2</td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                <div id=new_reply>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="댓글을 입력해 주세요" aria-label="Recipient's username" aria-describedby="button-addon1">
+                        <button class="btn btn-primary" type="button" id="button-addon1">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer th:replace="/layout/footer_layout :: footer_layout"></footer>
+</body>
+
+</html>

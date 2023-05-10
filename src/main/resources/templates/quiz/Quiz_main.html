@@ -1,17 +1,152 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<!--<script th:src="@{js/jquery-1.12.4.js}"></script>-->
-<link th:href="@{/css/style.css}" rel="stylesheet">
-<link th:href="@{/css/main/notice.css}" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quizzeria_Quiz</title>
+
+    <script th:src="@{/js/quiz/quiz_main.js}"></script>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/quiz/quiz_main.css}" rel="stylesheet">
+</head>
 
 <body>
-<header th:replace="/layout/header_layout :: header_layout"></header>
+    <header th:replace="/layout/header_layout :: header_layout"></header>
 
-<div id="container">
-    <h1>퀴이이이이이이즈</h1>
-</div>
+    <div id="container">
+        <div id="left">
+            <div id="list_container">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="width: 60%;">Title</th>
+                        <th scope="col" style="width: 20%;">Writer</th>
+                        <th scope="col" style="width: 10%;">Date</th>
+                        <th scope="col" style="width: 5%;">Views</th>
+                        <th scope="col" style="width: 5%;">Likes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><a th:href="@{/quiz/Quiz_view}">여기</a></td>
+                        <td>user1</td>
+                        <td>2023.05.01</td>
+                        <td>1,435</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>에는</td>
+                        <td>user2</td>
+                        <td>2023.05.01</td>
+                        <td>3,366</td>
+                        <td>2,343</td>
+                    </tr>
+                    <tr>
+                        <td>최신</td>
+                        <td>user3</td>
+                        <td>2023.05.01</td>
+                        <td>12,345</td>
+                        <td>12,345</td>
+                    </tr>
+                    <tr>
+                        <td>퀴즈</td>
+                        <td>user4</td>
+                        <td>2023.05.01</td>
+                        <td>4</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>코드짜서</td>
+                        <td>user5</td>
+                        <td>2023.05.01</td>
+                        <td>123</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>넣기</td>
+                        <td>user6</td>
+                        <td>2023.05.01</td>
+                        <td>123</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>여기</td>
+                        <td>user1</td>
+                        <td>2023.05.01</td>
+                        <td>1,435</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>에는</td>
+                        <td>user2</td>
+                        <td>2023.05.01</td>
+                        <td>3,366</td>
+                        <td>2,343</td>
+                    </tr>
+                    <tr>
+                        <td>최신</td>
+                        <td>user3</td>
+                        <td>2023.05.01</td>
+                        <td>12,345</td>
+                        <td>12,345</td>
+                    </tr>
+                    <tr>
+                        <td>퀴즈</td>
+                        <td>user4</td>
+                        <td>2023.05.01</td>
+                        <td>4</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>코드짜서</td>
+                        <td>user5</td>
+                        <td>2023.05.01</td>
+                        <td>123</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>넣기</td>
+                        <td>user6</td>
+                        <td>2023.05.01</td>
+                        <td>123</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>코드짜서</td>
+                        <td>user5</td>
+                        <td>2023.05.01</td>
+                        <td>123</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>넣기</td>
+                        <td>user6</td>
+                        <td>2023.05.01</td>
+                        <td>123</td>
+                        <td>2</td>
+                    </tr>
+                    </tbody>
 
-<footer th:replace="/layout/footer_layout :: footer_layout"></footer>
+                </table>
+            </div>
+        </div>
+        <div id="right">
+            <div id="userInfo">
+                로그인 하면 사용자 정보
+                사용자 정보 보러 가기
+                최근 푼 문제??(로그)
+                정답률(로그)
+                문제 만들기 버튼?
+            </div>
+            <div id="right_btn">
+                <button type="button" class="btn btn-outline-secondary" onclick="location.href='./Quiz_view'">Solving Random Quiz!</button>
+                <button type="button" class="btn btn-outline-secondary">Make a Quiz</button>
+            </div>
+        </div>
+
+    </div>
+
+    <footer th:replace="/layout/footer_layout :: footer_layout"></footer>
 </body>
 
 </html>
