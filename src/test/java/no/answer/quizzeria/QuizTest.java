@@ -1,9 +1,6 @@
 package no.answer.quizzeria;
 
-import no.answer.quizzeria.entity.Member;
-import no.answer.quizzeria.entity.Quiz;
-import no.answer.quizzeria.entity.QuizList;
-import no.answer.quizzeria.entity.QuizListReply;
+import no.answer.quizzeria.entity.*;
 import no.answer.quizzeria.repository.QuizListReplyRepository;
 import no.answer.quizzeria.repository.QuizListRepository;
 import no.answer.quizzeria.repository.QuizReplyRepository;
@@ -91,7 +88,7 @@ public class QuizTest {
             int ranCommentsCount = (int)((Math.random()*5)+1);
 
             IntStream.rangeClosed(1, ranCommentsCount).forEach(j -> {
-                long ranMNO = (long)((Math.random()+30)+1);
+                long ranMNO = (long)((Math.random()*30)+1);
                 Member member = Member.builder().mno(ranMNO).build();
                 QuizListReply quizListReply = QuizListReply.builder()
                         .content("QuizListComment..." + j)
@@ -101,6 +98,28 @@ public class QuizTest {
                         .likes((long)0)
                         .build();
                 quizListReplyRepository.save(quizListReply);
+            });
+        });
+    }
+
+    @Test
+    public void makeQuizCommentsDummy(){
+        IntStream.rangeClosed(1, 30).forEach(i -> {
+
+            Quiz quiz = Quiz.builder().qno((long)i).build();
+            int ranCommentsCount = (int)((Math.random()*5)+1);
+
+            IntStream.rangeClosed(1, ranCommentsCount).forEach(j -> {
+                long ranMNO = (long)((Math.random()*30)+1);
+                Member member = Member.builder().mno(ranMNO).build();
+                QuizReply quizReply = QuizReply.builder()
+                        .content("QuizComment..." + j)
+                        .member(member)
+                        .quiz(quiz)
+                        .hidden("N")
+                        .likes((long)0)
+                        .build();
+                quizReplyRepository.save(quizReply);
             });
         });
     }

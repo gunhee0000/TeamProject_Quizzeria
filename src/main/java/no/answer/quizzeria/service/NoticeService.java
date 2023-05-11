@@ -3,13 +3,18 @@ package no.answer.quizzeria.service;
 import no.answer.quizzeria.dto.NoticeDTO;
 import no.answer.quizzeria.dto.PageRequestDTO;
 import no.answer.quizzeria.dto.PageResultDTO;
+import no.answer.quizzeria.entity.Board;
 import no.answer.quizzeria.entity.Notice;
+
+import java.util.ArrayList;
 
 public interface NoticeService {
 
     Long register(NoticeDTO dto);
 
     PageResultDTO<NoticeDTO, Notice> getList(PageRequestDTO requestDTO);
+
+    ArrayList<Notice> getListHome();
 
     NoticeDTO read(Long nno);
 

@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import no.answer.quizzeria.dto.NoticeDTO;
 import no.answer.quizzeria.dto.PageRequestDTO;
 import no.answer.quizzeria.dto.PageResultDTO;
+import no.answer.quizzeria.entity.Board;
 import no.answer.quizzeria.entity.Notice;
 import no.answer.quizzeria.entity.QNotice;
 import no.answer.quizzeria.repository.NoticeRepository;
@@ -15,8 +16,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Optional;
 import java.util.function.Function;
+import java.util.stream.IntStream;
 
 @Service
 @Log4j2
@@ -43,6 +47,37 @@ public class NoticeServiceImpl implements NoticeService{
         Function<Notice, NoticeDTO> fn = (entity -> entityToDTO(entity));
         log.info("Notice Page Build End");
         return new PageResultDTO<>(result, fn);
+    }
+
+    @Override
+    public ArrayList<Notice> getListHome(){
+        log.info("Board Home Page Build Start");
+        //최신거 6개만 가져오도록 해서 넘겨줘야함
+
+        ArrayList<Notice> tempList = new ArrayList<>();
+        IntStream.rangeClosed(1, (int)repository.count()).forEach(i->{
+
+            Optional<Notice> result = repository.findById((long)i);
+            Notice notice = result.get();
+            tempList.add(notice);
+        });
+        Collections.reverse(tempList);
+
+        ArrayList<Notice> noticelist = new ArrayList<>();
+        for(int i = 0; noticelist.size()<2 ; i++){
+             if(tempList.get(i).getCategory().equals("Important")){
+                noticelist.add(tempList.get(i));
+             }
+        }
+
+        for(int i = 0; noticelist.size()<6 ; i++){
+            if(tempList.get(i).getCategory().equals("General")){
+                noticelist.add(tempList.get(i));
+            }
+        }
+
+        System.out.println(noticelist);
+        return noticelist;
     }
 
     @Override

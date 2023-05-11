@@ -75,37 +75,16 @@
                                 <th scope="col" style="width: 20%;">date</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>중요 공지사항 입니다......1</td>
-                                <td>2023.05.01</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>중요 공지사항 입니다......2</td>
-                                <td>2023.05.01</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>최신 공지사항 입니다......3</td>
-                                <td>2023.05.01</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>최신 공지사항 입니다......4</td>
-                                <td>2023.05.01</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>최신 공지사항 입니다......5</td>
-                                <td>2023.05.01</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">6</th>
-                                <td>최신 공지사항 입니다......6</td>
-                                <td>2023.05.01</td>
-                            </tr>
+                            <tbody> <!-- category 사용해서 important2개 general4개 나오도록 -->
+                                <tr id="notice_table" th:each="dto : ${notice}">
+                                    <td>[[${dto.nno}]]</td>
+                                    <th scope="row">
+                                        <a th:href="@{/main/notice}">
+                                            [[${dto.title}]]
+                                        </a>
+                                    </th>
+                                    <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -126,59 +105,33 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th scope="col" style="width: 60%;">Title</th>
-                            <th scope="col" style="width: 20%;">Writer</th>
-                            <th scope="col" style="width: 10%;">Date</th>
-                            <th scope="col" style="width: 5%;">Views</th>
-                            <th scope="col" style="width: 5%;">Likes</th>
+                            <th scope="col" style="width: 7%;">글번호</th>
+                            <th scope="col" style="width: 48%;">제목</th>
+                            <th scope="col" style="width: 15%;">글쓴이</th>
+                            <th scope="col" style="width: 7%;">조회수</th>
+                            <th scope="col" style="width: 7%;">추천수</th>
+                            <th scope="col" style="width: 16%;">게시일</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <td>여기</td>
-                            <td>user1</td>
-                            <td>2023.05.01</td>
-                            <td>1,435</td>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td>에는</td>
-                            <td>user2</td>
-                            <td>2023.05.01</td>
-                            <td>3,366</td>
-                            <td>2,343</td>
-                        </tr>
-                        <tr>
-                            <td>최신</td>
-                            <td>user3</td>
-                            <td>2023.05.01</td>
-                            <td>12,345</td>
-                            <td>12,345</td>
-                        </tr>
-                        <tr>
-                            <td>게시글</td>
-                            <td>user4</td>
-                            <td>2023.05.01</td>
-                            <td>4</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>코드짜서</td>
-                            <td>user5</td>
-                            <td>2023.05.01</td>
-                            <td>123</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>넣기</td>
-                            <td>user6</td>
-                            <td>2023.05.01</td>
-                            <td>123</td>
-                            <td>2</td>
-                        </tr>
-                        </tbody>
 
+                        <tbody>
+
+                        <tr id="board_table" th:each="dto : ${board}">
+                            <td>[[${dto.bno}]]</td>
+                            <th scope="row">
+                                <a th:href="@{/board/board_view(bno=${dto.bno})}">
+                                    [[${dto.title}]]
+                                </a>
+                            </th>
+                            <td>[[${dto.member.id}]]</td>
+                            <td>[[${dto.views}]]</td>
+                            <td>[[${dto.likes}]]</td>
+                            <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
+                        </tr>
+
+                        </tbody>
                     </table>
+
                 </div>
             </div>
         </div>

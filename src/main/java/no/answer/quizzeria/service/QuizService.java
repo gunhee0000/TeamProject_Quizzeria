@@ -5,11 +5,15 @@ import no.answer.quizzeria.dto.PageResultDTO;
 import no.answer.quizzeria.dto.QuizDTO;
 import no.answer.quizzeria.entity.Quiz;
 
+import java.util.Optional;
+
 public interface QuizService {
 
     Long register(QuizDTO dto);
 
     PageResultDTO<QuizDTO, Quiz> getList(PageRequestDTO requestDTO);
+
+    Optional<Quiz> getRandomQuiz();
 
     QuizDTO read(Long qno);
 

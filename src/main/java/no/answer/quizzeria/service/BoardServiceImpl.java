@@ -15,8 +15,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Optional;
 import java.util.function.Function;
+import java.util.stream.IntStream;
 
 @Service
 @Log4j2
@@ -43,6 +46,29 @@ public class BoardServiceImpl implements BoardService{
         Function<Board, BoardDTO> fn = (entity->entityToDTO(entity));
         log.info("Board Page Build End");
         return new PageResultDTO<>(result, fn);
+    }
+
+    @Override
+    public ArrayList<Board> getListHome(){
+        log.info("Board Home Page Build Start");
+        //최신거 6개만 가져오도록 해서 넘겨줘야함
+
+        int start = (int)repository.count() - 6;
+        int end = (int)repository.count();
+
+        ArrayList<Board> boardlist = new ArrayList<>();
+
+        IntStream.rangeClosed(start, end).forEach(i -> {
+
+            Optional<Board> result = repository.findById((long)i);
+            Board board = result.get();
+            boardlist.add(board);
+
+        });
+        Collections.reverse(boardlist);
+        System.out.println(boardlist);
+
+        return boardlist;
     }
 
     @Override

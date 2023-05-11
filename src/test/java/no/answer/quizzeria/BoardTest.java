@@ -1,15 +1,18 @@
 package no.answer.quizzeria;
 
+import no.answer.quizzeria.dto.BoardDTO;
 import no.answer.quizzeria.entity.Board;
 import no.answer.quizzeria.entity.BoardReply;
 import no.answer.quizzeria.entity.Member;
 import no.answer.quizzeria.repository.BoardReplyRepository;
 import no.answer.quizzeria.repository.BoardRepository;
 import no.answer.quizzeria.service.BoardService;
+import no.answer.quizzeria.service.BoardServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.*;
 import java.util.stream.IntStream;
 
 @SpringBootTest
@@ -59,5 +62,25 @@ public class BoardTest {
                 boardReplyRepository.save(boardReply);
             });
         });
+    }
+
+    //원하는 개수만큼 board 가져오기
+
+    @Test
+    public void selectBoard(){
+        int start = (int)boardRepository.count() - 6;
+        int end = (int)boardRepository.count();
+
+        ArrayList<Board> boardlist = new ArrayList<>();
+
+        IntStream.rangeClosed(start, end).forEach(i -> {
+
+            Optional<Board> result = boardRepository.findById((long)i);
+            Board board = result.get();
+            boardlist.add(board);
+
+        });
+
+        System.out.println("////////////////////////////" + boardlist);
     }
 }
