@@ -2,7 +2,8 @@ package no.answer.quizzeria.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import no.answer.quizzeria.dto.MemberDTO;
+import no.answer.quizzeria.dto.PageRequestDTO;
+import no.answer.quizzeria.dto.PageResultDTO;
 import no.answer.quizzeria.entity.Member;
 import no.answer.quizzeria.service.MemberService;
 import no.answer.quizzeria.service.MemberServiceImpl;
@@ -11,11 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @Log4j2
-@RequestMapping("/member/")
+@RequestMapping("/member")
 @RequiredArgsConstructor
 public class MemberController {
 
@@ -28,20 +28,30 @@ public class MemberController {
     }
 
     @GetMapping("/member_login")
-    public void login(){
-        log.info("Login............");
+    public String login(){
+        log.info("Login...");
+        return "member/member_login";
     }
 
+    @PostMapping("/member_login")
+    public String loginPost(Member member){
+
+        memberService.read(member.getMno());
+
+
+
+        return "redirect:/main/home";
+    };
+
     @GetMapping("/member_register")
-    public String getregister(){
+    public String register(){
         return "member/member_register";
     }
     @PostMapping("/member_register")
-    public String register(MemberDTO dto, RedirectAttributes redirectAttributes){
-        log.info("Register............");
-        memberService.register(dto);
-        redirectAttributes.addAttribute(memberService.register(dto));
-        return "redirect:/";
+    public String register(Member member){
+        memberService.save(member);
+        return "redirect:/main/welcome";
     }
+
 
 }

@@ -10,8 +10,11 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 @Entity
 @Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,7 +29,7 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long mno;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 2000, nullable = false)
     private String password;
 
     @Column(length = 50, nullable = false)

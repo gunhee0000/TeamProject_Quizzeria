@@ -16,7 +16,7 @@
 
 <body class="text-center">
     <main class="form-signin w-100 m-auto">
-        <form class="form-signin" th:action="@{/member/login}" method="post">
+        <form class="form-signin" th:action="@{/member/member_login}" method="post">
             <a th:href="@{/}"><img class="mb-4" th:src="@{/css/images/member/login.png}" alt="" width="90" height="90"></a>
             <h1 class="h3 mb-3 font-weight-normal">Quizzeria Login</h1>
 
@@ -28,10 +28,10 @@
                 Quizzeria Logout
             </div>
 
-            <label for="username" class="sr-only">Username</label>
-            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+            <label for="id" class="sr-only">Username</label>
+            <input type="text" id="id" name="id" class="form-control" placeholder="Username" required autofocus>
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
             <!-- <div class="checkbox mb-3">
               <label>
                 <input type="checkbox" value="remember-me"> Remember me

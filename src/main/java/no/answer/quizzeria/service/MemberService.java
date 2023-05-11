@@ -7,13 +7,16 @@ import no.answer.quizzeria.entity.Member;
 
 public interface MemberService {
 
-    String register(MemberDTO dto);
+//    String register(MemberDTO dto);
 
-    PageResultDTO<MemberDTO, Member> getList(PageRequestDTO requestDTO);
+//    PageResultDTO<MemberDTO, Member> getList(PageRequestDTO requestDTO);
 
     MemberDTO read(Long mno);
 
-    void modify(MemberDTO dto);
+    Member save(Member member);
+
+//    void modify(MemberDTO dto);
+
     default Member dtoToEntity(MemberDTO dto){
         Member entity = Member.builder()
                 .id(dto.getId())
