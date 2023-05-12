@@ -34,4 +34,6 @@ public class MemberDTO {
     private LocalDateTime regDate;
 
     private String hidden;
+
+    private boolean enabled;
 }

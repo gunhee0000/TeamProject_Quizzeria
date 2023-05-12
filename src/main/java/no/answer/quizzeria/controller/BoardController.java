@@ -5,7 +5,6 @@ import lombok.extern.log4j.Log4j2;
 import no.answer.quizzeria.dto.BoardDTO;
 import no.answer.quizzeria.dto.PageRequestDTO;
 import no.answer.quizzeria.service.BoardService;
-import no.answer.quizzeria.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +34,7 @@ public class BoardController {
         BoardDTO boardDTO = boardService.read(bno);
         log.info(boardDTO);
         model.addAttribute("dto", boardDTO);
+        model.addAttribute("result", boardService.getList(pageRequestDTO));
     }
 
     @GetMapping("/board/board_register")

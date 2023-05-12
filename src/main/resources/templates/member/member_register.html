@@ -1,0 +1,75 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link th:href="@{/css/member/member_login.css}" rel="stylesheet">
+
+  <title>Login</title>
+</head>
+
+<body class="text-center">
+<main class="form-signin w-100 m-auto">
+  <form class="form-signin" th:action="@{/member/member_register}" method="post">
+    <h1 class="h3 mb-3 font-weight-normal">Quizzeria Sign_Up</h1>
+
+    <label for="id" class="sr-only">Id</label>
+    <input type="text" id="id" name="id" class="form-control" placeholder="Id" required autofocus>
+
+    <label for="password" class="sr-only">Password</label>
+    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+
+    <label for="email" class="sr-only">E-mail</label>
+    <input type="email" id="email" name="email" class="form-control" placeholder="E-mail" required>
+
+    <label for="name" class="sr-only">Name</label>
+    <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+
+    <label for="age" class="sr-only">Age</label>
+    <input type="text" id="age" name="age" class="form-control" placeholder="Age" required>
+
+    <label for="job" class="sr-only">Job</label>
+    <input type="text" id="job" name="job" class="form-control" placeholder="Job" required>
+
+    <label for="tel" class="sr-only">Tel</label>
+    <input type="text" id="tel" name="tel" class="form-control" placeholder="Tel" required>
+
+    <label for="addr" class="sr-only">Addr</label>
+    <input type="text" id="addr" name="addr" class="form-control" placeholder="Addr" required>
+
+    <label for="hidden" class="sr-only">임시</label>
+    <input type="text" id="hidden" name="hidden" class="form-control" placeholder="hidden" value="N" required>
+
+    <label for="enabled" class="sr-only">임시</label>
+    <input type="text" id="enabled" name="enabled" class="form-control" placeholder="enabled" value="true" required>
+
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+  </form>
+</main>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous">
+
+</script>
+</body>
+
+</html>
