@@ -47,6 +47,9 @@ public class QuizList {
     @Column(length = 100, nullable = false)
     private String category;
 
+    @Column(length = 100, nullable = false)
+    private String type;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Member member;
 

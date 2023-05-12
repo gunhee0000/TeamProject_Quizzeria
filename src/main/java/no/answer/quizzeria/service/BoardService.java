@@ -5,11 +5,15 @@ import no.answer.quizzeria.dto.PageRequestDTO;
 import no.answer.quizzeria.dto.PageResultDTO;
 import no.answer.quizzeria.entity.Board;
 
+import java.util.ArrayList;
+
 public interface BoardService {
 
     Long register(BoardDTO dto);
 
     PageResultDTO<BoardDTO, Board> getList(PageRequestDTO requestDTO);
+
+    ArrayList<Board> getListHome();
 
     BoardDTO read(Long bno);
 

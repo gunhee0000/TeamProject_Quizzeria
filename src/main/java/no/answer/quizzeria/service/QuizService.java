@@ -5,11 +5,15 @@ import no.answer.quizzeria.dto.PageResultDTO;
 import no.answer.quizzeria.dto.QuizDTO;
 import no.answer.quizzeria.entity.Quiz;
 
+import java.util.Optional;
+
 public interface QuizService {
 
     Long register(QuizDTO dto);
 
     PageResultDTO<QuizDTO, Quiz> getList(PageRequestDTO requestDTO);
+
+    Optional<Quiz> getRandomQuiz();
 
     QuizDTO read(Long qno);
 
@@ -20,6 +24,7 @@ public interface QuizService {
                 .qno(dto.getQno())
                 .question(dto.getQuestion())
                 .answer(dto.getAnswer())
+                .correct(dto.getCorrect())
                 .quizList(dto.getQuizList())
                 .hidden(dto.getHidden())
                 .views(dto.getViews())
@@ -34,6 +39,7 @@ public interface QuizService {
                 .qno(entity.getQno())
                 .question(entity.getQuestion())
                 .answer(entity.getAnswer())
+                .correct(entity.getCorrect())
                 .quizList(entity.getQuizList())
                 .hidden(entity.getHidden())
                 .likes(entity.getLikes())

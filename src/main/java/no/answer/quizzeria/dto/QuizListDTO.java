@@ -26,6 +26,8 @@ public class QuizListDTO {
 
     private String category;
 
+    private String type;
+
     private Long views;
 
     private Long likes;

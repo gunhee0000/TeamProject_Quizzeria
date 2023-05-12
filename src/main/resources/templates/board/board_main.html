@@ -9,9 +9,9 @@
 
 <div id="board_banner">
   <div id="banner">
-    <img th:src="@{/css/images/banner4.jpg}" alt="배너4">
-    <img th:src="@{/css/images/banner5.jpg}" alt="배너5">
-    <img th:src="@{/css/images/banner6.jpg}" alt="배너6">
+    <img th:src="@{/css/images/board/board_banner1.jpg}" alt="배너1">
+    <img th:src="@{/css/images/board/board_banner1.jpg}" alt="배너2">
+    <img th:src="@{/css/images/board/board_banner1.jpg}" alt="배너3">
   </div>
 </div>
 
@@ -50,7 +50,7 @@
         </tr>
         </thead>
 
-        <tboday>
+        <today>
 
           <tr id="board_table" th:each="dto : ${result.dtoList}">
             <td>[[${dto.bno}]]</td>
@@ -65,7 +65,7 @@
             <td>dto.추천수</td>
           </tr>
 
-        </tboday>
+        </today>
       </table>
   </div>
 </div>

@@ -49,7 +49,7 @@ public class MemberController {
     }
     @PostMapping("/member_register")
     public String register(Member member){
-        memberService.save(member);
+//        memberService.save(member);
         return "redirect:/main/welcome";
     }
 

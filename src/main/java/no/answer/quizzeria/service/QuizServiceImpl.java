@@ -46,6 +46,16 @@ public class QuizServiceImpl implements QuizService{
     }
 
     @Override
+    public Optional<Quiz> getRandomQuiz(){
+        log.info("Random Quiz Build Start");
+        int listSize = repository.findAll().size();
+        long ranNum = (long)((Math.random()*listSize)+1);
+        Optional<Quiz> quiz = repository.findById(ranNum);
+
+        return quiz;
+    }
+
+    @Override
     public QuizDTO read(Long qno){
         log.info("Quiz Read Start");
         Optional<Quiz> result = repository.findById(qno);

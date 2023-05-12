@@ -19,6 +19,8 @@ public class QuizDTO {
 
     private String answer;
 
+    private String correct;
+
     private QuizList quizList;
 
     private String hidden;
