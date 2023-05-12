@@ -12,8 +12,8 @@ public interface MemberService {
 //    PageResultDTO<MemberDTO, Member> getList(PageRequestDTO requestDTO);
 
     MemberDTO read(Long mno);
-
-    Member save(Member member);
+//
+//    Member save(Member member);
 
 //    void modify(MemberDTO dto);
 
