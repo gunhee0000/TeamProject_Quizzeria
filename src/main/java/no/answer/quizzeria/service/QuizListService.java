@@ -22,6 +22,7 @@ public interface QuizListService {
                 .member(dto.getMember())
                 .hidden(dto.getHidden())
                 .category(dto.getCategory())
+                .type(dto.getType())
                 .views(dto.getViews())
                 .likes(dto.getLikes())
                 .build();
@@ -37,6 +38,7 @@ public interface QuizListService {
                 .modDate(entity.getModDate())
                 .hidden(entity.getHidden())
                 .category(entity.getCategory())
+                .type(entity.getType())
                 .likes(entity.getLikes())
                 .views(entity.getViews())
                 .build();

@@ -25,6 +25,9 @@ public class Quiz {
     @Column(length = 1500, nullable = false)
     private String answer;
 
+    @Column(length = 4, nullable = false)
+    private String correct;
+
     @ColumnDefault("'N'")
     @Column(length = 10, nullable = false)
     private String hidden;

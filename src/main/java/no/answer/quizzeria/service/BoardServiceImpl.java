@@ -53,7 +53,7 @@ public class BoardServiceImpl implements BoardService{
         log.info("Board Home Page Build Start");
         //최신거 6개만 가져오도록 해서 넘겨줘야함
 
-        int start = (int)repository.count() - 6;
+        int start = (int)repository.count() - 5;
         int end = (int)repository.count();
 
         ArrayList<Board> boardlist = new ArrayList<>();
