@@ -23,10 +23,10 @@ public class Notice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long nno;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 50)
     private String title;
 
-    @Column(length = 1500, nullable = false)
+    @Column(length = 1500)
     private String content;
 
     @CreatedDate
@@ -37,18 +37,19 @@ public class Notice {
     @Column
     private LocalDateTime modDate;
 
+    @ColumnDefault("'N'")
     @Column(length = 10, nullable = false)
     private String hidden;
 
-    @Column(length = 100, nullable = false)
+    @Column(length = 100)
     private String category;
 
     @ColumnDefault("0")
-    @Column(nullable = false)
+    @Column
     private Long views;
 
     @ColumnDefault("0")
-    @Column(nullable = false)
+    @Column
     private Long likes;
 
     @ManyToOne(fetch = FetchType.LAZY)

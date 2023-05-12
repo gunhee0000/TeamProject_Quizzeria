@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<link th:href="@{/css/style.css}" rel="stylesheet">
-<link th:href="@{/css/main/welcome.css}" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Quizzeria</title>
+
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/main/welcome.css}" rel="stylesheet">
+</head>
 
 <body>
     <header th:replace="/layout/header_layout :: header_layout" class="fixed-top"></header>
 
     <div id="section_1">
         <p id="welcome">
-            <a th:href="@{/main/Home}">Welcome  to Quizzeria</a>
+            <a th:href="@{/main/home}">Welcome  to Quizzeria</a>
         </p>
         <a class="scroll_down" href="#section_2"></a>
 
@@ -32,35 +38,7 @@
 <!--</div>-->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script th:inline="javascript">
-
-    $(document).ready(function(){
-
-        $("a").on('click', function(event) {
-
-            if (this.hash !== "") {
-
-                event.preventDefault();
-
-                var hash = this.hash;
-
-                $('html, body').animate({
-
-                    scrollTop: $(hash).offset().top
-
-                }, 800, function(){
-
-                    window.location.hash = hash;
-
-                });
-
-            }
-
-        });
-
-    });
-
-</script>
+<script th:src="@{/css/js/main/welcome.js}"></script>
 
 
 

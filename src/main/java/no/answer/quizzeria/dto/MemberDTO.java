@@ -29,9 +29,11 @@ public class MemberDTO {
 
     private String addr;
 
-    private String profileImg;
+//    private String profileImg;
 
     private LocalDateTime regDate;
 
     private String hidden;
+
+    private boolean enabled;
 }

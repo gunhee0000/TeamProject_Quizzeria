@@ -37,6 +37,7 @@ public class Board {
     @Column
     private LocalDateTime modDate;
 
+    @ColumnDefault("'N'")
     @Column(length = 10, nullable = false)
     private String hidden;
 
@@ -44,10 +45,11 @@ public class Board {
     private String category;
 
     @ColumnDefault("0")
-    @Column(nullable = false)
+    @Column(length = 10)
     private Long views;
+
     @ColumnDefault("0")
-    @Column(nullable = false)
+    @Column(length = 10)
     private Long likes;
 
     @ManyToOne(fetch = FetchType.LAZY)

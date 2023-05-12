@@ -32,6 +32,7 @@ public class BoardReply {
     @Column
     private LocalDateTime modDate;
 
+    @ColumnDefault("'N'")
     @Column(length = 10, nullable = false)
     private String hidden;
 

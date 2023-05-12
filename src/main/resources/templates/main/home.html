@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<script th:src="@{js/jquery-1.12.4.js}"></script>
-<link th:href="@{/css/style.css}" rel="stylesheet">
-<link th:href="@{/css/main/home.css}" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quizzeria</title>
+
+    <script th:src="@{/css/js/main/home.js}" defer></script>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/main/home.css}" rel="stylesheet">
+</head>
 
     <body>
         <header th:replace="/layout/header_layout :: header_layout"></header>
@@ -11,9 +17,9 @@
 
         <div id="top">
             <div id="banner">
-                <img th:src="@{/images/banner1.jpg}" alt="배너1">
-                <img th:src="@{/images/banner2.jpg}" alt="배너2" style="display: none">
-                <img th:src="@{/images/banner3.jpg}" alt="배너3" style="display: none">
+                <img th:src="@{/css/images/main/banner1.jpg}" alt="배너1">
+                <img th:src="@{/css/images/main/banner2.jpg}" alt="배너2" style="display: none">
+                <img th:src="@{/css/images/main/banner3.jpg}" alt="배너3" style="display: none">
             </div>
         </div>
         <div id="mid">
@@ -23,8 +29,9 @@
                         <h2>Today's Quiz!</h2>
                     </div>
                     <div id="question">
-                        <div id="card">
-                            <h2>우리 프로젝트의 이름은?</h2>
+                        <div class="card">
+                            <div class="question">우리 프로젝트의 이름은?</div>
+                            <div class="answer">정답: 퀴제리아</br>made by. user01</div>
                         </div>
                     </div>
                     <div id="answer"> <!-- 2행 2열로 만들려고 좌우 나눔 -->
@@ -46,8 +53,8 @@
                         </div>
                     </div>
                     <div id="dailyQuiz_btn">
-                        <button type="button" class="btn btn-primary">퀴즈 보러 가기</button>
-                        <button type="button" class="btn btn-primary">다음문제</button>
+                        <button type="button" class="btn btn-primary" onclick="location.href='../quiz/quiz_view'">퀴즈 보러 가기</button>
+                        <button type="button" class="btn btn-primary" onclick="location.href='./home'">다음문제</button>
                     </div>
                 </div>
                 <div id="notice"> <!-- 홈에서 보이는 공지는 5~6개 까지만 표시, 중요공지 2개 + 최신공지 4개 -->
@@ -56,7 +63,7 @@
                             <h2>공지사항</h2>
                         </div>
                         <div id="notice_btn">
-                            <a th:href="@{/main/Notice}">공지사항&gt;&gt;</a>
+                            <a th:href="@{/main/notice}">공지사항&raquo;</a>
                         </div>
                     </div>
                     <div id="notice_contents">
@@ -112,7 +119,7 @@
                         <h2>최신 게시글</h2>
                     </div>
                     <div id="board_btn">
-                        <a th:href="@{/board/Board_main}">게시판&gt;&gt;</a>
+                        <a th:href="@{/board/board_main}">게시판&raquo;</a>
                     </div>
                 </div>
                 <div id="board_content">
@@ -180,64 +187,4 @@
         <footer th:replace="/layout/footer_layout :: footer_layout"></footer>
     </body>
 
-<script>
-    $(function() {
-        var currentIndex = 0;
-        var images = $('#banner img');
-        var imageCount = images.length;
-        var intervalId;
-
-        function startSlideShow() {
-            intervalId = setInterval(function() {
-                images.eq(currentIndex).fadeOut(1000);
-                images.eq(currentIndex).attr('style', 'display: none')
-                currentIndex = (currentIndex + 1) % imageCount;
-                images.eq(currentIndex).fadeIn(1000);
-            }, 4000);
-        }
-
-        startSlideShow();
-
-        // 카드 요소와 버튼 요소들을 가져옴
-        const card = document.querySelector("#card");
-        const btns = document.querySelectorAll("#answer button");
-
-        // 정답 버튼 클릭 시 처리할 함수
-        function showAnswer(event) {
-            const clickedBtn = event.target;
-
-
-            if (clickedBtn.value === "correct") {
-                clickedBtn.style.backgroundColor = "green";
-            }else {
-                clickedBtn.style.backgroundColor = "red";
-            }
-
-            // card.style.transform = "rotateY(180deg)";
-            const answer = document.createElement('h2');
-            answer.textContent = '정답: 퀴제리아';
-            card.appendChild(answer); // 카드에 정답 표시
-
-            // 모든 버튼 요소에 대해
-            for (let i = 0; i < btns.length; i++) {
-                const btn = btns[i];
-                if (btn === clickedBtn) {
-                    btn.disabled = true;
-                    // 선택한 버튼이면 색상 유지
-                    continue;
-                } else {
-                    btn.disabled = true;
-                    // 오답 버튼은 선택하지 않은 경우에만 회색으로 변경
-                        btn.style.backgroundColor = "gray";
-                }
-            }
-        }
-
-        // 모든 버튼 요소에 클릭 이벤트 등록
-        for (let i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", showAnswer);
-        }
-
-    });
-</script>
 </html>
