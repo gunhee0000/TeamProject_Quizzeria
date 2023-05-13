@@ -39,34 +39,42 @@ body{
 }
 #section_2{
     width: 1280px;
-    height: 3200px;
+    height: 2900px;
     margin: 0 auto;
-    background-color: #706d6d;
 }
 
     #content_1_wrap{
         width: 1280px;
-        height: 800px;
-        background-color: aqua;
+        height: 750px;
     }
         #content_1{
             position: absolute;
             width: 1180px;
             height: 650px;
-            background-color: #1c7430;
-            margin: 75px auto 0 50px;
+            margin: 50px auto 0 50px;
         }
         #content_1-1{
             float: left;
             width: 60%;
             height: 100%;
-            background-color: #7abaff;
         }
+            .text-center{
+                line-height: 3;
+            }
+            p{
+                margin-left: 15px;
+            }
+            #con_text-1{
+                width: 85%;
+                height: 70%;
+                margin-top: 100px;
+                margin-left: 50px;
+                font-size: large;
+            }
         #content_1-2{
             float: left;
             width: 40%;
             height: 100%;
-            background-color: #28a745;
         }
             #content_1-2>img{
                 width: 100%;
@@ -76,19 +84,191 @@ body{
             }
     #content_2_wrap{
         width: 1280px;
-        height: 800px;
-        background-color: #5b7272;
+        height: 750px;
     }
+        #content_2{
+            position: absolute;
+            width: 1180px;
+            height: 650px;
+            margin: 50px auto 0 50px;
+        }
+        #content_2-2{
+            float: left;
+            width: 60%;
+            height: 100%;
+        }
+            .text-center{
+                line-height: 3;
+            }
+            .text-left{
+                line-height: 2;
+            }
+            p{
+                margin-left: 15px;
+            }
+            #con_text-2{
+                width: 80%;
+                height: 90%;
+                margin-top: 30px;
+                margin-left: 75px;
+                font-size: large;
+            }
+        #content_2-1{
+            float: left;
+            width: 40%;
+            height: 100%;
+        }
+            #content_2-1>img{
+                width: 100%;
+                height: 90%;
+                margin-top: 30px;
+                border-radius: 10px;
+            }
+
     #content_3_wrap{
         width: 1280px;
-        height: 800px;
-        background-color: #8be1e1;
+        height: 750px;
     }
+        #content_3{
+            position: absolute;
+            width: 1180px;
+            height: 650px;
+            margin: 50px auto 0 50px;
+        }
+        #content_3-1{
+            float: left;
+            width: 60%;
+            height: 100%;
+        }
+            .text-center{
+                line-height: 3;
+            }
+            .text-left{
+                line-height: 2;
+            }
+            p{
+                margin-left: 15px;
+            }
+            #con_text-3{
+                width: 80%;
+                height: 80%;
+                margin-top: 60px;
+                margin-left: 75px;
+                font-size: large;
+            }
+        #content_button{
+            float: bottom;
+            width: 100%;
+            height: 10%;
+        }
+            #start-btn{
+                float: left;
+                margin-left: 320px;
+                margin-top: 15px;
+            }
+    #content_3-2{
+        float: left;
+        width: 40%;
+        height: 100%;
+    }
+        #content_3-2>img{
+            width: 100%;
+            height: 80%;
+            margin-top: 60px;
+            border-radius: 10px;
+        }
+
     #content_4_wrap{
         width: 1280px;
-        height: 800px;
-        background-color: #2a5454;
+        height: 600px;
     }
+        #developer_header{
+            width: 200px;
+            height: 50px;
+            margin: 5px auto 0;
+            padding-top: 10px;
+        }
+        #content_4{
+            position: absolute;
+            width: 1180px;
+            height: 500px;
+            margin: 10px auto 0 50px;
+
+        }
+            #developer-1{
+                float: left;
+                width: 370px;
+                height: 500px;
+                margin-left: 17px;
+            }
+                #d_img-1{
+                    width: 370px;
+                    height: 400px;
+                }
+                #d_img-1>img{
+                    border-radius: 10px;
+                    width: 100%;
+                    height: 100%;
+                }
+                    #d_comment-1{
+                        border-radius: 10px;
+                        width: 370px;
+                        height: 100px;
+                        background-color: #7fbcf1;
+                        color: #ffffff;
+                    }
+                #d_img-2{
+                    width: 370px;
+                    height: 400px;
+                }
+                #d_img-2>img{
+                    border-radius: 10px;
+                    width: 100%;
+                    height: 100%;
+                }
+                    #d_comment-2{
+                        border-radius: 10px;
+                        width: 370px;
+                        height: 100px;
+                        background-color: #44a8f5;
+                        color: #ffffff;
+                    }
+                #d_img-3{
+                    width: 370px;
+                    height: 400px;
+                }
+                #d_img-3>img{
+                    border-radius: 10px;
+                    width: 100%;
+                    height: 100%;
+                }
+                    #d_comment-3{
+                        border-radius: 10px;
+                        width: 370px;
+                        height: 100px;
+                        background-color: #0b87fc;
+                        color: #ffffff;
+                    }
+            #developer-2{
+                float: left;
+                width: 370px;
+                height: 500px;
+                margin-left: 17px;
+            }
+            #developer-3{
+                float: left;
+                width: 370px;
+                height: 500px;
+                margin-left: 17px;
+
+            }
+                .TeamName{
+                    text-align: center;
+                    line-height: 2;
+                }
+                .Comment{
+                    text-align: center;
+                }
 
 
 

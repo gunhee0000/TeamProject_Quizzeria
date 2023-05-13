@@ -37,9 +37,6 @@ public class MemberController {
     public String loginPost(Member member){
 
         memberService.read(member.getMno());
-
-
-
         return "redirect:/main/home";
     };
 
@@ -49,7 +46,7 @@ public class MemberController {
     }
     @PostMapping("/member_register")
     public String register(Member member){
-//        memberService.save(member);
+        memberService.save(member);
         return "redirect:/main/welcome";
     }
 

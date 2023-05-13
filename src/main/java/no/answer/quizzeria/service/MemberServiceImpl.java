@@ -9,6 +9,7 @@ import no.answer.quizzeria.entity.Role;
 import no.answer.quizzeria.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -21,19 +22,19 @@ public class MemberServiceImpl implements MemberService{
     @Autowired
     private final MemberRepository repository;
 
-//    @Autowired
-//    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
-//    @Override
-//    public Member save(Member member){
-//        String encodedPassword = passwordEncoder.encode(member.getPassword());
-//        member.setPassword(encodedPassword);
-//        member.setEnabled(true);
-//        Role role = new Role();
-//        role.setRno(1l);
-//        member.getRoles().add(role);
-//        return repository.save(member);
-//    }
+    @Override
+    public Member save(Member member){
+        String encodedPassword = passwordEncoder.encode(member.getPassword());
+        member.setPassword(encodedPassword);
+        member.setEnabled(true);
+        Role role = new Role();
+        role.setRno(1l);
+        member.getRoles().add(role);
+        return repository.save(member);
+    }
 
     @Override
     public MemberDTO read(Long mno){

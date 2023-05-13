@@ -24,19 +24,27 @@
         <div id="content_1_wrap">
             <div id="content_1">
                 <div id="content_1-1">
-                    <h2>Quizzeria 의 다양함을 무료로 이용하세요.</h2>
-                    <p>
-                        1. Quizzeria는 Pizzeria를 모티브한 Quiz 를 직접 만들어 이용하는 사이트 입니다.
-                    </p>
-                    <p>
-                        2. Quizzeria는 학생들의 시선에 맞춰 제작 되었습니다.
-                    </p>
-                    <p>
-                        3. 본인의 경험을 토대로 Quiz를 만들어보세요!
-                    </p>
-                    <p>
-                        4. Quizeeria는 항상 무료입니다.
-                    </p>
+                    <div id="con_text-1">
+                        <h2 class="text-center">Quizzeria 의 다양함을 무료로 이용하세요.</h2>
+                        <p>
+                            1. Quizzeria는 Pizzeria를 모티브한 Quiz 를 직접 만들어 이용하거나 세상에 모든 지식이 들어있는 Quiz 사이트 입니다.
+                        </p>
+                        <p>
+                            2. Quizzeria는 학생들의 시선에 맞춰 제작 되었습니다.
+                        </p>
+                        <p>
+                            3. Quizzeria는 모든 연령이 사용가능합니다.
+                        </p>
+                        <p>
+                            4. 본인의 경험을 토대로 Quiz를 만들어보세요!
+                        </p>
+                        <p>
+                            5. Quiz를 풀며 학습 능력을 최대치로 올려 모두에게 자랑하세요!
+                        </p>
+                        <p>
+                            6. Quizeeria는 항상 무료입니다.
+                        </p>
+                    </div>
                 </div>
                 <div id="content_1-2">
                     <img th:src="@{/css/images/main/welcome_img-1.jpg}" alt="웰컴 이미지-1">
@@ -46,30 +54,89 @@
         <div id="content_2_wrap">
             <div id="content_2">
                 <div id="content_2-1">
-
+                    <img th:src="@{/css/images/main/welcome_img-2.jpg}" alt="웰컴 이미지-2">
                 </div>
                 <div id="content_2-2">
-
+                    <div id="con_text-2">
+                        <h3 class="text-center">Quizzeria 의 고유한 특성 “카드낱말”</h3>
+                        <p class="text-left">
+                            Quizzeria 의 시작은 부모님 생각에 시작되었습니다 . <br>
+                            부모님들의 고민은 항상 아이에 집중되어 있으며 그러한점을 공감하여 어떻게 하면 멋진 부모님들에게 도움이 될수있을지 많은 고민과 시행 착오를 통하여 만들어진게 Quizzeria의 카드낱말 시스템 입니다. <br>
+                            카드낱말 시스템은 많은 학술자료가 있는 만큼 효과도 굉장합니다. <br>
+                            각 카드는 앞면에 질문(사진)을 넣고 뒷면에는 그에 맞는 정답이 들어갑니다. <br>
+                            눈으로 앞면의 질문(사진)을 보고 연상하며, 뒷면의 정답을 확인하고 소리 내어 읽다 보면, 자연스럽게 언어능력 회복과 인지 강화, 치매 예방 등의 효과를 얻을 수 있습니다. <br>
+                            어린아이 심지어 부모님의 부모님 까지 도움이 되는 Quizzeria를 지금 바로 “무료”로 이용해 보세요.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
         <div id="content_3_wrap">
             <div id="content_3">
                 <div id="content_3-1">
-
+                    <div id="con_text-3">
+                        <h2 class="text-center">Quizzeria가 추구하는 방향</h2>
+                        <p class="text-left">
+                            Quizzeria는 기본으로 입력되어있는 Quiz 뿐만 아니라 직접 Quiz를 제작하여 사용할수있는 특성을 가지고 있습니다. <br>
+                            이에 학습자의 연령의 상관없이 모두 함께 이용이 가능한것이 저희가 추구하는 방향입니다. 모든이가 직접 Quiz를 생성하며 이는 Quiz를 푸는것보다 더욱 많은 효과를 가져옵니다.<br>
+                            어린이가 좋아하는 Quiz를 직접 만들어서 사용해보세요 그 효과는 아주 놀라울것입니다. <br>
+                            간단한 방법으로 모두가 Quiz를 입력하여 본인이 직접 만든 새로운 퀴즈를 모든이에게 알릴수있습니다. <br>
+                            지금 바로 본인만에 다양한 Quiz를 만들어 이용해보세요! <br>
+                        </p>
+                        <p class="text-center">
+                            지금 바로 본인만에 Quiz를 만들어보세요!
+                        </p>
+                    </div>
+                    <div id="content_button">
+                        <a th:href="@{/main/home}">
+                            <button id="start-btn" type="button" class="btn btn-outline-primary">시작하기!</button>
+                        </a>
+                    </div>
                 </div>
-                <div id="content_3-2">
-
-                </div>
+                    <div id="content_3-2">
+                        <img th:src="@{/css/images/main/welcome_img-3.png}" alt="웰컴 이미지-3">
+                    </div>
             </div>
         </div>
         <div id="content_4_wrap">
+            <div id="developer_header">
+                <h3>
+                    Team members
+                </h3>
+            </div>
             <div id="content_4">
-                <div id="content_4-1">
-
+                <div id="developer-1">
+                    <div id="d_img-1">
+                        <img th:src="@{/css/images/main/D_img-1.png}" alt="사진-1">
+                    </div>
+                    <div id="d_comment-1">
+                        <h5 class="TeamName"><a href="https://www.instagram.com/animato___/" target="_blank">최용성</a></h5>
+                        <p class="Comment" style="font-size: medium">
+                            진짜 만드는데 너무 힘들었고 다신 만들지말자!
+                        </p>
+                    </div>
                 </div>
-                <div id="content_4-2">
-
+                <div id="developer-2">
+                    <div id="d_img-2">
+                        <img th:src="@{/css/images/main/D_img-2.png}" alt="사진-2">
+                    </div>
+                    <div id="d_comment-2">
+                        <h5 class="TeamName"><a href="https://www.instagram.com/takeafanxy/" target="_blank">김건희</a></h5>
+                        <p class="Comment" style="font-size: medium">
+                            맥주 마실래?
+                        </p>
+                    </div>
+                </div>
+                <div id="developer-3">
+                    <div id="d_img-3">
+                        <img th:src="@{/css/images/main/D_img-3.png}" alt="사진-3">
+                    </div>
+                    <div id="d_comment-3">
+                        <h5 class="TeamName"><a href="https://www.instagram.com/ming_s0ng/" target="_blank">김민성</a></h5>
+                        <p class="Comment" style="font-size: medium">
+                            밥 마실래?
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
