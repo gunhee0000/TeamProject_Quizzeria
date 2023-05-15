@@ -27,6 +27,7 @@ public class MemberTest {
                     .job("none")
                     .tel("010-1234-5678")
                     .addr("addr..." + i)
+                    .hidden("N")
                     .build();
             memberRepository.save(member);
         });
