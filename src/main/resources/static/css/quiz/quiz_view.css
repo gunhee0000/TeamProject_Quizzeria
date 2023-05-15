@@ -89,13 +89,22 @@
             #answerInput {
                 width: 800px;
                 height: 200px;
-                padding-top: 50px;
+                padding-top: 30px;
                 box-sizing: border-box;
                 /*background-color: #19692c;*/
             }
-            .input-group{
+                #answerInput .btn-secondary{
+                    width: 380px;
+                    height: 60px;
+                    margin-left: 10px;
+                    margin-bottom: 10px;
+                    background: rgb(255, 255, 255, 0.7);
+                    color: black;
+                }
+                #answerInput .btn-secondary:hover{
+                    background-color: #aab29d;
+                }
 
-            }
             #quiz_btn{
                 width: 800px;
                 height: 50px;

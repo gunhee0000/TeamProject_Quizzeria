@@ -37,8 +37,7 @@ public class QuizReplyServiceImpl implements QuizReplyService{
     public PageResultDTO<QuizReplyDTO, QuizReply> getList(PageRequestDTO requestDTO){
         log.info("QuizReply Page Build Start");
         Pageable pageable = requestDTO.getPageable(Sort.by("qrno").descending());
-        BooleanBuilder booleanBuilder = getSearch(requestDTO);
-        Page<QuizReply> result = repository.findAll(booleanBuilder, pageable);
+        Page<QuizReply> result = repository.findAll(pageable);
         Function<QuizReply, QuizReplyDTO> fn = (entity->entityToDTO(entity));
         log.info("QuizReply Page Build End");
         return new PageResultDTO<>(result, fn);
@@ -66,29 +65,5 @@ public class QuizReplyServiceImpl implements QuizReplyService{
             repository.save(entity);
         }
         log.info("QuizReply Modify End");
-    }
-
-    private BooleanBuilder getSearch(PageRequestDTO requestDTO) {
-        log.info("QuizReply Search Start");
-        String type = requestDTO.getType();
-        BooleanBuilder booleanBuilder = new BooleanBuilder();
-        QQuizReply qQuizReply = QQuizReply.quizReply;
-        String keyword = requestDTO.getKeyword();
-        BooleanExpression expression = qQuizReply.qrno.gt(0L);
-        booleanBuilder.and(expression);
-        if (type == null || type.trim().length() == 0) {
-            return booleanBuilder;
-        }
-
-        BooleanBuilder conditionBuilder = new BooleanBuilder();
-        if (type.contains("c")) {
-            conditionBuilder.or(qQuizReply.content.contains(keyword));
-        }
-        if (type.contains("i")) {
-            conditionBuilder.or(qQuizReply.member.id.contains(keyword));
-        }
-        booleanBuilder.and(conditionBuilder);
-        log.info("QuizReply Search End");
-        return booleanBuilder;
     }
 }

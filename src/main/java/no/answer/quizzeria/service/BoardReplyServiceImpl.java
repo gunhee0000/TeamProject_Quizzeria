@@ -38,8 +38,7 @@ public class BoardReplyServiceImpl implements BoardReplyService{
     public PageResultDTO<BoardReplyDTO, BoardReply> getList(PageRequestDTO requestDTO){
         log.info("BoardReply Page Build Start");
         Pageable pageable = requestDTO.getPageable(Sort.by("brno").descending());
-        BooleanBuilder booleanBuilder = getSearch(requestDTO);
-        Page<BoardReply> result = repository.findAll(booleanBuilder, pageable);
+        Page<BoardReply> result = repository.findAll(pageable);
         Function<BoardReply, BoardReplyDTO> fn = (entity->entityToDTO(entity));
         log.info("BoardReply Page Build End");
         return new PageResultDTO<>(result, fn);
@@ -67,29 +66,5 @@ public class BoardReplyServiceImpl implements BoardReplyService{
             repository.save(entity);
         }
         log.info("BoardReply Modify End");
-    }
-
-    private BooleanBuilder getSearch(PageRequestDTO requestDTO){
-        log.info("BoardReply Search Start");
-        String type = requestDTO.getType();
-        BooleanBuilder booleanBuilder = new BooleanBuilder();
-        QBoardReply qBoardReply = QBoardReply.boardReply;
-        String keyword = requestDTO.getKeyword();
-        BooleanExpression expression = qBoardReply.brno.gt(0L);
-        booleanBuilder.and(expression);
-        if(type == null || type.trim().length() == 0){
-            return booleanBuilder;
-        }
-
-        BooleanBuilder conditionBuilder = new BooleanBuilder();
-        if(type.contains("c")){
-            conditionBuilder.or(qBoardReply.content.contains(keyword));
-        }
-        if(type.contains("i")){
-            conditionBuilder.or(qBoardReply.member.id.contains(keyword));
-        }
-        booleanBuilder.and(conditionBuilder);
-        log.info("BoardReply Search End");
-        return booleanBuilder;
     }
 }
