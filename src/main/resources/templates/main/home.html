@@ -30,31 +30,52 @@
                     </div>
                     <div id="question">
                         <div class="card">
-                            <div class="question">우리 프로젝트의 이름은?</div>
-                            <div class="answer">정답: 퀴제리아</br>made by. user01</div>
+                            <div class="question">[[${quiz.get(0).question}]]</div>
+                            <div class="answer" th:each="dto : ${quizAnswer}">
+                                <p th:if="${dto.correct eq 'Y'}">[[${dto.answer}]]</p>
+                            </div>
                         </div>
                     </div>
                     <div id="answer"> <!-- 2행 2열로 만들려고 좌우 나눔 -->
-                        <div id="left">
-                            <div id="left_top">
-                                <button type="button" class="btn btn-secondary" value="wrong">피제리아</button>
-                            </div>
-                            <div id="left_bot">
-                                <button type="button" class="btn btn-secondary" value="correct">퀴제리아</button>
-                            </div>
+                        <div th:if="${quizListDTO.type eq 'Subjective'}" class="input-group mb-3">
+                            <input type="text" class="form-control" style="height: 100px;" placeholder="정답을 입력해 주세요" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <button class="btn btn-primary" type="button" id="button-addon2" value="Y">Submit</button>
                         </div>
-                        <div id="right">
-                            <div id="right_top">
-                                <button type="button" class="btn btn-secondary" value="wrong">라라코스트</button>
-                            </div>
-                            <div id="right_bot">
-                                <button type="button" class="btn btn-secondary" value="wrong">네고라니</button>
-                            </div>
+                        <div th:if="${quizListDTO.type eq 'BinaryChoice'}" class="input-group mb-3">
+                            <button id="btn-2-1" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(0).correct}">[[${quizAnswer.get(0).answer}]]</button>
+                            <button id="btn-2-2" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(1).correct}">[[${quizAnswer.get(1).answer}]]</button>
                         </div>
+                        <div th:if="${quizListDTO.type eq 'TernaryChoice'}" class="input-group mb-3">
+                            <button id="btn-3-1" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(0).correct}">[[${quizAnswer.get(0).answer}]]</button>
+                            <button id="btn-3-2" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(1).correct}">[[${quizAnswer.get(1).answer}]]</button>
+                            <button id="btn-3-3" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(2).correct}">[[${quizAnswer.get(2).answer}]]</button>
+                        </div>
+                        <div th:if="${quizListDTO.type eq 'MultipleChoice'}" class="input-group mb-3">
+                            <button id="btn-4-1" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(0).correct}">[[${quizAnswer.get(0).answer}]]</button>
+                            <button id="btn-4-2" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(1).correct}">[[${quizAnswer.get(1).answer}]]</button>
+                            <button id="btn-4-3" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(2).correct}">[[${quizAnswer.get(2).answer}]]</button>
+                            <button id="btn-4-4" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(3).correct}">[[${quizAnswer.get(3).answer}]]</button>
+                        </div>
+<!--                        <div id="left">-->
+<!--                            <div id="left_top">-->
+<!--                                <button type="button" class="btn btn-secondary" value="wrong">피제리아</button>-->
+<!--                            </div>-->
+<!--                            <div id="left_bot">-->
+<!--                                <button type="button" class="btn btn-secondary" value="correct">퀴제리아</button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div id="right">-->
+<!--                            <div id="right_top">-->
+<!--                                <button type="button" class="btn btn-secondary" value="wrong">라라코스트</button>-->
+<!--                            </div>-->
+<!--                            <div id="right_bot">-->
+<!--                                <button type="button" class="btn btn-secondary" value="wrong">네고라니</button>-->
+<!--                            </div>-->
+<!--                        </div>-->
                     </div>
                     <div id="dailyQuiz_btn">
-                        <button type="button" class="btn btn-primary" onclick="location.href='../quiz/quiz_view'">퀴즈 보러 가기</button>
-                        <button type="button" class="btn btn-primary" onclick="location.href='./home'">다음문제</button>
+                        <button type="button" class="btn btn-primary" onclick="location.href='../quiz/quiz_view?qlno=17&index=0'">퀴즈 보러 가기</button>
+                        <button type="button" class="btn btn-primary" onclick="location.href='../quiz/quiz_main'">퀴즈 리스트 보기</button>
                     </div>
                 </div>
                 <div id="notice"> <!-- 홈에서 보이는 공지는 5~6개 까지만 표시, 중요공지 2개 + 최신공지 4개 -->

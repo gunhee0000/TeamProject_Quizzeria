@@ -15,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -34,14 +35,15 @@ public class QuizListReplyServiceImpl implements QuizListReplyService{
     }
 
     @Override
-    public PageResultDTO<QuizListReplyDTO, QuizListReply> getList(PageRequestDTO requestDTO){
+    public ArrayList<QuizListReply> getList(long qlno){
         log.info("QuizListReply Page Build Start");
-        Pageable pageable = requestDTO.getPageable(Sort.by("qlrno").descending());
-        BooleanBuilder booleanBuilder = getSearch(requestDTO);
-        Page<QuizListReply> result = repository.findAll(booleanBuilder, pageable);
-        Function<QuizListReply, QuizListReplyDTO> fn = (entity->entityToDTO(entity));
+//        Pageable pageable = requestDTO.getPageable(Sort.by("qlrno").descending());
+//        BooleanBuilder booleanBuilder = getSearch(requestDTO);
+//        Page<QuizListReply> result = repository.findAll(booleanBuilder, pageable);
+//        Function<QuizListReply, QuizListReplyDTO> fn = (entity->entityToDTO(entity));
+        ArrayList<QuizListReply> quizListReply = repository.findAllByQlno(qlno);
         log.info("QuizListReply Page Build End");
-        return new PageResultDTO<>(result, fn);
+        return quizListReply;
     }
 
     @Override
@@ -66,29 +68,5 @@ public class QuizListReplyServiceImpl implements QuizListReplyService{
             repository.save(entity);
         }
         log.info("QuizListReply Modify End");
-    }
-
-    private BooleanBuilder getSearch(PageRequestDTO requestDTO) {
-        log.info("QuizListReply Search Start");
-        String type = requestDTO.getType();
-        BooleanBuilder booleanBuilder = new BooleanBuilder();
-        QQuizListReply qQuizListReply = QQuizListReply.quizListReply;
-        String keyword = requestDTO.getKeyword();
-        BooleanExpression expression = qQuizListReply.qlrno.gt(0L);
-        booleanBuilder.and(expression);
-        if (type == null || type.trim().length() == 0) {
-            return booleanBuilder;
-        }
-
-        BooleanBuilder conditionBuilder = new BooleanBuilder();
-        if (type.contains("c")) {
-            conditionBuilder.or(qQuizListReply.content.contains(keyword));
-        }
-        if (type.contains("i")) {
-            conditionBuilder.or(qQuizListReply.member.id.contains(keyword));
-        }
-        booleanBuilder.and(conditionBuilder);
-        log.info(" Search End");
-        return booleanBuilder;
     }
 }

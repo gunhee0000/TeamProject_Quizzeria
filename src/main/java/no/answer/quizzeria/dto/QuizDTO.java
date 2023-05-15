@@ -17,15 +17,9 @@ public class QuizDTO {
 
     private String question;
 
-    private String answer;
-
-    private String correct;
-
     private QuizList quizList;
 
     private String hidden;
-
-    private Long views;
 
     private Long likes;
 

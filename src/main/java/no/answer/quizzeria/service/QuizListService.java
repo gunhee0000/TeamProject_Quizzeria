@@ -4,7 +4,9 @@ import no.answer.quizzeria.dto.PageRequestDTO;
 import no.answer.quizzeria.dto.PageResultDTO;
 import no.answer.quizzeria.dto.QuizListDTO;
 import no.answer.quizzeria.entity.QuizList;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface QuizListService {
 
     Long register(QuizListDTO dto);

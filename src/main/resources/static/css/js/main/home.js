@@ -15,7 +15,7 @@ $(function() {
 
     startSlideShow();
 
-    // 카드 요소와 버튼 요소들을 가져옴
+    //버튼 요소들을 가져옴
     var btns = document.querySelectorAll("#answer button");
 
     // 정답 버튼 클릭 시 처리할 함수
@@ -25,7 +25,7 @@ $(function() {
         var card = document.querySelector('.card');
         card.classList.toggle('flipped');
 
-        if (clickedBtn.value === "correct") {
+        if (clickedBtn.value === "Y") {
             clickedBtn.style.backgroundColor = "green";
         }else {
             clickedBtn.style.backgroundColor = "red";
