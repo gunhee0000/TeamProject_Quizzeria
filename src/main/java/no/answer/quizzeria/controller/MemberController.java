@@ -21,10 +21,10 @@ public class MemberController {
 
     private final MemberServiceImpl memberService;
 
-
     @GetMapping("/member_register")
     public void register(){
     }
+
     @PostMapping("/member_register")
     public String register(MemberDTO memberDTO){
         memberService.save(memberDTO);
