@@ -2,9 +2,9 @@ package no.answer.quizzeria.repository;
 
 import no.answer.quizzeria.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-public interface MemberRepository extends JpaRepository<Member, Long>
-        , QuerydslPredicateExecutor<Member>
-{
+import java.util.Optional;
+
+public interface MemberRepository extends JpaRepository<Member, Long>{
+    Optional<Member> findById(String id);
 }
