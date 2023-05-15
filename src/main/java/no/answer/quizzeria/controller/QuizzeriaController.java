@@ -29,8 +29,8 @@ public class QuizzeriaController {
         log.info("Quizzeria_Home In");
         model.addAttribute("notice", noticeService.getListHome());
         model.addAttribute("board", boardService.getListHome());
-        model.addAttribute("quizListDTO", quizListService.read((long)17));
-        model.addAttribute("quiz", quizService.read((long)17));
+        model.addAttribute("quizListDTO", quizListService.read((long)13));
+        model.addAttribute("quiz", quizService.read((long)13));
         model.addAttribute("quizAnswer", quizAnswerService.read(61));
 //        model.addAttribute("todayQuiz", quizService.getRandomQuiz());
     }

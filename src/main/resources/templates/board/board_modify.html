@@ -15,11 +15,11 @@
         <thead>
         <tr>
             <th scope="col">
-                <input id="title_text" type="text" class="form-control" name="title" placeholder="수정하실 제목을 입력하세요...">
+                <input id="title_text" type="text" class="form-control" name="title" th:value="${dto.title}" placeholder="수정하실 제목을 입력하세요...">
             </th>
         </tr>
         <tr>
-            <th scope="col">작성자 login</th>
+            <th scope="col">[[${dto.member.id}]]</th>
         </tr>
         </thead>
 
@@ -27,7 +27,7 @@
         <tr>
             <td>
                 <div class="form-group">
-                    <textarea id="content_text" class="form-control" rows="8" name="content" placeholder="수정하실 내용을 입력하세요..."></textarea>
+                    <input id="content_text" class="form-control" style="width: 100%; height: 150px;" name="content" th:value="${dto.content}" placeholder="수정하실 내용을 입력하세요..."/>
                 </div>
             </td>
         </tr>
