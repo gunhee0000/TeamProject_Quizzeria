@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org http://www.w3.org/1999/xhtml">
 
 <head>
     <!-- Required meta tags -->
@@ -16,7 +16,7 @@
 
 <body class="text-center">
     <main class="form-signin w-100 m-auto">
-        <form class="form-signin" th:action="@{/member/member_login}" method="post">
+        <form class="form-signin" action="/member/member_login" method="post">
             <a th:href="@{/}"><img class="mb-4" th:src="@{/css/images/member/login.png}" alt="" width="90" height="90"></a>
             <h1 class="h3 mb-3 font-weight-normal">Quizzeria Login</h1>
 
@@ -28,17 +28,18 @@
                 Quizzeria Logout
             </div>
 
-            <label for="id" class="sr-only">Username</label>
-            <input type="text" id="id" name="id" class="form-control" placeholder="Username" required autofocus>
-            <label for="password" class="sr-only">Password</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+            <label class="sr-only">Username</label>
+<!--            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
+            <input type="text" name="id" placeholder="Username" class="form-control" required autofocus>
+            <label class="sr-only">Password</label>
+            <input type="password" name="password" placeholder="Password" class="form-control" required>
             <!-- <div class="checkbox mb-3">
               <label>
                 <input type="checkbox" value="remember-me"> Remember me
               </label>
             </div> -->
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+            <p class="mt-5 mb-3 text-muted">&copy; 2023</p>
         </form>
     </main>
 

@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org http://www.w3.org/1999/xhtml">
 
 <head>
   <!-- Required meta tags -->
@@ -19,35 +19,35 @@
   <form class="form-signin" th:action="@{/member/member_register}" method="post">
     <h1 class="h3 mb-3 font-weight-normal">Quizzeria Sign_Up</h1>
 
-    <label for="id" class="sr-only">Id</label>
-    <input type="text" id="id" name="id" class="form-control" placeholder="Id" required autofocus>
+    <label class="sr-only">Id</label>
+    <input type="text" name="id" class="form-control" placeholder="Id" required autofocus>
 
-    <label for="password" class="sr-only">Password</label>
-    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+    <label class="sr-only">Password</label>
+    <input type="text" name="password" class="form-control" placeholder="Password" required autofocus>
 
-    <label for="email" class="sr-only">E-mail</label>
-    <input type="email" id="email" name="email" class="form-control" placeholder="E-mail" required>
+    <label class="sr-only">Email</label>
+    <input type="text" name="email" class="form-control" placeholder="Email" required autofocus>
 
-    <label for="name" class="sr-only">Name</label>
-    <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+    <label class="sr-only">Name</label>
+    <input type="text" name="name" class="form-control" placeholder="Name" required autofocus>
 
-    <label for="age" class="sr-only">Age</label>
-    <input type="text" id="age" name="age" class="form-control" placeholder="Age" required>
+    <label class="sr-only">Age</label>
+    <input type="text" name="age" class="form-control" placeholder="Age" required autofocus>
 
-    <label for="job" class="sr-only">Job</label>
-    <input type="text" id="job" name="job" class="form-control" placeholder="Job" required>
+    <label class="sr-only">Job</label>
+    <input type="text" name="job" class="form-control" placeholder="Job" required autofocus>
 
-    <label for="tel" class="sr-only">Tel</label>
-    <input type="text" id="tel" name="tel" class="form-control" placeholder="Tel" required>
+    <label class="sr-only">Tel</label>
+    <input type="text" name="tel" class="form-control" placeholder="Tel" required autofocus>
 
-    <label for="addr" class="sr-only">Addr</label>
-    <input type="text" id="addr" name="addr" class="form-control" placeholder="Addr" required>
+    <label class="sr-only">Addr</label>
+    <input type="text" name="addr" class="form-control" placeholder="Addr" required autofocus> <br>
 
     <label for="hidden" class="sr-only">임시</label>
     <input type="text" id="hidden" name="hidden" class="form-control" placeholder="hidden" value="N" required>
 
-    <label for="enabled" class="sr-only">임시</label>
-    <input type="text" id="enabled" name="enabled" class="form-control" placeholder="enabled" value="true" required>
+    <input type="radio" name="auth" value="ROLE_ADMIN,ROLE_USER"> admin
+    <input type="radio" name="auth" value="ROLE_USER" checked="checked"> user <br>
 
 
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>

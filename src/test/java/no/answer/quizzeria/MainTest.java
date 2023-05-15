@@ -16,7 +16,7 @@ public class MainTest {
 
     @Test
     public void makeImportantNoticeDummy(){ //중요공지 더미
-        Member member = Member.builder().mno((long)1).build();
+        Member member = Member.builder().id(String.valueOf((long)1)).build();
         IntStream.rangeClosed(1,10).forEach(i -> {
             Notice notice = Notice.builder()
                     .title("Important Notice..." + i)
@@ -33,7 +33,7 @@ public class MainTest {
 
     @Test
     public void makeGeneralNoticeDummy(){ //일반공지 더미
-        Member member = Member.builder().mno((long)1).build();
+        Member member = Member.builder().id(String.valueOf((long)1)).build();
         IntStream.rangeClosed(1,20).forEach(i -> {
             Notice notice = Notice.builder()
                     .title("General Notice..." + i)
