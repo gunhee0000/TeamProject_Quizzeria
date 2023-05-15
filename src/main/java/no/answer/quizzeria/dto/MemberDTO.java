@@ -17,6 +17,8 @@ public class MemberDTO {
 
     private String password;
 
+    private String auth;
+
     private String email;
 
     private String name;
@@ -35,5 +37,4 @@ public class MemberDTO {
 
     private String hidden;
 
-    private boolean enabled;
 }

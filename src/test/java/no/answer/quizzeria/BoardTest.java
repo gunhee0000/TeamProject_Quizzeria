@@ -6,6 +6,7 @@ import no.answer.quizzeria.entity.BoardReply;
 import no.answer.quizzeria.entity.Member;
 import no.answer.quizzeria.repository.BoardReplyRepository;
 import no.answer.quizzeria.repository.BoardRepository;
+import no.answer.quizzeria.repository.MemberRepository;
 import no.answer.quizzeria.service.BoardService;
 import no.answer.quizzeria.service.BoardServiceImpl;
 import org.junit.jupiter.api.Test;
@@ -22,12 +23,14 @@ public class BoardTest {
     @Autowired
     private BoardReplyRepository boardReplyRepository;
 
+
+
     @Test
     public void makeBoardDummy(){
         IntStream.rangeClosed(1,100).forEach(i -> {
             long ranMno = (long)((Math.random() * 30)+1);
 
-            Member member = Member.builder().mno(ranMno).build();
+            Member member = Member.builder().id(String.valueOf(ranMno)).build();
 
             Board board = Board.builder()
                     .title("Title..." + i)
@@ -51,7 +54,7 @@ public class BoardTest {
 
             IntStream.rangeClosed(1, ranCountOfComment).forEach(j -> { //board 하나당 1~5개 댓글
                 long ranMNO = (long)((Math.random() * 30)+1);
-                Member member = Member.builder().mno(ranMNO).build();
+                Member member = Member.builder().id(String.valueOf(ranMNO)).build();
                 BoardReply boardReply = BoardReply.builder()
                         .content("Comments..." + j)
                         .member(member)

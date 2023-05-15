@@ -53,7 +53,7 @@ public class QuizTest {
         IntStream.rangeClosed(1,20).forEach(i -> {
             ArrayList<String> category = ranCategory();
             long ranMno = (long)((Math.random() * 30)+1);
-            Member member = Member.builder().mno(ranMno).build();
+            Member member = Member.builder().id(String.valueOf(ranMno)).build();
             QuizList quizList = QuizList.builder()
                     .title("SubjectiveQuizTitle..." + i)
                     .category(category.get(i-1))
@@ -72,7 +72,7 @@ public class QuizTest {
         IntStream.rangeClosed(1,20).forEach(i -> {
             ArrayList<String> category = ranCategory();
             long ranMno = (long)((Math.random() * 30)+1);
-            Member member = Member.builder().mno(ranMno).build();
+            Member member = Member.builder().id(String.valueOf(ranMno)).build();
 
             QuizList quizList = QuizList.builder()
                     .title("BinaryChoiceQuizTitle..." + i)
@@ -92,7 +92,7 @@ public class QuizTest {
         IntStream.rangeClosed(1,20).forEach(i -> {
             ArrayList<String> category = ranCategory();
             long ranMno = (long)((Math.random() * 30)+1);
-            Member member = Member.builder().mno(ranMno).build();
+            Member member = Member.builder().id(String.valueOf(ranMno)).build();
 
             QuizList quizList = QuizList.builder()
                     .title("TernaryChoiceQuizTitle..." + i)
@@ -112,7 +112,7 @@ public class QuizTest {
         IntStream.rangeClosed(1,20).forEach(i -> {
             ArrayList<String> category = ranCategory();
             long ranMno = (long)((Math.random() * 30)+1);
-            Member member = Member.builder().mno(ranMno).build();
+            Member member = Member.builder().id(String.valueOf(ranMno)).build();
 
             QuizList quizList = QuizList.builder()
                     .title("MultipleChoiceQuizTitle..." + i)
@@ -228,7 +228,7 @@ public class QuizTest {
 
             IntStream.rangeClosed(1, ranCommentsCount).forEach(j -> {
                 long ranMNO = (long)((Math.random()*30)+1);
-                Member member = Member.builder().mno(ranMNO).build();
+                Member member = Member.builder().id(String.valueOf(ranMNO)).build();
                 QuizListReply quizListReply = QuizListReply.builder()
                         .content("QuizListComment..." + j)
                         .member(member)
@@ -250,7 +250,7 @@ public class QuizTest {
 
             IntStream.rangeClosed(1, ranCommentsCount).forEach(j -> {
                 long ranMNO = (long)((Math.random()*30)+1);
-                Member member = Member.builder().mno(ranMNO).build();
+                Member member = Member.builder().id(String.valueOf(ranMNO)).build();
                 QuizReply quizReply = QuizReply.builder()
                         .content("QuizComment..." + j)
                         .member(member)

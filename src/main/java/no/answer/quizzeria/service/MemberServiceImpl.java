@@ -4,50 +4,96 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import no.answer.quizzeria.dto.MemberDTO;
 import no.answer.quizzeria.entity.Member;
-import no.answer.quizzeria.entity.QMember;
-import no.answer.quizzeria.entity.Role;
 import no.answer.quizzeria.repository.MemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import javax.transaction.Transactional;
 
 @Service
 @Log4j2
 @RequiredArgsConstructor
-public class MemberServiceImpl implements MemberService{
+public class MemberServiceImpl implements UserDetailsService  {
 
-    @Autowired
-    private final MemberRepository repository;
+    private final MemberRepository memberRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
+    /**
+     * Spring Security 필수 메소드 구현
+     *
+     * @param id
+     * @return UserDetails
+     * @throws UsernameNotFoundException 유저가 없을 때 예외 발생
+     */
     @Override
-    public Member save(Member member){
-        String encodedPassword = passwordEncoder.encode(member.getPassword());
-        member.setPassword(encodedPassword);
-        member.setEnabled(true);
-        Role role = new Role();
-        role.setRno(1l);
-        member.getRoles().add(role);
-        return repository.save(member);
+    public Member loadUserByUsername(String id) throws UsernameNotFoundException {
+        return memberRepository.findById(id)
+                .orElseThrow(() -> new UsernameNotFoundException((id)));
     }
 
-    @Override
-    public MemberDTO read(Long mno){
-        log.info("Member Read Start");
-
-        Optional<Member> result = repository.findById(mno);
-        Member member = result.get();
-        member.getId();
 
 
-        log.info("Member Read End");
-        return result.isPresent() ? entityToDTO(result.get()) : null;
+    /**
+     * 회원정보 저장
+     *
+     * @param memberDTO 회원정보가 들어있는 DTO
+     * @return 저장되는 회원의 PK
+     */
+    public Long save(MemberDTO memberDTO){
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        memberDTO.setPassword(encoder.encode(memberDTO.getPassword()));
+
+        return memberRepository.save(Member.builder()
+                .id(memberDTO.getId())
+                .password(memberDTO.getPassword())
+                .email(memberDTO.getEmail())
+                .name(memberDTO.getName())
+                .age(memberDTO.getAge())
+                .job(memberDTO.getJob())
+                .tel(memberDTO.getTel())
+                .addr(memberDTO.getAddr())
+                .auth(memberDTO.getAuth())
+                .regDate(memberDTO.getRegDate())
+                .hidden(memberDTO.getHidden())
+                .build()).getMno();
+
+
     }
+
+}
+
+//    @Autowired
+//    private PasswordEncoder passwordEncoder;
+
+
+
+//    @Override
+//    public Member save(Member member){
+//        String encodedPassword = passwordEncoder.encode(member.getPassword());
+//        member.setPassword(encodedPassword);
+//        member.setEnabled(true);
+//        Role role = new Role();
+//        role.setRno(1l);
+//        member.getRoles().add(role);
+//        return repository.save(member);
+//    }
+
+//    @Override
+//    public MemberDTO read(Long mno){
+//        log.info("Member Read Start");
+//
+//        Optional<Member> result = repository.findById(mno);
+//        Member member = result.get();
+//        member.getId();
+//
+//
+//        log.info("Member Read End");
+//        return result.isPresent() ? entityToDTO(result.get()) : null;
+//    }
 
 
 //    public User save(User user) {
@@ -128,4 +174,3 @@ public class MemberServiceImpl implements MemberService{
 //        log.info("Member Search End");
 //        return booleanBuilder;
 //    }
-}
