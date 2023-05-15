@@ -22,13 +22,13 @@ public class BoardController {
     private final BoardService boardService;
 
 
-    @GetMapping({"/board/board_main", "/board/board_modify", "/board/board_new"})
+    @GetMapping({"/board/board_main", "/board/board_new"})
     public void Board(PageRequestDTO pageRequestDTO, Model model) {
         log.info("Quizzeria_Board In" + pageRequestDTO);
         model.addAttribute("result", boardService.getList(pageRequestDTO));
     }
 
-    @GetMapping({"/board/board_view"})
+    @GetMapping({"/board/board_view", "/board/board_modify"})
     public void Board_view(@ModelAttribute("requestDTO") PageRequestDTO pageRequestDTO, Long bno, Model model){
         log.info("bno" + bno);
         BoardDTO boardDTO = boardService.read(bno);

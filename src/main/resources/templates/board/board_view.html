@@ -84,11 +84,15 @@
 
         <tr id="board_table" th:each="dto : ${result.dtoList}">
           <td>[[${dto.bno}]]</td>
-          <td>[[${dto.title}]]</td>
+          <td>
+            <a th:href="@{/board/board_view(bno=${dto.bno})}">
+              [[${dto.title}]]
+            </a>
+          </td>
           <td>[[${dto.member.id}]]</td>
           <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
-          <td>dto.조회수</td>
-          <td>dto.추천수</td>
+          <td>[[${dto.views}]]</td>
+          <td>[[${dto.likes}]]</td>
         </tr>
 
       </today>
