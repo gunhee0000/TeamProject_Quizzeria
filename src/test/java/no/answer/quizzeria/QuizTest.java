@@ -132,7 +132,7 @@ public class QuizTest {
     @Test
     public void makeSubjectiveQuizDummy() {
         IntStream.rangeClosed(1, 3).forEach(i -> {
-            QuizList quizList = QuizList.builder().qlno((long) i).build();
+            QuizList quizList = QuizList.builder().qlno((long)i).build();
             IntStream.rangeClosed(1, 5).forEach(j -> {
                 Quiz quiz = Quiz.builder()
                         .question("SubjectiveQuestion..." + i + "-" + j)
@@ -344,10 +344,10 @@ public class QuizTest {
 
     @Test
     public void makeHomeQuiz() {
-        Member member = Member.builder().mno((long)0).build();
+        Member member = Member.builder().mno((long)1).build();
         QuizList quizList = QuizList.builder()
                 .title("기본문제")
-                .category("Others")
+                .category("others")
                 .type("MultipleChoice")
                 .member(member)
                 .hidden("N")

@@ -30,7 +30,7 @@ public class BoardTest {
         IntStream.rangeClosed(1,100).forEach(i -> {
             long ranMno = (long)((Math.random() * 30)+1);
 
-            Member member = Member.builder().id(String.valueOf(ranMno)).build();
+            Member member = Member.builder().mno(ranMno).build();
 
             Board board = Board.builder()
                     .title("Title..." + i)
@@ -54,7 +54,7 @@ public class BoardTest {
 
             IntStream.rangeClosed(1, ranCountOfComment).forEach(j -> { //board 하나당 1~5개 댓글
                 long ranMNO = (long)((Math.random() * 30)+1);
-                Member member = Member.builder().id(String.valueOf(ranMNO)).build();
+                Member member = Member.builder().mno(ranMNO).build();
                 BoardReply boardReply = BoardReply.builder()
                         .content("Comments..." + j)
                         .member(member)
