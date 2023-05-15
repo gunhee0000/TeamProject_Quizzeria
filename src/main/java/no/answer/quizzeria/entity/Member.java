@@ -59,7 +59,8 @@ public class Member implements UserDetails {
     private String hidden;
 
     @Builder
-    public Member(String id,String password, String email, String name, int age, String job, String tel, String addr, String auth, LocalDateTime regDate, String hidden){
+    public Member(Long mno, String id,String password, String email, String name, int age, String job, String tel, String addr, String auth, LocalDateTime regDate, String hidden){
+        this.mno = mno;
         this.id = id;
         this.password = password;
         this.email = email;
