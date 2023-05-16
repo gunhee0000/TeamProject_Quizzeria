@@ -26,7 +26,7 @@
       <tbody>
       <tr>
         <td>
-          <textarea id="table_content" rows="8">[[${dto.content}]]</textarea>
+          <textarea id="table_content" rows="8">[[${dto.content}]]></textarea>
 
           <div style="float:right;">
             <a th:href="@{/board/board_modify(bno = ${dto.bno})}">
@@ -56,11 +56,11 @@
       </thead>
 
       <tbody>
-      <tr id="boardReply_table" th:each="dto : ${reply_result.dtoList}">
-        <td>[[${dto.member.id}]]</td>
-        <td>[[${dto.content}]]</td>
-        <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
-        <td>[[${dto.likes}]]</td>
+      <tr th:each="reply_result: ${reply_result}">
+        <td>[[${reply_result.member.id}]]</td>
+        <td>[[${reply_result.content}]]</td>
+        <td>[[${#temporals.format(reply_result.regDate, 'yyyy/MM/dd')}]]</td>
+        <td>[[${reply_result.likes}]]</td>
       </tr>
       </tbody>
     </table>
@@ -84,15 +84,11 @@
 
         <tr id="board_table" th:each="dto : ${result.dtoList}">
           <td>[[${dto.bno}]]</td>
-          <td>
-            <a th:href="@{/board/board_view(bno=${dto.bno})}">
-              [[${dto.title}]]
-            </a>
-          </td>
+          <td>[[${dto.title}]]</td>
           <td>[[${dto.member.id}]]</td>
           <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
-          <td>[[${dto.views}]]</td>
-          <td>[[${dto.likes}]]</td>
+          <td>dto.조회수</td>
+          <td>dto.추천수</td>
         </tr>
 
       </today>

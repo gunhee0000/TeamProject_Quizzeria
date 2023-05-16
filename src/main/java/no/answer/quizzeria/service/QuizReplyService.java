@@ -11,7 +11,7 @@ public interface QuizReplyService {
 
     Long register(QuizReplyDTO dto);
 
-    public ArrayList<QuizReply> getList(long qno);
+    ArrayList<QuizReply> getList(long qno);
 
     QuizReplyDTO read(Long qrno);
 

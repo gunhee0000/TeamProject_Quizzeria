@@ -37,9 +37,6 @@ public class QuizReplyServiceImpl implements QuizReplyService{
     @Override
     public ArrayList<QuizReply> getList(long qno){
         log.info("QuizReply Page Build Start");
-//        Pageable pageable = requestDTO.getPageable(Sort.by("qrno").descending());
-//        Page<QuizReply> result = repository.findAll(pageable);
-//        Function<QuizReply, QuizReplyDTO> fn = (entity->entityToDTO(entity));
         ArrayList<QuizReply> quizReply = repository.findAllByQno(qno);
         log.info("QuizReply Page Build End");
         return quizReply;

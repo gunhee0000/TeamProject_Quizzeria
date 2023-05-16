@@ -11,7 +11,7 @@ public interface BoardReplyService {
 
     Long register(BoardReplyDTO dto);
 
-    public ArrayList<BoardReply> getList(long bno);
+    ArrayList<BoardReply> getList(long bno);
 
     BoardReplyDTO read(Long brno);
 

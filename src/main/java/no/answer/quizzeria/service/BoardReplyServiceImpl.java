@@ -38,9 +38,6 @@ public class BoardReplyServiceImpl implements BoardReplyService{
     @Override
     public ArrayList<BoardReply> getList(long bno){
         log.info("BoardReply Page Build Start");
-//        Pageable pageable = requestDTO.getPageable(Sort.by("brno").descending());
-//        Page<BoardReply> result = repository.findAll(pageable);
-//        Function<BoardReply, BoardReplyDTO> fn = (entity->entityToDTO(entity));
         ArrayList<BoardReply> boardReply = repository.findAllByBno(bno);
         log.info("BoardReply Page Build End");
         return boardReply;

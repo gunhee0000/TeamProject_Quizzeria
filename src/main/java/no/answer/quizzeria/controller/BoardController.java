@@ -37,7 +37,7 @@ public class BoardController {
         log.info("bno" + bno);
         BoardDTO boardDTO = boardService.read(bno);
         log.info(boardDTO);
-        model.addAttribute("reply_result", boardReplyService.getList(pageRequestDTO));
+        model.addAttribute("reply_result", boardReplyService.getList(bno));
         model.addAttribute("dto", boardDTO);
         model.addAttribute("result", boardService.getList(pageRequestDTO));
     }

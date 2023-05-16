@@ -10,6 +10,6 @@ import java.util.ArrayList;
 public interface BoardReplyRepository extends JpaRepository<BoardReply, Long>
         , QuerydslPredicateExecutor<BoardReply>
 {
-    @Query("SELECT br FROM BoardReply br LEFT JOIN Board bo ON bo.bno = br.board.bno WHERE br.board.bno = : bno")
+    @Query("SELECT br FROM BoardReply br LEFT JOIN Board bo ON bo.bno = br.board.bno WHERE br.board.bno = :bno")
     ArrayList<BoardReply> findAllByBno(long bno);
 }
