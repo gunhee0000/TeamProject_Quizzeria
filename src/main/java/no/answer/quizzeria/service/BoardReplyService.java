@@ -5,15 +5,18 @@ import no.answer.quizzeria.dto.PageRequestDTO;
 import no.answer.quizzeria.dto.PageResultDTO;
 import no.answer.quizzeria.entity.BoardReply;
 
+import java.util.ArrayList;
+
 public interface BoardReplyService {
 
     Long register(BoardReplyDTO dto);
 
-    PageResultDTO<BoardReplyDTO, BoardReply> getList(PageRequestDTO requestDTO);
+    public ArrayList<BoardReply> getList(long bno);
 
     BoardReplyDTO read(Long brno);
 
     void modify(BoardReplyDTO dto);
+
 
     default BoardReply dtoToEntity(BoardReplyDTO dto){
         BoardReply entity = BoardReply.builder()

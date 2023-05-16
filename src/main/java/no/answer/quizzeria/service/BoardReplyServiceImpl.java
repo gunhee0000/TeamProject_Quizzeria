@@ -15,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -35,13 +36,14 @@ public class BoardReplyServiceImpl implements BoardReplyService{
     }
 
     @Override
-    public PageResultDTO<BoardReplyDTO, BoardReply> getList(PageRequestDTO requestDTO){
+    public ArrayList<BoardReply> getList(long bno){
         log.info("BoardReply Page Build Start");
-        Pageable pageable = requestDTO.getPageable(Sort.by("brno").descending());
-        Page<BoardReply> result = repository.findAll(pageable);
-        Function<BoardReply, BoardReplyDTO> fn = (entity->entityToDTO(entity));
+//        Pageable pageable = requestDTO.getPageable(Sort.by("brno").descending());
+//        Page<BoardReply> result = repository.findAll(pageable);
+//        Function<BoardReply, BoardReplyDTO> fn = (entity->entityToDTO(entity));
+        ArrayList<BoardReply> boardReply = repository.findAllByBno(bno);
         log.info("BoardReply Page Build End");
-        return new PageResultDTO<>(result, fn);
+        return boardReply;
     }
 
     @Override
