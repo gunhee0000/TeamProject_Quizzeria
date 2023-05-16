@@ -27,7 +27,7 @@ public class BoardTest {
 
     @Test
     public void makeBoardDummy(){
-        IntStream.rangeClosed(1,100).forEach(i -> {
+        IntStream.rangeClosed(1,200).forEach(i -> {
             long ranMno = (long)((Math.random() * 30)+1);
 
             Member member = Member.builder().mno(ranMno).build();
