@@ -10,6 +10,7 @@
 
         <h1 class = "mt-4">Quizzeria register</h1>
 
+        <form th:action="@{/board_register}" th:method="post">
 
         <table class="table" id="table_main">
             <thead>
@@ -39,9 +40,13 @@
 
         <button type="submit" class="btn btn-outline-primary">등록</button>
 
+            <a th:href="@{/board/board_main}">
+                <button type="button" class="btn btn-outline-primary">돌아가기</button>
+            </a>
 
 
 
+        </form>
 
     </div>
 
