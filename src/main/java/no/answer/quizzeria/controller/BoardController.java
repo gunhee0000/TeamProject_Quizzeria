@@ -35,6 +35,7 @@ public class BoardController {
         log.info(boardDTO);
         model.addAttribute("dto", boardDTO);
         model.addAttribute("result", boardService.getList(pageRequestDTO));
+        model.addAttribute("board", boardService.getListHome());
     }
 
     @GetMapping("/board/board_register")

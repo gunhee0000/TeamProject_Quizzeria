@@ -67,33 +67,52 @@
 
   </div>
 
-  <div id="board_section_view" th:fragment="board_section">
-    <table class="table table-hover">
-      <thead>
-      <tr>
-        <th scope="col">글번호</th>
-        <th scope="col">제목</th>
-        <th scope="col">글쓴이</th>
-        <th scope="col">작성일</th>
-        <th scope="col">조회수</th>
-        <th scope="col">추천수</th>
-      </tr>
-      </thead>
+  <div id="bot">
+    <div id="board_new">
+      <div id="board_top">
+        <div id="board_title">
+          <h2>최신 게시글</h2>
+        </div>
+        <div id="board_btn">
+          <a th:href="@{/board/board_main}">게시판&raquo;</a>
+        </div>
+      </div>
+      <div id="board_content">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th scope="col" style="width: 16%;">글번호</th>
+            <th scope="col" style="width: 48%;">제목</th>
+            <th scope="col" style="width: 15%;">글쓴이</th>
+            <th scope="col" style="width: 7%;">조회수</th>
+            <th scope="col" style="width: 7%;">추천수</th>
+            <th scope="col" style="width: 16%;">게시일</th>
+          </tr>
+          </thead>
 
-      <today>
 
-        <tr id="board_table" th:each="dto : ${result.dtoList}">
-          <td>[[${dto.bno}]]</td>
-          <td>[[${dto.title}]]</td>
-          <td>[[${dto.member.id}]]</td>
-          <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
-          <td>dto.조회수</td>
-          <td>dto.추천수</td>
-        </tr>
+          <tbody>
 
-      </today>
-    </table>
+          <tr id="board_table" th:each="dto : ${board}">
+            <td>[[${dto.bno}]]</td>
+            <th scope="row">
+              <a th:href="@{/board/board_view(bno=${dto.bno})}">
+                [[${dto.title}]]
+              </a>
+            </th>
+            <td>[[${dto.member.id}]]</td>
+            <td>[[${dto.views}]]</td>
+            <td>[[${dto.likes}]]</td>
+            <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
+          </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+    </div>
   </div>
+</div>
 </div>
 
 
