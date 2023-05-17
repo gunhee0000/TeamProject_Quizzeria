@@ -15,6 +15,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -34,13 +36,11 @@ public class QuizReplyServiceImpl implements QuizReplyService{
     }
 
     @Override
-    public PageResultDTO<QuizReplyDTO, QuizReply> getList(PageRequestDTO requestDTO){
+    public List<QuizReply> getList(long qno){
         log.info("QuizReply Page Build Start");
-        Pageable pageable = requestDTO.getPageable(Sort.by("qrno").descending());
-        Page<QuizReply> result = repository.findAll(pageable);
-        Function<QuizReply, QuizReplyDTO> fn = (entity->entityToDTO(entity));
+        List<QuizReply> quizReply = repository.findAllById(Collections.singleton(qno));
         log.info("QuizReply Page Build End");
-        return new PageResultDTO<>(result, fn);
+        return quizReply;
     }
 
     @Override

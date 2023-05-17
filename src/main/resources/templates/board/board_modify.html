@@ -27,7 +27,7 @@
         <tr>
             <td>
                 <div class="form-group">
-                    <input id="content_text" class="form-control" style="width: 100%; height: 150px;" name="content" th:value="${dto.content}" placeholder="수정하실 내용을 입력하세요..."/>
+                    <input id="content_text" class="form-control" style="width:100%; height:150px;" name="content" th:value="${dto.content}" placeholder="수정하실 내용을 입력하세요...">
                 </div>
             </td>
         </tr>
@@ -38,6 +38,10 @@
     <hr>
 
     <button type="submit" class="btn btn-primary">수정</button>
+
+    <a th:href="@{/board/board_view(bno = ${dto.bno})}">
+        <button type="button" class="btn btn-outline-primary">돌아가기</button>
+    </a>
 
 
 
