@@ -5,13 +5,13 @@ import no.answer.quizzeria.dto.PageRequestDTO;
 import no.answer.quizzeria.dto.PageResultDTO;
 import no.answer.quizzeria.entity.BoardReply;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface BoardReplyService {
 
     Long register(BoardReplyDTO dto);
 
-    ArrayList<BoardReply> getList(long bno);
+    List<BoardReply> getList(long bno);
 
     BoardReplyDTO read(Long brno);
 

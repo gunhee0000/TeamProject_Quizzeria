@@ -15,7 +15,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -36,9 +37,9 @@ public class BoardReplyServiceImpl implements BoardReplyService{
     }
 
     @Override
-    public ArrayList<BoardReply> getList(long bno){
+    public List<BoardReply> getList(long bno){
         log.info("BoardReply Page Build Start");
-        ArrayList<BoardReply> boardReply = repository.findAllByBno(bno);
+        List<BoardReply> boardReply = repository.findAllById(Collections.singleton(bno));
         log.info("BoardReply Page Build End");
         return boardReply;
     }
