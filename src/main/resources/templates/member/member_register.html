@@ -9,50 +9,58 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link th:href="@{/css/member/member_login.css}" rel="stylesheet">
+  <link th:href="@{/css/member/member_register.css}" rel="stylesheet">
+  <script th:src="@{/css/js/member/member_register.js}" defer></script>
 
   <title>Login</title>
 </head>
 
 <body class="text-center">
 <main class="form-signin w-100 m-auto">
-  <form class="form-signin" th:action="@{/member/member_register}" method="post">
-    <h1 class="h3 mb-3 font-weight-normal">Quizzeria Sign_Up</h1>
 
-    <label class="sr-only">Id</label>
-    <input type="text" name="id" class="form-control" placeholder="Id" required autofocus>
+    <form class="joinForm" th:action="@{/member/member_register}" method="post">
 
-    <label class="sr-only">Password</label>
-    <input type="text" name="password" class="form-control" placeholder="Password" required autofocus>
+      <h2>Quizzeria 회원가입</h2>
+      <div class="textForm">
+        <input id="form_id" name="id" type="text" class="form-control" placeholder="아이디">
+      </div>
+      <div class="textForm">
+        <input id="form_pw" name="password" type="password" class="form-control" placeholder="비밀번호">
+      </div>
+      <div class="textForm">
+        <input id="form_pw_Confirm" type="password" class="form-control" placeholder="비밀번호 확인">
+      </div>
+      <div class="textForm">
+        <input id="form_email" name="email" type="text" class="form-control" placeholder="user@quizzeria.com">
+      </div>
+      <div class="textForm">
+        <input id="form_name" name="name" type="text" class="form-control" placeholder="이름">
+      </div>
+      <div class="textForm">
+        <input id="form_age" name="age" type="text" class="form-control" placeholder="나이">
+      </div>
+      <div class="textForm">
+        <input id="form_job" name="job" type="text" class="form-control" placeholder="직업">
+      </div>
+      <div class="textForm">
+        <input id="form_tel" name="tel" type="text" class="form-control" placeholder="010-0000-0000">
+      </div>
+      <div class="textForm">
+        <input id="form_addr" name="addr" type="text" class="form-control" placeholder="00시00구00로">
+      </div>
 
-    <label class="sr-only">Email</label>
-    <input type="text" name="email" class="form-control" placeholder="Email" required autofocus>
+      <label for="hidden" class="sr-only">hidden</label>
+      <input type="hidden" id="hidden" name="hidden" class="form-control" placeholder="hidden" value="N" required>
+      <div style="display: none;">
+        <input type="radio" name="auth" value="ROLE_ADMIN,ROLE_USER"> admin
+        <input type="radio" name="auth" value="ROLE_USER" checked="checked"> user <br>
+      </div>
 
-    <label class="sr-only">Name</label>
-    <input type="text" name="name" class="form-control" placeholder="Name" required autofocus>
+      <input type="submit" class="btn" onclick="if(!pwConfirm()) return false;" value="회원가입"/>
 
-    <label class="sr-only">Age</label>
-    <input type="text" name="age" class="form-control" placeholder="Age" required autofocus>
-
-    <label class="sr-only">Job</label>
-    <input type="text" name="job" class="form-control" placeholder="Job" required autofocus>
-
-    <label class="sr-only">Tel</label>
-    <input type="text" name="tel" class="form-control" placeholder="Tel" required autofocus>
-
-    <label class="sr-only">Addr</label>
-    <input type="text" name="addr" class="form-control" placeholder="Addr" required autofocus> <br>
-
-    <label for="hidden" class="sr-only">임시</label>
-    <input type="hidden" id="hidden" name="hidden" class="form-control" placeholder="hidden" value="N" required>
-    <div style="display: none;">
-      <input type="radio" name="auth" value="ROLE_ADMIN,ROLE_USER"> admin
-      <input type="radio" name="auth" value="ROLE_USER" checked="checked"> user <br>
-    </div>
+    </form>
 
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
   </form>
 </main>
 
@@ -69,8 +77,11 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous">
-
 </script>
+
+
+
+
 </body>
 
 </html>

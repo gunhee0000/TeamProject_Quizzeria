@@ -40,6 +40,7 @@ public class BoardController {
         model.addAttribute("reply_result", boardReplyService.getList(bno));
         model.addAttribute("dto", boardDTO);
         model.addAttribute("result", boardService.getList(pageRequestDTO));
+        model.addAttribute("board", boardService.getListHome());
     }
 
     @GetMapping("/board/board_register")
