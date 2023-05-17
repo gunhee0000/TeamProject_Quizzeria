@@ -6,13 +6,14 @@ import no.answer.quizzeria.dto.QuizListReplyDTO;
 import no.answer.quizzeria.entity.QuizListReply;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface QuizListReplyService {
 
     Long register(QuizListReplyDTO dto);
 
 //    PageResultDTO<QuizListReplyDTO, QuizListReply> getList(PageRequestDTO requestDTO);
-    ArrayList<QuizListReply> getList(long qlno);
+    List<QuizListReply> getList(long qlno);
 
     QuizListReplyDTO read(Long qlrno);
 

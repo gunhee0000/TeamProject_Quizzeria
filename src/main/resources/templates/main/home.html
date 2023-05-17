@@ -30,27 +30,27 @@
                     </div>
                     <div id="question">
                         <div class="card">
-                            <div class="question">[[${quiz.get(0).question}]]</div>
+                            <div class="question">[[${quizAnswer.get(0).quiz.question}]]</div>
                             <div class="answer" th:each="dto : ${quizAnswer}">
                                 <p th:if="${dto.correct eq 'Y'}">[[${dto.answer}]]</p>
                             </div>
                         </div>
                     </div>
                     <div id="answer"> <!-- 2행 2열로 만들려고 좌우 나눔 -->
-                        <div th:if="${quizListDTO.type eq 'Subjective'}" class="input-group mb-3">
+                        <div th:if="${quizAnswer.get(0).quiz.type eq 'Subjective'}" class="input-group mb-3">
                             <input type="text" class="form-control" style="height: 100px;" placeholder="정답을 입력해 주세요" aria-label="Recipient's username" aria-describedby="button-addon2">
                             <button class="btn btn-primary" type="button" id="button-addon2" value="Y">Submit</button>
                         </div>
-                        <div th:if="${quizListDTO.type eq 'BinaryChoice'}" class="input-group mb-3">
+                        <div th:if="${quizAnswer.get(0).quiz.type eq 'BinaryChoice'}" class="input-group mb-3">
                             <button id="btn-2-1" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(0).correct}">[[${quizAnswer.get(0).answer}]]</button>
                             <button id="btn-2-2" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(1).correct}">[[${quizAnswer.get(1).answer}]]</button>
                         </div>
-                        <div th:if="${quizListDTO.type eq 'TernaryChoice'}" class="input-group mb-3">
+                        <div th:if="${quizAnswer.get(0).quiz.type eq 'TernaryChoice'}" class="input-group mb-3">
                             <button id="btn-3-1" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(0).correct}">[[${quizAnswer.get(0).answer}]]</button>
                             <button id="btn-3-2" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(1).correct}">[[${quizAnswer.get(1).answer}]]</button>
                             <button id="btn-3-3" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(2).correct}">[[${quizAnswer.get(2).answer}]]</button>
                         </div>
-                        <div th:if="${quizListDTO.type eq 'MultipleChoice'}" class="input-group mb-3">
+                        <div th:if="${quizAnswer.get(0).quiz.type eq 'MultipleChoice'}" class="input-group mb-3">
                             <button id="btn-4-1" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(0).correct}">[[${quizAnswer.get(0).answer}]]</button>
                             <button id="btn-4-2" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(1).correct}">[[${quizAnswer.get(1).answer}]]</button>
                             <button id="btn-4-3" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(2).correct}">[[${quizAnswer.get(2).answer}]]</button>
@@ -74,7 +74,7 @@
 <!--                        </div>-->
                     </div>
                     <div id="dailyQuiz_btn">
-                        <button type="button" class="btn btn-primary" onclick="location.href='../quiz/quiz_view?qlno=17&index=0'">퀴즈 보러 가기</button>
+                        <button type="button" class="btn btn-primary" onclick="location.href='../quiz/quiz_view?qlno=1&index=0'">퀴즈 보러 가기</button>
                         <button type="button" class="btn btn-primary" onclick="location.href='../quiz/quiz_main'">퀴즈 리스트 보기</button>
                     </div>
                 </div>

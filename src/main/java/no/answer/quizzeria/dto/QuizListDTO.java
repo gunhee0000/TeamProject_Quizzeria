@@ -4,8 +4,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import no.answer.quizzeria.entity.Member;
+import no.answer.quizzeria.entity.Quiz;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Builder
 @NoArgsConstructor
@@ -26,9 +28,9 @@ public class QuizListDTO {
 
     private String category;
 
-    private String type;
-
     private Long views;
 
     private Long likes;
+
+    private List<Quiz> quiz;
 }

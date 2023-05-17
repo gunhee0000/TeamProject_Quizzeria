@@ -7,6 +7,7 @@ import no.answer.quizzeria.entity.Quiz;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,7 +19,7 @@ public interface QuizService {
 
 //    Optional<Quiz> getRandomQuiz();
 
-    ArrayList<Quiz> read(Long qlno);
+    List<Quiz> read(Long qlno);
 
 //    void modify(QuizDTO dto);
 
@@ -30,6 +31,8 @@ public interface QuizService {
                 .hidden(dto.getHidden())
                 .likes(dto.getLikes())
                 .quizFile(dto.getQuizFile())
+                .type(dto.getType())
+                .quizAnswer(dto.getQuizAnswer())
                 .build();
         return entity;
     }
@@ -42,6 +45,8 @@ public interface QuizService {
                 .hidden(entity.getHidden())
                 .likes(entity.getLikes())
                 .quizFile(entity.getQuizFile())
+                .type(entity.getType())
+                .quizAnswer(entity.getQuizAnswer())
                 .build();
         return dto;
     }

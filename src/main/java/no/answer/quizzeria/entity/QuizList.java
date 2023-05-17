@@ -8,6 +8,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Builder
@@ -47,13 +48,16 @@ public class QuizList {
     @Column(length = 100, nullable = false)
     private String category;
 
-    @Column(length = 100, nullable = false)
-    private String type;
-
     @ManyToOne(fetch = FetchType.LAZY)
     private Member member;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Quiz> quiz;
+
 
     public void changeTitle(String title){
         this.title = title;
     }
+
+    public void changeQuiz(List<Quiz> quiz){ this.quiz = quiz; }
 }
