@@ -7,6 +7,7 @@ import no.answer.quizzeria.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -19,19 +20,19 @@ public class QuizzeriaController {
     private final QuizListService quizListService;
     private final QuizService quizService;
     private final QuizAnswerService quizAnswerService;
+    private final MemberServiceImpl memberService;
 
     @GetMapping("/welcome")
     public void Main(){
         log.info("Quizzeria_Main In");
     }
+
     @GetMapping("/home")
     public void Home(Model model){
         log.info("Quizzeria_Home In");
         model.addAttribute("notice", noticeService.getListHome());
         model.addAttribute("board", boardService.getListHome());
-        model.addAttribute("quizListDTO", quizListService.read((long)13));
-        model.addAttribute("quiz", quizService.read((long)13));
-        model.addAttribute("quizAnswer", quizAnswerService.read(61));
+        model.addAttribute("quizAnswer", quizAnswerService.read(1));
 //        model.addAttribute("todayQuiz", quizService.getRandomQuiz());
     }
     @GetMapping("/notice")

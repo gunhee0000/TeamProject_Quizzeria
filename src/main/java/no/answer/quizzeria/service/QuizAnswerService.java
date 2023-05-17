@@ -3,11 +3,11 @@ package no.answer.quizzeria.service;
 import no.answer.quizzeria.dto.QuizAnswerDTO;
 import no.answer.quizzeria.entity.QuizAnswer;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface QuizAnswerService {
 
-    ArrayList<QuizAnswer> read(long qno);
+    List<QuizAnswer> read(long qno);
 
     default QuizAnswer dtoTOEntity(QuizAnswerDTO dto){
         QuizAnswer entity = QuizAnswer.builder()

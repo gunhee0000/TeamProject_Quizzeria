@@ -11,6 +11,6 @@ import java.util.ArrayList;
 public interface QuizListReplyRepository extends JpaRepository<QuizListReply, Long>
         , QuerydslPredicateExecutor<QuizListReply>
 {
-    @Query("SELECT qlr FROM QuizListReply qlr LEFT JOIN QuizList ql ON ql.qlno = qlr.quizList.qlno WHERE qlr.quizList.qlno = :qlno")
-    ArrayList<QuizListReply> findAllByQlno(long qlno);
+//    @Query("SELECT qlr FROM QuizListReply qlr LEFT JOIN QuizList ql ON ql.qlno = qlr.quizList.qlno WHERE qlr.quizList.qlno = :qlno")
+//    ArrayList<QuizListReply> findAllByQlno(long qlno);
 }

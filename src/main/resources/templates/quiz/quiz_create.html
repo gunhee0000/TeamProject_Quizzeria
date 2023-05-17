@@ -10,6 +10,38 @@
 </head>
 <body>
     <header th:replace="/layout/header_layout :: header_layout"></header>
+<!--
+퀴즈 제목 입력
+
+카테고리 선택
+
+문제 입력
+문제 유형 선택
+    유형에 따라 답 입력
+
+page를 여러개 나누면?
+퀴즈 제목 + 카테고리 입력
+문제 + 답 입력
+두개로 나눠서 제목, 카테고리 받은거 저장하고 문제 답 입력 페이지에 띄워주면서
+원하는 문제 만큼 계속 추가
+최대 20문제 제한
+-->
+    <div id="container">
+        <div id="left">
+            <div id="top">
+                아이디
+            </div>
+            <div id="mid">
+                문제 타이틀
+            </div>
+            <div id="bot">
+                카테고리 선택
+            </div>
+        </div>
+        <div id="right">
+            배너?
+        </div>
+    </div>
 
     <footer th:replace="/layout/footer_layout :: footer_layout"></footer>
 </body>

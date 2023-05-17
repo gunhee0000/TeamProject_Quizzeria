@@ -19,6 +19,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -59,9 +61,9 @@ public class QuizServiceImpl implements QuizService{
 //    }
 
     @Override
-    public ArrayList<Quiz> read(Long qlno){
+    public List<Quiz> read(Long qlno){
         log.info("Quiz Read Start");
-        ArrayList<Quiz> result = repository.findAllByQlno(qlno);
+        List<Quiz> result = repository.findAllById(Collections.singleton(qlno));
         log.info("Quiz Read End");
 
         return result;

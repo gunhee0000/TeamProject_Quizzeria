@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @Log4j2
@@ -37,23 +38,15 @@ public class QuizController {
     }
 
     @GetMapping("/quiz_view")
-    public void Quiz_view(Model model, long qlno, int index){ //qlno로 문제 리스트의 문제들(3개) 받아와야함
+    public void Quiz_view(Model model, long qlno, int index){
         log.info("Quiz_view In");
-        QuizListDTO quizListDTO = quizListService.read(qlno); //문제 리트트 정보
-        ArrayList<Quiz> quiz = quizService.read(qlno);//문제들 5개 받아오기
+        QuizListDTO quizListDTO = quizListService.read(qlno);
+        List<Quiz> quiz = quizService.read(qlno);
+        List<QuizAnswer> quizAnswer = quizAnswerService.read(quiz.get(index).getQno());
 
-        QuizDTO quizDTO = quizService.entityToDTO(quiz.get(index));
-        Long qno = quizDTO.getQno();
-
-        ArrayList<QuizAnswer> quizAnswer = quizAnswerService.read(qno); //문제에 대한 답 가져오는거
-//        QuizAnswerDTO quizAnswerDTO = quizAnswerService.entityToDTO(quizAnswer.get(0));
-
-//        System.out.println("quizListDTO >>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + quizListDTO);
-//        System.out.println("quiz >>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + quiz);
-//        System.out.println("quizDTO >>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + quizDTO);
-//        System.out.println("quizAnswer >>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + quizAnswer);
-//        System.out.println("quizAnswerDTO >>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + quizAnswerDTO);
-
+        System.out.println("quizListDTO >>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + quizListDTO);
+        System.out.println("quiz >>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + quiz);
+        System.out.println("quizAnswer >>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + quizAnswer);
 
         model.addAttribute("quizListDTO", quizListDTO);
         model.addAttribute("quiz", quiz);

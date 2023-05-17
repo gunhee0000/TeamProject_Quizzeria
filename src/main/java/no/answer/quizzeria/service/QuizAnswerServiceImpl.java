@@ -8,6 +8,7 @@ import no.answer.quizzeria.repository.QuizAnswerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @Log4j2
@@ -16,9 +17,15 @@ public class QuizAnswerServiceImpl implements QuizAnswerService{
     private final QuizAnswerRepository repository;
 
     @Override
-    public ArrayList<QuizAnswer> read(long qno){
+    public List<QuizAnswer> read(long qno){
         log.info("QuizAnswer Read Start");
-        ArrayList<QuizAnswer> result = repository.findAllByQno(qno);
+        List<QuizAnswer> quizAnswers = repository.findAll();
+        List<QuizAnswer> result = new ArrayList<>();
+        for(QuizAnswer dto : quizAnswers){
+            if(dto.getQuiz().getQno() == qno){
+                result.add(dto);
+            }
+        }
         log.info("Quiz Read End");
 
         return result;

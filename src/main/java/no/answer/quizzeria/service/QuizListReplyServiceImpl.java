@@ -16,6 +16,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -35,13 +37,13 @@ public class QuizListReplyServiceImpl implements QuizListReplyService{
     }
 
     @Override
-    public ArrayList<QuizListReply> getList(long qlno){
+    public List<QuizListReply> getList(long qlno){
         log.info("QuizListReply Page Build Start");
 //        Pageable pageable = requestDTO.getPageable(Sort.by("qlrno").descending());
 //        BooleanBuilder booleanBuilder = getSearch(requestDTO);
 //        Page<QuizListReply> result = repository.findAll(booleanBuilder, pageable);
 //        Function<QuizListReply, QuizListReplyDTO> fn = (entity->entityToDTO(entity));
-        ArrayList<QuizListReply> quizListReply = repository.findAllByQlno(qlno);
+        List<QuizListReply> quizListReply = repository.findAllById(Collections.singleton(qlno));
         log.info("QuizListReply Page Build End");
         return quizListReply;
     }
