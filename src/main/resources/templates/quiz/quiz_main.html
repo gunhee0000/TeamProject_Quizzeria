@@ -12,7 +12,6 @@
 
 <body>
     <header th:replace="/layout/header_layout :: header_layout"></header>
-    <div type="hidden" id="size" th:value="${quizlist.dtoList.size()}"/>
     <div id="container">
         <div id="left">
             <div id="list_container">
@@ -52,6 +51,7 @@
                 문제 만들기 버튼?
             </div>
             <div id="right_btn">
+                <div type="hidden" id="size" th:value="${quizlist.size()}"/>
                 <button type="button" class="btn btn-outline-secondary" onclick="randomQuiz()">Solving Random Quiz!</button>
                 <button type="button" class="btn btn-outline-secondary" onclick="location.href='./quiz_create'">Make a Quiz</button>
             </div>
