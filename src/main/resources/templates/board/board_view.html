@@ -27,7 +27,13 @@
       <tr>
         <td>
           <div style="float:right;">
-          <textarea id="table_content" rows="8">[[${dto.content}]]></textarea>
+          <textarea id="table_content" rows="8" readonly>[[${dto.content}]]</textarea>
+
+          <span>
+              <a th:href="@{/board/like(bno=${dto.bno})}">
+                <button type="button" class="btn btn-outline-primary">추천</button>
+              </a>
+            </span>
 
           <span th:if="${#authentication.principal.id eq dto.member.id}">
             <a th:href="@{/board/board_modify(bno = ${dto.bno})}">
@@ -36,7 +42,7 @@
           </span>
 
           <span th:if="${#authentication.principal.id eq dto.member.id}">
-            <a th:href="@{/board/board_main}">
+            <a th:href="@{/board/delete(bno=${dto.bno})}">
               <button type="button" class="btn btn-outline-primary">삭제</button>
             </a>
           </span>
@@ -53,39 +59,7 @@
 
     </table>
 
-    <table class="table table-hover" id="table_reply">
-      <thead>
-      <tr>
-        <th scope="col">리플 작성자</th>
-        <th scope="col">리플 내용</th>
-        <th scope="col">리플 작성시간</th>
-        <th scope="col">리플 좋아요</th>
-      </tr>
-      </thead>
 
-      <tbody>
-      <tr th:each="reply_result: ${reply_result}">
-        <td>[[${reply_result.member.id}]]</td>
-        <td>[[${reply_result.content}]]</td>
-        <td>[[${#temporals.format(reply_result.regDate, 'yyyy/MM/dd')}]]</td>
-        <td>[[${reply_result.likes}]]</td>
-        <span th:if="${#authentication.principal.id eq reply_result.member.id}">
-            <a th:href="@{/board/board_view(bno = ${dto.bno})}">
-              <button type="button" class="btn btn-outline-primary">삭제</button>
-            </a>
-          </span>
-      </tr>
-
-      <tr>
-        <th scope="col">
-          <input id="title_text" type="text" class="form-control" name="title" placeholder="댓글을 입력하세요...">
-        </th>
-      </tr>
-
-      <button type="submit" class="btn btn-outline-primary">등록</button>
-
-      </tbody>
-    </table>
 
   </div>
 

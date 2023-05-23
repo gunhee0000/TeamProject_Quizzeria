@@ -60,9 +60,9 @@ public class MemberServiceImpl implements UserDetailsService  {
                 .regDate(memberDTO.getRegDate())
                 .hidden(memberDTO.getHidden())
                 .build()).getMno();
-
-
     }
+
+
 
 }
 

@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @EntityListeners(value = { AuditingEntityListener.class })
-@ToString(exclude = {"member", "boardFile"})
+@ToString(exclude = {"member"})
 public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,8 +55,7 @@ public class Board {
     @ManyToOne(fetch = FetchType.LAZY)
     private Member member;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<BoardFile> boardFile = new ArrayList<>();
+
 
     public void changeTitle(String title){
         this.title = title;
@@ -66,7 +65,15 @@ public class Board {
         this.content = content;
     }
 
-    public void changeBoardFile(List<BoardFile> boardFile){
-        this.boardFile = boardFile;
+    public void increaseViews() {
+        this.views += 1;
     }
+
+    public void increaseLikes() {
+        this.likes += 1;
+        this.views -= 1;
+    }
+
+
+
 }

@@ -46,7 +46,7 @@
                             <a class="nav-link" href="../board/board_main">게시판</a>
                         </li>
                         <li th:if="${#authentication.principal ne 'anonymousUser'}" class="nav-item">
-                            <a class="nav-link" sec:authentication="name" onclick="location.href='/member/userInfo'"></a>
+                            <a class="nav-link" sec:authentication="name" onclick="location.href='/member/member_Info'"></a>
                         </li>
                         <li th:if="${#authentication.principal ne 'anonymousUser'}" class="nav-item">
                             <form id="logout" action="/logout" method="POST">

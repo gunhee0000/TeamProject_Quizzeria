@@ -61,8 +61,8 @@
                   </a>
                 </th>
                 <td class="text-center">[[${dto.member.id}]]</td>
-                <td class="text-center">0</td>
-                <td class="text-center">0</td>
+                <td class="text-center">[[${dto.views}]]</td>
+                <td class="text-center">[[${dto.likes}]]</td>
                 <td class="text-center">[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
               </tr>
             </today>
@@ -98,9 +98,6 @@
 </body>
 
 
-<script th:inline="javascript">
 
-
-</script>
 
 </html>

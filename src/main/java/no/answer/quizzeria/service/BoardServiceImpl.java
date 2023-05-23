@@ -15,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Optional;
@@ -71,11 +72,17 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public BoardDTO read(Long bno){
+    public BoardDTO read(Long bno) {
         log.info("Board Read Start");
         Optional<Board> result = repository.findById(bno);
-        log.info("Board Read End");
-        return result.isPresent() ? entityToDTO(result.get()) : null;
+        if (result.isPresent()) {
+            Board board = result.get();
+            board.increaseViews(); // 조회수 증가
+            repository.save(board); // 변경된 조회수를 저장
+            log.info("Board Read End");
+            return entityToDTO(board);
+        }
+        return null;
     }
 
     @Override
@@ -88,12 +95,30 @@ public class BoardServiceImpl implements BoardService{
 
             entity.changeContent(dto.getContent());
             entity.changeTitle(dto.getTitle());
-            entity.changeBoardFile(dto.getBoardFile());
 
             log.info("Board Modify Success");
             repository.save(entity);
         }
         log.info("Board Modify End");
     }
+
+    @Override
+    public void delete(Long bno) {
+        log.info("Board Delete Start");
+        repository.deleteById(bno);
+        log.info("Board Delete End");
+    }
+
+    @Transactional
+    @Override
+    public void increaseLikes(Long bno) {
+        Optional<Board> optionalBoard = repository.findById(bno);
+        if (optionalBoard.isPresent()) {
+            Board board = optionalBoard.get();
+            board.increaseLikes();
+        }
+    }
+
+
 
 }
