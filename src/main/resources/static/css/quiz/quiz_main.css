@@ -1,14 +1,14 @@
 
 #container{
     width: 1280px;
-    height:760px;
+    height:700px;
     margin: 0 auto;
     /*background-color: aqua;*/
 }
 
 #left{
     width: 840px;
-    height: 760px;
+    height: 700px;
     float: left;
     padding-top: 20px;
     box-sizing: border-box;
@@ -23,7 +23,7 @@
 
 #right{
     width: 440px;
-    height: 760px;
+    height: 700px;
     float: left;
     padding-top: 20px;
     box-sizing: border-box;
@@ -32,11 +32,13 @@
 
     #userInfo{
         width: 400px;
-        height: 560px;
+        height: 400px;
         margin: 0 auto;
         border: 1px solid #333333;
         /*background-color: #abdde5;*/
     }
+
+
     #right_btn{
         width: 400px;
         height: 160px;

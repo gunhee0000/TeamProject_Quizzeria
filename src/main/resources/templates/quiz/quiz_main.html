@@ -14,6 +14,13 @@
     <header th:replace="/layout/header_layout :: header_layout"></header>
     <div type="hidden" id="size" th:value="${quizlist.dtoList.size()}"/>
     <div id="container">
+
+        <h3 class = "mt-4" id="board_header">
+            <span style="margin-left: 80px">
+                Quiz 게시판
+            </span>
+        </h3>
+
         <div id="left">
             <div id="list_container">
                 <table class="table table-hover">
@@ -38,18 +45,51 @@
                             <td>[[${dto.views}]]</td>
                             <td>[[${dto.likes}]]</td>
                         </tr>
+
+
+
                     </tbody>
 
                 </table>
+
+                <div id="quizPage">
+                    <ul class="pagination h-100 justify-content-center align-items-center">
+                        <li class="page-item" th:if="${quizlist.prev}">
+                            <a class="page-link" th:href="@{/quiz/quiz_main(page=${quizlist.start -1},
+                            type=${pageRequestDTO.type},
+                            keyword = ${pageRequestDTO.keyword})}" tabindex="-1">previous</a>
+                        </li>
+
+                        <li th:class=" 'page-item' + ${quizlist.page == page?'active':''}" th:each="page:${quizlist.pageList}">
+                            <a class="page-link" th:href="@{/quiz/quiz_main(page=${page},
+                            type = ${pageRequestDTO.type},
+                            keyword = ${pageRequestDTO.keyword} )}">[[${page}]]</a>
+                        </li>
+
+                        <li th:class="page-item" th:if="${quizlist.next}">
+                            <a class="page-link" th:href="@{/quiz/quiz_main(page=${quizlist.end +1},
+                            type=${pageRequestDTO.type},
+                            keyword = ${pageRequestDTO.keyword} )}">Next</a>
+                        </li>
+                    </ul>
+               </div>
+
             </div>
         </div>
         <div id="right">
             <div id="userInfo">
-                로그인 하면 사용자 정보
-                사용자 정보 보러 가기
-                최근 푼 문제??(로그)
-                정답률(로그)
-                문제 만들기 버튼?
+                <h3>Quizzeria 회원정보</h3>
+                <div>
+                    <div class="textForm">
+                        아이디 : [[${#authentication.principal.id}]]
+                    </div>
+                    <div class="textForm">
+                        이메일 : [[${#authentication.principal.email}]]
+                    </div>
+                    <div class="textForm">
+                        이름 :   [[${#authentication.principal.name}]]
+                    </div>
+                </div>
             </div>
             <div id="right_btn">
                 <button type="button" class="btn btn-outline-secondary" onclick="randomQuiz()">Solving Random Quiz!</button>
