@@ -9,6 +9,7 @@ import no.answer.quizzeria.entity.Member;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.List;
 
 public interface BoardService {
 
@@ -16,7 +17,7 @@ public interface BoardService {
 
     PageResultDTO<BoardDTO, Board> getList(PageRequestDTO requestDTO);
 
-    PageResultDTO<BoardDTO, Board> getListHome(PageRequestDTO requestDTO);
+    List<Board> getListHome();
 
 //    ArrayList<Board> getListHome();
 

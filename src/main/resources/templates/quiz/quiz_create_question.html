@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Make a Quiz!</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script th:src="@{/css/js/quiz/quiz_create_question.js}"></script>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/quiz/quiz_create_question.css}" rel="stylesheet">
+</head>
+<body>
+    <header th:replace="/layout/header_layout :: header_layout"></header>
+    <div id="container">
+        <div id="left">
+            <div id="top">
+                <form class="quizTitleForm" th:action="@{/quiz/quiz_create_title}" method="post">
+                <div class="form-group row">
+                    <label for="staticUserName" class="col-sm-2 col-form-label">User:</label>
+                    <div class="col-sm-10">
+                        <input type="text" readonly="" class="form-control-plaintext" id="staticUserName" th:value="${#authentication.principal.name}">
+                    </div>
+                </div>
+                <div class="textForm">
+                    <input id="form_title" name="question" type="text" class="form-control" placeholder="문제를 입력하세요.">
+                </div>
+                <div class="textForm">
+                    <select id="form_category" name="category" type="text" class="form-control" placeholder="카테고리 선택">
+                        <option value="" disabled selected hidden>문제유형 선택</option>
+                        <option value="Subjective">단답형</option>
+                        <option value="BinaryChoice">객관식-2문항</option>
+                        <option value="TernaryChoice">객관식-3문항</option>
+                        <option value="MultipleChoice">객관식-4문항</option>
+                    </select>
+                </div>
+                </form>
+            </div>
+            <div id="mid">
+                <div id="title">
+
+                </div>
+                <div id="input">
+                    <div id="inputContainer">
+                        <div id="answer"></div>
+                        <div id="correct"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="bot">
+                종료 버튼
+            </div>
+        </div>
+<!--        <div id="right">-->
+<!--            -->
+<!--        </div>-->
+    </div>
+
+    <footer th:replace="/layout/footer_layout :: footer_layout"></footer>
+</body>
+</html>

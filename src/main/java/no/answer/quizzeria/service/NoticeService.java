@@ -7,6 +7,7 @@ import no.answer.quizzeria.entity.Board;
 import no.answer.quizzeria.entity.Notice;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface NoticeService {
 
@@ -14,7 +15,7 @@ public interface NoticeService {
 
     PageResultDTO<NoticeDTO, Notice> getList(PageRequestDTO requestDTO);
 
-    ArrayList<Notice> getListHome();
+    List<Notice> getListHome();
 
     NoticeDTO read(Long nno);
 
