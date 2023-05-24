@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>Make a new Quiz!</title>
 
-    <script th:src="@{/css/js/quiz/quiz_create.js}"></script>
+    <script th:src="@{/css/js/quiz/quiz_create_title.js}"></script>
     <link th:href="@{/css/style.css}" rel="stylesheet">
-    <link th:href="@{/css/quiz/quiz_create.css}" rel="stylesheet">
+    <link th:href="@{/css/quiz/quiz_create_title.css}" rel="stylesheet">
 </head>
 <body>
     <header th:replace="/layout/header_layout :: header_layout"></header>
@@ -28,7 +28,7 @@ page를 여러개 나누면?
 -->
     <div id="container">
         <div id="left">
-            <form class="quizTitleForm" th:action="@{/quiz/quiz_QNA}" method="post">
+            <form class="quizTitleForm" th:action="@{/quiz/quiz_create_title}" method="post">
                 <div class="form-group row">
                     <label for="staticUserName" class="col-sm-2 col-form-label">User:</label>
                     <div class="col-sm-10">
@@ -36,7 +36,7 @@ page를 여러개 나누면?
                     </div>
                 </div>
                 <div class="textForm">
-                    <input id="form_age" name="age" type="text" class="form-control" placeholder="퀴즈 타이틀">
+                    <input id="form_title" name="quizTitle" type="text" class="form-control" placeholder="퀴즈 타이틀">
                 </div>
                 <div class="textForm">
                     <select id="form_category" name="category" type="text" class="form-control" placeholder="카테고리 선택">

@@ -56,13 +56,26 @@ public class QuizController {
         model.addAttribute("comments", quizListReplyService.getList(qlno));
     }
 
-    @GetMapping("/quiz_create")
-    public void Quiz_create(){
+    @GetMapping("/quiz_create_title")
+    public void Quiz_create_get(){
 
     }
 
-    @PostMapping("/quiz_QNA")
-    public void Quiz_QNA(){
+    @PostMapping("/quiz_create_title")
+    public String Quiz_create_post(){
 
+
+        return "redirect:/quiz/quiz_create_question";
+    }
+
+    @GetMapping("/quiz_create_question")
+    public void Quiz_question_get(){
+
+    }
+
+    @PostMapping("/quiz_create_question")
+    public String Quiz_question_post(){
+
+        return "redirect:/quiz/quiz_view";
     }
 }

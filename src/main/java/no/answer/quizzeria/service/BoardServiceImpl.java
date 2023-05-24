@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.IntStream;
@@ -49,12 +50,16 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public PageResultDTO<BoardDTO, Board> getListHome(PageRequestDTO requestDTO){
-        Pageable pageable = requestDTO.getPageable((Sort.by("bno").descending()));
-        Page<Board> result = repository.findAll(pageable);
-        Function<Board, BoardDTO> fn = (entity->entityToDTO(entity));
-        log.info("Board Page Build End");
-        return new PageResultDTO<>(result, fn);
+    public List<Board> getListHome(){
+       List<Board> boardList = repository.findAll();
+       Collections.reverse(boardList);
+
+       List<Board> result = new ArrayList<>();
+       IntStream.rangeClosed(1, 6).forEach(i->{
+           result.add(boardList.get(i));
+       });
+
+        return result;
     }
 
 //    @Override

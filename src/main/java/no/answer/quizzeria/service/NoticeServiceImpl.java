@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.IntStream;
@@ -50,35 +51,57 @@ public class NoticeServiceImpl implements NoticeService{
     }
 
     @Override
-    public ArrayList<Notice> getListHome(){
+    public List<Notice> getListHome(){
         log.info("Board Home Page Build Start");
-        //최신거 6개만 가져오도록 해서 넘겨줘야함
 
-        ArrayList<Notice> tempList = new ArrayList<>();
-        IntStream.rangeClosed(1, (int)repository.count()).forEach(i->{
-
-            Optional<Notice> result = repository.findById((long)i);
-            Notice notice = result.get();
-            tempList.add(notice);
-        });
+        List<Notice> tempList = repository.findAll();
         Collections.reverse(tempList);
 
-        ArrayList<Notice> noticelist = new ArrayList<>();
-        for(int i = 0; noticelist.size()<2 ; i++){
+        List<Notice> result = new ArrayList<>();
+        for(int i = 0; result.size()<2 ; i++){
              if(tempList.get(i).getCategory().equals("Important")){
-                noticelist.add(tempList.get(i));
+                 tempList.add(tempList.get(i));
              }
         }
 
-        for(int i = 0; noticelist.size()<6 ; i++){
+        for(int i = 0; result.size()<6 ; i++){
             if(tempList.get(i).getCategory().equals("General")){
-                noticelist.add(tempList.get(i));
+                tempList.add(tempList.get(i));
             }
         }
 
-        System.out.println(noticelist);
-        return noticelist;
+        return result;
     }
+//    @Override
+//    public ArrayList<Notice> getListHome(){
+//        log.info("Board Home Page Build Start");
+//        //최신거 6개만 가져오도록 해서 넘겨줘야함
+//
+//        ArrayList<Notice> tempList = new ArrayList<>();
+//        IntStream.rangeClosed(1, (int)repository.count()).forEach(i->{
+//
+//            Optional<Notice> result = repository.findById((long)i);
+//            Notice notice = result.get();
+//            tempList.add(notice);
+//        });
+//        Collections.reverse(tempList);
+//
+//        ArrayList<Notice> noticelist = new ArrayList<>();
+//        for(int i = 0; noticelist.size()<2 ; i++){
+//             if(tempList.get(i).getCategory().equals("Important")){
+//                noticelist.add(tempList.get(i));
+//             }
+//        }
+//
+//        for(int i = 0; noticelist.size()<6 ; i++){
+//            if(tempList.get(i).getCategory().equals("General")){
+//                noticelist.add(tempList.get(i));
+//            }
+//        }
+//
+//        System.out.println(noticelist);
+//        return noticelist;
+//    }
 
     @Override
     public NoticeDTO read(Long nno){

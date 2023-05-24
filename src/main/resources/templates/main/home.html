@@ -36,7 +36,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="answer"> <!-- 2행 2열로 만들려고 좌우 나눔 -->
+                    <div id="answer">
                         <div th:if="${quizAnswer.get(0).quiz.type eq 'Subjective'}" class="input-group mb-3">
                             <input type="text" class="form-control" style="height: 100px;" placeholder="정답을 입력해 주세요" aria-label="Recipient's username" aria-describedby="button-addon2">
                             <button class="btn btn-primary" type="button" id="button-addon2" value="Y">Submit</button>
@@ -56,22 +56,7 @@
                             <button id="btn-4-3" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(2).correct}">[[${quizAnswer.get(2).answer}]]</button>
                             <button id="btn-4-4" type="button" class="btn btn-secondary"  th:value="${quizAnswer.get(3).correct}">[[${quizAnswer.get(3).answer}]]</button>
                         </div>
-<!--                        <div id="left">-->
-<!--                            <div id="left_top">-->
-<!--                                <button type="button" class="btn btn-secondary" value="wrong">피제리아</button>-->
-<!--                            </div>-->
-<!--                            <div id="left_bot">-->
-<!--                                <button type="button" class="btn btn-secondary" value="correct">퀴제리아</button>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div id="right">-->
-<!--                            <div id="right_top">-->
-<!--                                <button type="button" class="btn btn-secondary" value="wrong">라라코스트</button>-->
-<!--                            </div>-->
-<!--                            <div id="right_bot">-->
-<!--                                <button type="button" class="btn btn-secondary" value="wrong">네고라니</button>-->
-<!--                            </div>-->
-<!--                        </div>-->
+
                     </div>
                     <div id="dailyQuiz_btn">
                         <button type="button" class="btn btn-primary" onclick="location.href='../quiz/quiz_view?qlno=1&index=0'">퀴즈 보러 가기</button>
@@ -137,7 +122,7 @@
 
                         <tbody>
 
-                        <tr id="board_table" th:each="dto : ${result.dtoList}">
+                        <tr id="board_table" th:each="dto : ${board}">
                             <td>[[${dto.bno}]]</td>
                             <th scope="row">
                                 <a th:href="@{/board/board_view(bno=${dto.bno})}">
