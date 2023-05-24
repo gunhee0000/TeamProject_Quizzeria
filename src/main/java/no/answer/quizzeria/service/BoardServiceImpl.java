@@ -55,7 +55,7 @@ public class BoardServiceImpl implements BoardService{
        Collections.reverse(boardList);
 
        List<Board> result = new ArrayList<>();
-       IntStream.rangeClosed(1, 6).forEach(i->{
+       IntStream.rangeClosed(0, 5).forEach(i->{
            result.add(boardList.get(i));
        });
 

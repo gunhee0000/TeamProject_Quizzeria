@@ -82,15 +82,17 @@
                             </tr>
                             </thead>
                             <tbody> <!-- category 사용해서 important2개 general4개 나오도록 -->
-                                <tr id="notice_table" th:each="dto : ${notice}">
-                                    <td>[[${dto.nno}]]</td>
+                            <tr id="notice_table" th:each="dto : ${board}">
+                                <th:block th:if="${dto.category eq 'Important' or dto.category eq 'General'}">
+                                    <td>[[${dto.bno}]]</td>
                                     <th scope="row">
-                                        <a th:href="@{/main/notice}">
+                                        <a th:href="@{/board/board_view(bno=${dto.bno})}">
                                             [[${dto.title}]]
                                         </a>
                                     </th>
                                     <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
-                                </tr>
+                                </th:block>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
