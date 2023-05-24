@@ -49,27 +49,36 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public ArrayList<Board> getListHome(){
-        log.info("Board Home Page Build Start");
-        //최신거 6개만 가져오도록 해서 넘겨줘야함
-
-        int start = (int)repository.count() - 5;
-        int end = (int)repository.count();
-
-        ArrayList<Board> boardlist = new ArrayList<>();
-
-        IntStream.rangeClosed(start, end).forEach(i -> {
-
-            Optional<Board> result = repository.findById((long)i);
-            Board board = result.get();
-            boardlist.add(board);
-
-        });
-        Collections.reverse(boardlist);
-        System.out.println(boardlist);
-
-        return boardlist;
+    public PageResultDTO<BoardDTO, Board> getListHome(PageRequestDTO requestDTO){
+        Pageable pageable = requestDTO.getPageable((Sort.by("bno").descending()));
+        Page<Board> result = repository.findAll(pageable);
+        Function<Board, BoardDTO> fn = (entity->entityToDTO(entity));
+        log.info("Board Page Build End");
+        return new PageResultDTO<>(result, fn);
     }
+
+//    @Override
+//    public ArrayList<Board> getListHome(){
+//        log.info("Board Home Page Build Start");
+//        //최신거 6개만 가져오도록 해서 넘겨줘야함
+//
+//        int start = (int)repository.count() - 5;
+//        int end = (int)repository.count();
+//
+//        ArrayList<Board> boardlist = new ArrayList<>();
+//
+//        IntStream.rangeClosed(start, end).forEach(i -> {
+//
+//            Optional<Board> result = repository.findById((long)i);
+//            Board board = result.get();
+//            boardlist.add(board);
+//
+//        });
+//        Collections.reverse(boardlist);
+//        System.out.println(boardlist);
+//
+//        return boardlist;
+//    }
 
     @Override
     public BoardDTO read(Long bno) {

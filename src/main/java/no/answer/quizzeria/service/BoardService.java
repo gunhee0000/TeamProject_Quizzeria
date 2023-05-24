@@ -1,6 +1,7 @@
 package no.answer.quizzeria.service;
 
 import no.answer.quizzeria.dto.BoardDTO;
+import no.answer.quizzeria.dto.MemberDTO;
 import no.answer.quizzeria.dto.PageRequestDTO;
 import no.answer.quizzeria.dto.PageResultDTO;
 import no.answer.quizzeria.entity.Board;
@@ -15,7 +16,9 @@ public interface BoardService {
 
     PageResultDTO<BoardDTO, Board> getList(PageRequestDTO requestDTO);
 
-    ArrayList<Board> getListHome();
+    PageResultDTO<BoardDTO, Board> getListHome(PageRequestDTO requestDTO);
+
+//    ArrayList<Board> getListHome();
 
     BoardDTO read(Long bno);
 

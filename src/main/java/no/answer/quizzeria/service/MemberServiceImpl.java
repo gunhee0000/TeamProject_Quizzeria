@@ -2,7 +2,9 @@ package no.answer.quizzeria.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import no.answer.quizzeria.dto.BoardDTO;
 import no.answer.quizzeria.dto.MemberDTO;
+import no.answer.quizzeria.entity.Board;
 import no.answer.quizzeria.entity.Member;
 import no.answer.quizzeria.repository.MemberRepository;
 //import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Service
 @Log4j2
@@ -21,6 +24,8 @@ import javax.transaction.Transactional;
 public class MemberServiceImpl implements UserDetailsService  {
 
     private final MemberRepository memberRepository;
+
+
 
     /**
      * Spring Security 필수 메소드 구현
@@ -62,6 +67,14 @@ public class MemberServiceImpl implements UserDetailsService  {
                 .build()).getMno();
     }
 
+    /**
+     * 사용자 정보를 아이디로 조회
+     *
+     * @param id 조회할 사용자의 아이디
+     * @return 조회된 사용자 정보
+     * @throws UsernameNotFoundException 유저가 없을 때 예외 발생
+     */
+
 
 
 }
@@ -82,18 +95,6 @@ public class MemberServiceImpl implements UserDetailsService  {
 //        return repository.save(member);
 //    }
 
-//    @Override
-//    public MemberDTO read(Long mno){
-//        log.info("Member Read Start");
-//
-//        Optional<Member> result = repository.findById(mno);
-//        Member member = result.get();
-//        member.getId();
-//
-//
-//        log.info("Member Read End");
-//        return result.isPresent() ? entityToDTO(result.get()) : null;
-//    }
 
 
 //    public User save(User user) {
@@ -126,13 +127,6 @@ public class MemberServiceImpl implements UserDetailsService  {
 //        return new PageResultDTO<>(result, fn);
 //    }
 //
-//    @Override
-//    public MemberDTO read(Long mno){
-//        log.info("Member Read Start");
-//        Optional<Member> result = repository.findById(mno);
-//        log.info("Member Read End");
-//        return result.isPresent() ? entityToDTO(result.get()) : null;
-//    }
 //
 //    @Override
 //    public void modify(MemberDTO dto){

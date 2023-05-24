@@ -36,11 +36,11 @@ public class BoardController {
         model.addAttribute("result", boardService.getList(pageRequestDTO));
     }
 
-    @GetMapping("/board/board_register")
+    @GetMapping({"/board/board_register"})
     public void register(){
         log.info("Board_register In");
     }
-    @PostMapping("/board/board_register")
+    @PostMapping({"/board/board_register"})
     public String registerPost(BoardDTO dto, RedirectAttributes redirectAttributes){
         log.info("dto..." + dto);
         Long bno = boardService.register(dto);
