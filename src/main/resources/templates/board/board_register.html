@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <link th:href="@{/css/board/board_register.css}" rel="stylesheet">
 
 <body>
@@ -39,12 +39,19 @@
 <!--        <div>[[${#authentication.principal.mno}]]</div>-->
         <input type="hidden" name="id" value="[[${#authentication.principal.id}]]">
         <input type="hidden" name="hidden" value="N">
-        <input type="hidden" name="category" value="Others">
+        <div sec:authorize="hasRole('ROLE_USER')">
+            <input type="hidden" name="category" value="Others">
+        </div>
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <select name="category">
+                <option value="General">일반 공지사항</option>
+                <option value="Important">중요 공지사항</option>
+            </select>
+        </div>
+
         <input type="hidden" name="likes" value="0">
         <input type="hidden" name="views" value="0">
         <input type="hidden" name="member" value="[[${#authentication.principal.mno}]]">
-
-
 
         <hr>
 

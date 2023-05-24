@@ -78,16 +78,24 @@
         </div>
         <div id="right">
             <div id="userInfo">
-                <h3>Quizzeria 회원정보</h3>
-                <div>
+                <div id="userInfo_top">
+                    <img th:src="@{/css/images/quiz/member_InfoImg.png}">
+                </div>
+                <div id="userInfo_mid">
+                    <h3 class="mt-3">내 정보</h3>
+                </div>
+                <div id="userInfo_bottom">
                     <div class="textForm">
-                        아이디 : [[${#authentication.principal.id}]]
+                        <span class="label">아이디:</span>
+                        <span class="value">[[${#authentication.principal.id}]]</span>
                     </div>
                     <div class="textForm">
-                        이메일 : [[${#authentication.principal.email}]]
+                        <span class="label">이름:</span>
+                        <span class="value">[[${#authentication.principal.name}]]</span>
                     </div>
                     <div class="textForm">
-                        이름 :   [[${#authentication.principal.name}]]
+                        <span class="label">이메일:</span>
+                        <span class="value">[[${#authentication.principal.email}]]</span>
                     </div>
                 </div>
             </div>
