@@ -31,7 +31,7 @@ public class QuizzeriaController {
     public void Home(Model model, PageRequestDTO pageRequestDTO){
         log.info("Quizzeria_Home In");
         model.addAttribute("notice", noticeService.getListHome());
-        model.addAttribute("result", boardService.getListHome(pageRequestDTO));
+        model.addAttribute("board", boardService.getListHome(pageRequestDTO));
         model.addAttribute("quizAnswer", quizAnswerService.read(1));
 //        model.addAttribute("todayQuiz", quizService.getRandomQuiz());
     }
