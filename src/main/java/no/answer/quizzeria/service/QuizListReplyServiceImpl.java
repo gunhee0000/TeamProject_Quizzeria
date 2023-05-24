@@ -43,7 +43,7 @@ public class QuizListReplyServiceImpl implements QuizListReplyService{
 //        BooleanBuilder booleanBuilder = getSearch(requestDTO);
 //        Page<QuizListReply> result = repository.findAll(booleanBuilder, pageable);
 //        Function<QuizListReply, QuizListReplyDTO> fn = (entity->entityToDTO(entity));
-        List<QuizListReply> quizListReply = repository.findAllById(Collections.singleton(qlno));
+        List<QuizListReply> quizListReply = repository.findAllByQlno(qlno);
         log.info("QuizListReply Page Build End");
         return quizListReply;
     }
