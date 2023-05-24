@@ -6,11 +6,11 @@
 
 <header th:replace="/layout/header_layout :: header_layout"></header>
 
-    <div id="container_register">
+<div id="container_register">
 
-        <h1 class = "mt-4">Quizzeria register</h1>
+    <h1 class = "mt-4">Quizzeria 게시글 등록</h1>
 
-        <form th:action="@{/board/board_register}" th:method="post">
+    <form th:action="@{/board/board_register}" th:method="post">
 
         <table class="table" id="table_main">
             <thead>
@@ -35,20 +35,30 @@
             </tbody>
 
         </table>
+<!--        <div>[[${#authentication.principal.id}]]</div>-->
+<!--        <div>[[${#authentication.principal.mno}]]</div>-->
+        <input type="hidden" name="id" value="[[${#authentication.principal.id}]]">
+        <input type="hidden" name="hidden" value="N">
+        <input type="hidden" name="category" value="Others">
+        <input type="hidden" name="likes" value="0">
+        <input type="hidden" name="views" value="0">
+        <input type="hidden" name="member" value="[[${#authentication.principal.mno}]]">
+
+
 
         <hr>
 
         <button type="submit" class="btn btn-outline-primary">등록</button>
 
-            <a th:href="@{/board/board_main}">
-                <button type="button" class="btn btn-outline-primary">돌아가기</button>
-            </a>
+        <a th:href="@{/board/board_main}">
+            <button type="button" class="btn btn-outline-primary">돌아가기</button>
+        </a>
 
 
 
-        </form>
+    </form>
 
-    </div>
+</div>
 
 <footer th:replace="/layout/footer_layout :: footer_layout"></footer>
 
@@ -56,8 +66,10 @@
 
 
 <script th:inline="javascript">
-
-
+    window.onload = function(){
+        var autu = [[${#authentication.principal.mno}]];
+        $('input[name=member]').attr('value',autu);
+    }
 </script>
 
 </html>

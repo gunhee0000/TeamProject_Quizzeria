@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:float="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <link th:href="@{/css/style.css}" rel="stylesheet">
 <link th:href="@{/css/board/board_main.css}" rel="stylesheet">
 <script th:src="@{/css/js/board/board.js}" defer></script>
@@ -61,8 +61,8 @@
                   </a>
                 </th>
                 <td class="text-center">[[${dto.member.id}]]</td>
-                <td class="text-center">0</td>
-                <td class="text-center">0</td>
+                <td class="text-center">[[${dto.views}]]</td>
+                <td class="text-center">[[${dto.likes}]]</td>
                 <td class="text-center">[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
               </tr>
             </today>
@@ -98,9 +98,6 @@
 </body>
 
 
-<script th:inline="javascript">
 
-
-</script>
 
 </html>

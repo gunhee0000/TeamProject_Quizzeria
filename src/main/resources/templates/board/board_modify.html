@@ -8,44 +8,55 @@
 
 <div id="container_register">
 
-    <h1 class = "mt-4">Quizzeria register</h1>
+    <h1 class = "mt-4">Quizzeria 게시글 등록</h1>
+
+    <form th:action="@{/board/board_modify}" th:method="post">
+
+        <table class="table" id="table_main">
+            <thead>
+            <tr>
+                <th scope="col">
+                    <input id="title_text" type="text" class="form-control" name="title" placeholder="제목을 입력하세요..." th:value="${dto.title}">
+                </th>
+            </tr>
+            <tr>
+                <th scope="col">[[${#authentication.principal.id}]]</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <textarea id="content_text" class="form-control" rows="8" name="content" placeholder="내용을 입력하세요...">[[${dto.content}]]</textarea>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+        <!--        <div>[[${#authentication.principal.id}]]</div>-->
+        <!--        <div>[[${#authentication.principal.mno}]]</div>-->
+        <input type="hidden" name="bno" th:value="${dto.bno}">
+        <input type="hidden" name="id" value="[[${#authentication.principal.id}]]">
+        <input type="hidden" name="hidden" value="N">
+        <input type="hidden" name="category" value="Others">
+        <input type="hidden" name="likes" value="0">
+        <input type="hidden" name="views" value="0">
+        <input type="hidden" name="member" value="[[${#authentication.principal.mno}]]">
 
 
-    <table class="table" id="table_main">
-        <thead>
-        <tr>
-            <th scope="col">
-                <input id="title_text" type="text" class="form-control" name="title" th:value="${dto.title}" placeholder="수정하실 제목을 입력하세요...">
-            </th>
-        </tr>
-        <tr>
-            <th scope="col">[[${dto.member.id}]]</th>
-        </tr>
-        </thead>
 
-        <tbody>
-        <tr>
-            <td>
-                <div class="form-group">
-                    <input id="content_text" class="form-control" style="width:100%; height:150px;" name="content" th:value="${dto.content}" placeholder="수정하실 내용을 입력하세요...">
-                </div>
-            </td>
-        </tr>
-        </tbody>
+        <hr>
 
-    </table>
+        <button type="submit" class="btn btn-outline-primary">수정</button>
 
-    <hr>
-
-    <button type="submit" class="btn btn-primary">수정</button>
-
-    <a th:href="@{/board/board_view(bno = ${dto.bno})}">
-        <button type="button" class="btn btn-outline-primary">돌아가기</button>
-    </a>
+        <a th:href="@{/board/board_main}">
+            <button type="button" class="btn btn-outline-primary">돌아가기</button>
+        </a>
 
 
-
-
+    </form>
 
 </div>
 
@@ -55,8 +66,10 @@
 
 
 <script th:inline="javascript">
-
-
+    window.onload = function(){
+        var autu = [[${#authentication.principal.mno}]];
+        $('input[name=member]').attr('value',autu);
+    }
 </script>
 
 </html>

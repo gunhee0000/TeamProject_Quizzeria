@@ -137,7 +137,7 @@
 
                         <tbody>
 
-                        <tr id="board_table" th:each="dto : ${board}">
+                        <tr id="board_table" th:each="dto : ${result.dtoList}">
                             <td>[[${dto.bno}]]</td>
                             <th scope="row">
                                 <a th:href="@{/board/board_view(bno=${dto.bno})}">

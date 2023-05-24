@@ -2,13 +2,19 @@ package no.answer.quizzeria.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import no.answer.quizzeria.dto.BoardDTO;
 import no.answer.quizzeria.dto.MemberDTO;
+import no.answer.quizzeria.entity.Member;
+import no.answer.quizzeria.service.BoardService;
 import no.answer.quizzeria.service.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -37,29 +43,19 @@ public class MemberController {
         return "redirect:/member/member_login";
     }
 
+    @GetMapping({"/member_Info", "/member_modify"})
+    public void getInfo() {
+        log.info("Member_Info 접속...");
+    }
 
 
 
-//    @Autowired
-//    private MemberService memberService;
-//
-//    @GetMapping("/member_login")
-//    public String login(@AuthenticationPrincipal Member member){
-//
-//
-//
-//        return "member/member_login";
-//    }
-//
-//    @GetMapping("/member_register")
-//    public String register(){
-//        return "member/member_register";
-//    }
-//    @PostMapping("/member_register")
-//    public String register(Member member){
-//        memberService.save(MemberDTO);
-//        return "redirect:/main/welcome";
-//    }
+
+
+
+
+
+
 
 
 }

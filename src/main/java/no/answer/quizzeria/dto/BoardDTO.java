@@ -1,13 +1,8 @@
 package no.answer.quizzeria.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import no.answer.quizzeria.entity.BoardFile;
+import lombok.*;
 import no.answer.quizzeria.entity.Member;
 
-import javax.persistence.Column;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -15,6 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@ToString
 public class BoardDTO {
     private Long bno;
 
@@ -36,5 +32,6 @@ public class BoardDTO {
 
     private Long likes;
 
-    private List<BoardFile> boardFile;
+
+
 }

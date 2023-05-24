@@ -91,6 +91,7 @@ public class Member implements UserDetails {
     public String getPassword() {
         return password;
     }
+
     @Override
     public boolean isAccountNonExpired() {   // 계정 만료 여부 반환
         // 만료되었는지 확인하는 로직

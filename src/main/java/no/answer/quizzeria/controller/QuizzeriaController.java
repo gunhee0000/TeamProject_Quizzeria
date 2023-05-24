@@ -28,10 +28,10 @@ public class QuizzeriaController {
     }
 
     @GetMapping("/home")
-    public void Home(Model model){
+    public void Home(Model model, PageRequestDTO pageRequestDTO){
         log.info("Quizzeria_Home In");
         model.addAttribute("notice", noticeService.getListHome());
-        model.addAttribute("board", boardService.getListHome());
+        model.addAttribute("result", boardService.getListHome(pageRequestDTO));
         model.addAttribute("quizAnswer", quizAnswerService.read(1));
 //        model.addAttribute("todayQuiz", quizService.getRandomQuiz());
     }

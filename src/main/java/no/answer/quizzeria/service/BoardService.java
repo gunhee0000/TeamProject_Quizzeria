@@ -1,10 +1,13 @@
 package no.answer.quizzeria.service;
 
 import no.answer.quizzeria.dto.BoardDTO;
+import no.answer.quizzeria.dto.MemberDTO;
 import no.answer.quizzeria.dto.PageRequestDTO;
 import no.answer.quizzeria.dto.PageResultDTO;
 import no.answer.quizzeria.entity.Board;
+import no.answer.quizzeria.entity.Member;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 
 public interface BoardService {
@@ -13,11 +16,18 @@ public interface BoardService {
 
     PageResultDTO<BoardDTO, Board> getList(PageRequestDTO requestDTO);
 
-    ArrayList<Board> getListHome();
+    PageResultDTO<BoardDTO, Board> getListHome(PageRequestDTO requestDTO);
+
+//    ArrayList<Board> getListHome();
 
     BoardDTO read(Long bno);
 
     void modify(BoardDTO dto);
+
+    void delete(Long bno);
+
+    void increaseLikes(Long bno);
+
     default Board dtoToEntity(BoardDTO dto){
         Board entity = Board.builder()
                 .bno(dto.getBno())
@@ -28,7 +38,6 @@ public interface BoardService {
                 .category(dto.getCategory())
                 .views(dto.getViews())
                 .likes(dto.getLikes())
-                .boardFile(dto.getBoardFile())
                 .build();
         return entity;
     }
@@ -45,8 +54,10 @@ public interface BoardService {
                 .category(entity.getCategory())
                 .likes(entity.getLikes())
                 .views(entity.getViews())
-                .boardFile(entity.getBoardFile())
                 .build();
         return dto;
     }
+
+
+
 }
