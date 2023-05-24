@@ -28,18 +28,33 @@ page를 여러개 나누면?
 -->
     <div id="container">
         <div id="left">
-            <div id="top">
-                아이디
-            </div>
-            <div id="mid">
-                문제 타이틀
-            </div>
-            <div id="bot">
-                카테고리 선택
-            </div>
+            <form class="quizTitleForm" th:action="@{/quiz/quiz_QNA}" method="post">
+                <div class="form-group row">
+                    <label for="staticUserName" class="col-sm-2 col-form-label">User:</label>
+                    <div class="col-sm-10">
+                        <input type="text" readonly="" class="form-control-plaintext" id="staticUserName" th:value="${#authentication.principal.name}">
+                    </div>
+                </div>
+                <div class="textForm">
+                    <input id="form_age" name="age" type="text" class="form-control" placeholder="퀴즈 타이틀">
+                </div>
+                <div class="textForm">
+                    <select id="form_category" name="category" type="text" class="form-control" placeholder="카테고리 선택">
+                        <option value="" disabled selected hidden>카테고리 선택</option>
+                        <option value="english">영어</option>
+                        <option value="math">수학</option>
+                        <option value="science">과학</option>
+                        <option value="history">역사</option>
+                        <option value="others">기타</option>
+                    </select>
+                </div>
+                <input type="submit" class="btn" onclick="" value="문제 만들기 >>"/>
+            </form>
         </div>
         <div id="right">
-            배너?
+            <div class="banner">
+                <img th:src="@{/css/images/quiz/banner1.jpg}" alt="뭉치배너"/>
+            </div>
         </div>
     </div>
 

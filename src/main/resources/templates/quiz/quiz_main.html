@@ -12,7 +12,7 @@
 
 <body>
     <header th:replace="/layout/header_layout :: header_layout"></header>
-    <div type="hidden" id="size" th:value="${quizlist.dtoList.size()}"/>
+    <input type="hidden" id="size" th:value="${size}"/>
     <div id="container">
         <div id="left">
             <div id="list_container">
@@ -50,6 +50,9 @@
                 최근 푼 문제??(로그)
                 정답률(로그)
                 문제 만들기 버튼?
+                </br>
+                문제 풀면 정답인지 오답인지 카운트
+                구현...해...줘...
             </div>
             <div id="right_btn">
                 <button type="button" class="btn btn-outline-secondary" onclick="randomQuiz()">Solving Random Quiz!</button>

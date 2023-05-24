@@ -100,6 +100,98 @@ public class QuizTest {
     //////////////////////////////////////////////////////////퀴즈 타이틀
 
     @Test
+    public void makeDummy(){
+        IntStream.rangeClosed(2,6).forEach(i -> {
+            ArrayList<String> category = ranCategory();
+            long ranMno = (long)((Math.random() * 30)+1);
+            Member member = (memberRepository.findById(ranMno)).get();
+            QuizList quizList = QuizList.builder()
+                    .title("Test Quiz List..." + i)
+                    .category(category.get(i-2))
+                    .member(member)
+                    .hidden("N")
+                    .likes((long)0)
+                    .views((long)0)
+                    .build();
+            quizListRepository.save(quizList);
+        });
+
+        IntStream.rangeClosed(2,(int)quizListRepository.count()).forEach(i->{
+            QuizList quizList = (quizListRepository.findById((long)i)).get();
+            IntStream.rangeClosed(1,10).forEach(j->{
+                String type = randomType();
+                Quiz quiz = Quiz.builder()
+                        .question("Question..." + j)
+                        .quizList(quizList)
+                        .type(type)
+                        .hidden("N")
+                        .likes((long)0)
+                        .build();
+                quizRepository.save(quiz);
+            });
+        });
+
+        IntStream.rangeClosed(2, (int)quizRepository.count()).forEach(i -> {
+            Quiz quiz = (quizRepository.findById((long)i)).get();
+            switch (quiz.getType()){
+                case "Subjective":
+                    QuizAnswer subQuizAnswer = QuizAnswer.builder()
+                            .answer("Answer..." + 1)
+                            .correct("Y")
+                            .quiz(quiz)
+                            .hidden("N")
+                            .build();
+                    quizAnswerRepository.save(subQuizAnswer);
+                    break;
+                case "BinaryChoice":
+                    IntStream.rangeClosed(1,2).forEach(j->{
+                        ArrayList<String> ranAnswer = new ArrayList<>();
+                        ranAnswer.add("N");
+                        ranAnswer.add("Y");
+                        QuizAnswer BCQuizAnswer = QuizAnswer.builder()
+                                .answer("Answer..." + j)
+                                .correct(ranAnswer.get(j-1))
+                                .quiz(quiz)
+                                .hidden("N")
+                                .build();
+                        quizAnswerRepository.save(BCQuizAnswer);
+                    });
+                    break;
+                case "TernaryChoice":
+                    IntStream.rangeClosed(1,3).forEach(j->{
+                        ArrayList<String> ranAnswer = new ArrayList<>();
+                        ranAnswer.add("N");
+                        ranAnswer.add("N");
+                        ranAnswer.add("Y");
+                        QuizAnswer TCQuizAnswer = QuizAnswer.builder()
+                                .answer("Answer..." + j)
+                                .correct(ranAnswer.get(j-1))
+                                .quiz(quiz)
+                                .hidden("N")
+                                .build();
+                        quizAnswerRepository.save(TCQuizAnswer);
+                    });
+                    break;
+                case "MultipleChoice":
+                    IntStream.rangeClosed(1,4).forEach(j->{
+                        ArrayList<String> ranAnswer = new ArrayList<>();
+                        ranAnswer.add("N");
+                        ranAnswer.add("N");
+                        ranAnswer.add("N");
+                        ranAnswer.add("Y");
+                        QuizAnswer MCQuizAnswer = QuizAnswer.builder()
+                                .answer("Answer..." + j)
+                                .correct(ranAnswer.get(j-1))
+                                .quiz(quiz)
+                                .hidden("N")
+                                .build();
+                        quizAnswerRepository.save(MCQuizAnswer);
+                    });
+                    break;
+            }
+        });
+    }
+    @Test
     public void makeQuizListDummy(){
 
         IntStream.rangeClosed(2,6).forEach(i -> {

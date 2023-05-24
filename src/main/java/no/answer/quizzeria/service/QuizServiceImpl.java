@@ -63,11 +63,11 @@ public class QuizServiceImpl implements QuizService{
     @Override
     public List<Quiz> read(Long qlno){
         log.info("Quiz Read Start");
-        List<Quiz> result = repository.findAllById(Collections.singleton(qlno));
+        List<Quiz> result = repository.findAllByQlno(qlno);
+        System.out.println(result);
         log.info("Quiz Read End");
 
         return result;
-//        return result.isPresent() ? entityToDTO(result.get()) : null;
     }
 
 //    @Override
