@@ -60,13 +60,13 @@ public class NoticeServiceImpl implements NoticeService{
         List<Notice> result = new ArrayList<>();
         for(int i = 0; result.size()<2 ; i++){
              if(tempList.get(i).getCategory().equals("Important")){
-                 tempList.add(tempList.get(i));
+                 result.add(tempList.get(i));
              }
         }
 
         for(int i = 0; result.size()<6 ; i++){
             if(tempList.get(i).getCategory().equals("General")){
-                tempList.add(tempList.get(i));
+                result.add(tempList.get(i));
             }
         }
 
