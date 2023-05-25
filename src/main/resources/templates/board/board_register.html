@@ -27,6 +27,12 @@
             <tbody>
             <tr>
                 <td>
+                    <div sec:authorize="hasRole('ROLE_ADMIN')">
+                        <select name="category" style="margin-bottom: 10px">
+                            <option value="General">일반 공지사항</option>
+                            <option value="Important">중요 공지사항</option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <textarea id="content_text" class="form-control" rows="8" name="content" placeholder="내용을 입력하세요..."></textarea>
                     </div>
@@ -35,20 +41,12 @@
             </tbody>
 
         </table>
-<!--        <div>[[${#authentication.principal.id}]]</div>-->
-<!--        <div>[[${#authentication.principal.mno}]]</div>-->
+
         <input type="hidden" name="id" value="[[${#authentication.principal.id}]]">
         <input type="hidden" name="hidden" value="N">
         <div sec:authorize="hasRole('ROLE_USER')">
             <input type="hidden" name="category" value="Others">
         </div>
-        <div sec:authorize="hasRole('ROLE_ADMIN')">
-            <select name="category">
-                <option value="General">일반 공지사항</option>
-                <option value="Important">중요 공지사항</option>
-            </select>
-        </div>
-
         <input type="hidden" name="likes" value="0">
         <input type="hidden" name="views" value="0">
         <input type="hidden" name="member" value="[[${#authentication.principal.mno}]]">
