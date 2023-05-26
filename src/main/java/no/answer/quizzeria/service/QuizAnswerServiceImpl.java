@@ -31,4 +31,14 @@ public class QuizAnswerServiceImpl implements QuizAnswerService{
         return result;
     }
 
+    @Override
+    public void createQuizAnswer(QuizAnswerDTO quizAnswerDTO){
+        log.info("QuizAnswer Create Start");
+
+        QuizAnswer entity = dtoTOEntity(quizAnswerDTO);
+        repository.save(entity);
+
+        log.info("QuizAnswer Create End");
+    }
+
 }

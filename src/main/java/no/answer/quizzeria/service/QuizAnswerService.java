@@ -9,6 +9,8 @@ public interface QuizAnswerService {
 
     List<QuizAnswer> read(long qno);
 
+    void createQuizAnswer(QuizAnswerDTO quizAnswerDTO);
+
     default QuizAnswer dtoTOEntity(QuizAnswerDTO dto){
         QuizAnswer entity = QuizAnswer.builder()
                 .qano(dto.getQano())

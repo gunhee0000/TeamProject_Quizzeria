@@ -25,7 +25,7 @@ public class Quiz {
     private String type;
 
     @ColumnDefault("'N'")
-    @Column(length = 10, nullable = false)
+    @Column(length = 10)
     private String hidden;
 
     @ColumnDefault("0")

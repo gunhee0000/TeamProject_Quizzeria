@@ -19,6 +19,8 @@ public interface QuizListReplyService {
 
     void modify(QuizListReplyDTO dto);
 
+    void save(String title, String category);
+
     default QuizListReply dtoToEntity(QuizListReplyDTO dto){
         QuizListReply entity = QuizListReply.builder()
                 .qlrno(dto.getQlrno())

@@ -26,7 +26,7 @@ public class QuizAnswer {
     private Quiz quiz;
 
     @ColumnDefault("'N'")
-    @Column(length = 10, nullable = false)
+    @Column(length = 10)
     private String hidden;
 
     public void changeAnswer(String answer){

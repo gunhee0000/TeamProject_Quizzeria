@@ -27,16 +27,16 @@ page를 여러개 나누면?
 최대 20문제 제한
 -->
     <div id="container">
-        <div id="left">
+<!--        <div id="left">-->
             <form class="quizTitleForm" th:action="@{/quiz/quiz_create_title}" method="post">
                 <div class="form-group row">
                     <label for="staticUserName" class="col-sm-2 col-form-label">User:</label>
                     <div class="col-sm-10">
-                        <input type="text" readonly="" class="form-control-plaintext" id="staticUserName" th:value="${#authentication.principal.name}">
+                        <input type="text" readonly="" name="member" class="form-control-plaintext" id="staticUserName" th:value="${#authentication.principal.name}">
                     </div>
                 </div>
                 <div class="textForm">
-                    <input id="form_title" name="quizTitle" type="text" class="form-control" placeholder="퀴즈 타이틀">
+                    <input id="form_title" name="title" type="text" class="form-control" placeholder="퀴즈 타이틀">
                 </div>
                 <div class="textForm">
                     <select id="form_category" name="category" type="text" class="form-control" placeholder="카테고리 선택">
@@ -48,14 +48,17 @@ page를 여러개 나누면?
                         <option value="others">기타</option>
                     </select>
                 </div>
+                <input type="hidden" name="hidden" value="N"/>
+                <input type="hidden" name="likes" value="0"/>
+                <input type="hidden" name="views" value="0"/>
                 <input type="submit" class="btn" onclick="" value="문제 만들기 >>"/>
             </form>
-        </div>
-        <div id="right">
-            <div class="banner">
-                <img th:src="@{/css/images/quiz/banner1.jpg}" alt="뭉치배너"/>
-            </div>
-        </div>
+<!--        </div>-->
+<!--        <div id="right">-->
+<!--            <div class="banner">-->
+<!--                <img th:src="@{/css/images/quiz/banner1.jpg}" alt="뭉치배너"/>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 
     <footer th:replace="/layout/footer_layout :: footer_layout"></footer>

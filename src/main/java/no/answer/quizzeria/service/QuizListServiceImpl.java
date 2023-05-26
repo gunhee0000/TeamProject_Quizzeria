@@ -68,4 +68,15 @@ public class QuizListServiceImpl implements QuizListService{
         log.info("QuizList Modify End");
     }
 
+    @Override
+    public QuizList createQuizList(QuizListDTO quizListDTO){
+        log.info("QuizList Create Start");
+
+        QuizList entity = dtoToEntity(quizListDTO);
+        repository.save(entity);
+
+        log.info("QuizList Create Success");
+        return entity;
+    }
+
 }

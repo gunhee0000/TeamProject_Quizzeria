@@ -15,6 +15,8 @@ public interface QuizListService {
 
     QuizListDTO read(Long qlno);
 
+    QuizList createQuizList(QuizListDTO quizListDTO);
+
     void modify(QuizListDTO dto);
 
     default QuizList dtoToEntity(QuizListDTO dto){

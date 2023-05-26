@@ -8,6 +8,7 @@ import no.answer.quizzeria.dto.PageRequestDTO;
 import no.answer.quizzeria.dto.PageResultDTO;
 import no.answer.quizzeria.dto.QuizListReplyDTO;
 import no.answer.quizzeria.entity.QQuizListReply;
+import no.answer.quizzeria.entity.QuizList;
 import no.answer.quizzeria.entity.QuizListReply;
 import no.answer.quizzeria.repository.QuizListReplyRepository;
 import org.springframework.data.domain.Page;
@@ -54,6 +55,17 @@ public class QuizListReplyServiceImpl implements QuizListReplyService{
         Optional<QuizListReply> result = repository.findById(qlrno);
         log.info("QuizListReply Read End");
         return result.isPresent() ? entityToDTO(result.get()) : null;
+    }
+
+    @Override
+    public void save(String title, String category){
+//        Member member
+//        QuizList entity = QuizList.builder()
+//                .title(title)
+//                .hidden("N")
+//                .category(category)
+//                .member(member)
+//                .build();
     }
 
     @Override

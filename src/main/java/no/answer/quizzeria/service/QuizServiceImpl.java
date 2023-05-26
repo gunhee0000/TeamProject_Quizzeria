@@ -71,6 +71,17 @@ public class QuizServiceImpl implements QuizService{
         return result;
     }
 
+    @Override
+    public Quiz createQuiz(QuizDTO quizDTO){
+        log.info("Quiz Create Start");
+
+        Quiz entity = dtoToEntity(quizDTO);
+        repository.save(entity);
+
+        log.info("Quiz Create End");
+        return entity;
+    }
+
 //    @Override
 //    public void modify(QuizDTO dto){
 //        log.info("Quiz Modify Start");

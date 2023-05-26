@@ -9,23 +9,28 @@
     margin: 0 auto;
     /*background-color: aqua;*/
 }
-    #left{
-        width: 1000px;
-        height: 100%;
-        float: left;
-        padding-top: 100px;
-        padding-left: 200px;
-        box-sizing: border-box;
-        /*background-color: #0c5460;*/
-    }
+    /*#left{*/
+    /*    width: 1000px;*/
+    /*    height: 100%;*/
+    /*    float: left;*/
+    /*    padding-top: 100px;*/
+    /*    padding-left: 200px;*/
+    /*    box-sizing: border-box;*/
+    /*    border: 1px solid #333333;*/
+    /*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);*/
+    /*    !*background-color: #0c5460;*!*/
+    /*}*/
 
         .quizTitleForm {
             width:600px;
             height:700px;
-            padding: 100px 20px;
+            padding: 200px 20px;
             background-color:#FFFFFF;
             text-align:center;
             border-radius: 15px;
+            border: 1px solid #333333;
+            margin: 100px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             text-decoration: none;
         }
         .textForm {
